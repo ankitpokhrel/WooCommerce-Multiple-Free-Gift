@@ -1,0 +1,82 @@
+.wfg-overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: rgba(0,0,0,0.8);
+	z-index: 9999;
+}
+
+.wfg-popup {
+	border: 1px solid #ccc;
+	max-width: 648px;
+	margin: 0 auto;
+	position: fixed;
+	z-index: 9999;
+	background: #fff;
+	box-shadow: 0 0 10px 0 #222;
+}
+
+.wfg-popup h2 {
+	font: 18px sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 24px;
+	letter-spacing: 0.04em;
+	padding: 7px 15px;
+	margin-top: 0;
+	color: #5d6b6c;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.7);
+	background: #f0f1f2;
+	border-bottom: 1px solid #d1d1d1;
+	border-radius: 3px 3px 0 0;
+	background-image: -webkit-linear-gradient(top, #f5f7fd, #e6eaec);
+	background-image: -moz-linear-gradient(top, #f5f7fd, #e6eaec);
+	background-image: -o-linear-gradient(top, #f5f7fd, #e6eaec);
+	background-image: linear-gradient(to bottom, #f5f7fd, #e6eaec);
+	-webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 1px rgba(0, 0, 0, 0.03);
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 1px rgba(0, 0, 0, 0.03);
+}
+
+.wfg-gifts {
+	padding: 15px;
+	text-align: center;
+}
+
+.wfg-heading {
+	cursor: pointer;
+}
+
+.wfg-gift-item {
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	width: 150px;
+}
+
+.wfg-gift-item h3 {
+	background: rgb(233, 237, 239);
+	padding: 4px 8px;
+	color: #494848;
+	font-size: 12px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin: 0;
+	overflow: hidden;
+}
+
+.wfg-gift-item .wfg-checkbox {
+	position: absolute;
+	top: 2px;
+	left: 5px;
+}
+
+.wfg-gifts .wfg-actions {
+	text-align: center;
+	margin-top: 35px;
+}
+
+.wfg-title > img {
+	display: inline-block;
+}

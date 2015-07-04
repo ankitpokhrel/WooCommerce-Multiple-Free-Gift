@@ -1,0 +1,434 @@
+
+/**
+ * @file wfg-admin-styles.css
+ *
+ * Style for Woocommerce Free Gift plugin
+ * 
+ * Copyright (c) 2015, Ankit Pokhrel <info@ankitpokhrel.com.np, http://ankitpokhrel.com.np>
+ */
+
+#wfg_free_gift_tab {
+	padding: 0 5px;
+}
+
+.wfg-input-large {
+	width: 80%;
+}
+
+.wfg-adjust-form-field-gap {
+	padding: 5px 20px 0 162px !important;
+}
+
+.woocommerce_options_panel p.form-field.wfg_form_field {
+	padding: 10px !important;
+}
+
+.woocommerce_options_panel p.form-field.wfg_form_field label.description {
+	font-style: normal;
+	position: relative;
+	top: -4px;
+	width: auto;
+	float: none;
+	font-size: 13px;
+	margin-left: 0;
+}
+
+.wfg-remove-gift-product,
+.wfg-remove-option-condition {
+	margin: 5px 0 0 5px;
+}
+
+.wfg-inputs {
+	padding: 0 10px !important;
+}
+
+.wfg_form_field input[type=text] {
+	float: none !important;
+}
+
+.wfg_form_field .input-small {
+	width: 10% !important;
+	margin-left: 1%;
+	text-align: center;
+}
+
+.wfg-settings-repeater {
+	margin-bottom: 20px;
+	padding-top: 15px !important;
+	overflow: hidden;
+}
+
+.wfg-settings-repeater .wfg-inputs {
+	padding: 0 !important;
+}
+
+.adjust-right-gap {
+	margin-right: 50px;
+}
+
+.wfg-error,
+.wfg-updated {
+  width: 93%;
+}
+
+.wfg-hr {
+	left: -30px;
+	margin-bottom: 20px;
+	margin-top: 30px;
+	overflow: hidden;
+	position: relative;
+	width: 106%;
+	border-color: #f5f5f5;
+}
+
+/* Criteria css */
+.wfg-criteria-clone,
+.wfg-settings-clone {
+	display: none;
+}
+
+.wfg-criteria-item,
+.wfg-settings-repeater {
+	padding: 30px;
+	background-color: #fff;
+	margin-top: 20px;
+	width: 90%;
+	border: 1px solid #dedede;
+}
+
+.wfg-criteria-options-wrap,
+.wfg-criteria-name {
+	margin-bottom: 10px;
+}
+
+.wfg-input-full {
+	width: 100%;
+	padding: 7px;
+}
+
+.wfg-input-small {
+	width: 80px;
+}
+
+.wfg-adjust-position {
+	position: relative;
+	top: 3px;
+}
+
+.wfg-remove-option-condition,
+.wfg-remove-condition-criteria {
+	margin-top: 17px;
+}
+
+.wfg-remove-criteria,
+.wfg-remove-condition {
+	float: right;
+	position: relative;
+	top: -20px;
+	left: 20px;
+}
+
+.wfg-remove-condition {
+	top: 0;
+}
+
+.wfg-criteria input[readOnly] {
+	cursor: text;
+	background-color: #fff;
+}
+
+
+
+/*-------------------------------------------------------------------
+
+RESET & STUFF
+
+-------------------------------------------------------------------*/
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+#wfg_setting .left{
+	 float: left;
+}
+
+#wfg_setting .right{
+	 float: left;
+}
+
+
+/*-------------------------------------------------------------------
+
+WFG Setting Global 
+
+-------------------------------------------------------------------*/
+#wfg_setting .header{
+	  padding: 20px 0;
+}
+#wfg_setting .header h1 {
+  line-height: 72px;
+  padding-left: 20px;
+}
+
+#wfg_setting .shadow {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+
+
+
+
+/*-------------------------------------------------------------------
+
+WFG form 
+
+-------------------------------------------------------------------*/
+#wfg_free_gift_global_settings input, 
+#wfg_free_gift_global_settings select, 
+#wfg_free_gift_global_settings button, 
+#wfg_free_gift_global_settings textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font: inherit;
+  color: inherit;
+}
+#wfg_free_gift_global_settings select{
+  background-image: url("../img/ddown.png");
+  background-image: url("../img/ddown.svg"), none;
+  background-repeat: no-repeat;
+  background-size: 1.5rem 1rem;
+  background-position: right center;
+}
+#wfg_free_gift_global_settings .wfg-inputs select {
+  border: 1px solid #c0c8c9;
+  border-radius: 4px;
+}
+#wfg_free_gift_global_settings select, 
+#wfg_free_gift_global_settings .button, 
+#wfg_free_gift_global_settings .input-text, 
+#wfg_free_gift_global_settings .wfg-input-small,
+#wfg_free_gift_global_settings .wfg-criteria-name,
+#wfg_setting .regular-text
+{
+  padding: 10px 21px 10px 15px !important;
+  background-color: transparent;
+  border-radius: 4px;
+  height: auto;
+  line-height: 21px;
+}
+#wfg_free_gift_global_settings .button  {
+  border: 2px solid #C0C8C9 !important;
+  line-height: 1.375;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  height: auto !important;
+  font-weight: 700;
+  color: #666666;
+  cursor: pointer;
+  -webkit-animation: hue 60s infinite linear;
+  box-shadow: none;
+}
+#wfg_free_gift_global_settings .wp-core-ui .button-primary {
+	background: transparent;
+}
+
+/* Buttons */
+
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background-color: #24890d;
+	border: 0;
+	border-radius: 2px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 10px 30px 11px;
+	text-transform: uppercase;
+	vertical-align: bottom;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+	background-color: #41a62a;
+	color: #fff;
+}
+
+button:active,
+.button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+	background-color: #55d737;
+}
+
+
+/*-------------------------------------------------------------------
+
+SWITCH
+
+-------------------------------------------------------------------*/
+
+.container > .switch {
+  display: block;
+  margin: 12px auto;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 56px;
+  height: 20px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 18px;
+  box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  background-image: -webkit-linear-gradient(top, #eeeeee, white 25px);
+  background-image: -moz-linear-gradient(top, #eeeeee, white 25px);
+  background-image: -o-linear-gradient(top, #eeeeee, white 25px);
+  background-image: linear-gradient(to bottom, #eeeeee, white 25px);
+}
+
+.switcher {
+    background-color: #fbc02d;
+  padding: 14px 32px;
+    width: 90%;
+
+}
+
+.switcher span {
+  line-height: 25px;
+}
+.switch-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.switch-label {
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: #eceeef;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+  -webkit-transition: 0.15s ease-out;
+  -moz-transition: 0.15s ease-out;
+  -o-transition: 0.15s ease-out;
+  transition: 0.15s ease-out;
+  -webkit-transition-property: opacity background;
+  -moz-transition-property: opacity background;
+  -o-transition-property: opacity background;
+  transition-property: opacity background;
+}
+
+.switch-label:before, .switch-label:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -.5em;
+  line-height: 1;
+  -webkit-transition: inherit;
+  -moz-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+}
+
+.switch-label:before {
+  content: attr(data-off);
+  right: 11px;
+  color: #aaa;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.switch-label:after {
+  content: attr(data-on);
+  left: 11px;
+  color: white;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+}
+
+.switch-input:checked ~ .switch-label {
+  background: #47a8d8;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.switch-input:checked ~ .switch-label:before {
+  opacity: 0;
+}
+
+.switch-input:checked ~ .switch-label:after {
+  opacity: 1;
+}
+
+.switch-handle {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  background-image: -webkit-linear-gradient(top, white 40%, #f0f0f0);
+  background-image: -moz-linear-gradient(top, white 40%, #f0f0f0);
+  background-image: -o-linear-gradient(top, white 40%, #f0f0f0);
+  background-image: linear-gradient(to bottom, white 40%, #f0f0f0);
+  -webkit-transition: left 0.15s ease-out;
+  -moz-transition: left 0.15s ease-out;
+  -o-transition: left 0.15s ease-out;
+  transition: left 0.15s ease-out;
+}
+
+.switch-handle:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  width: 12px;
+  height: 12px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+  background-image: -webkit-linear-gradient(top, #eeeeee, white);
+  background-image: -moz-linear-gradient(top, #eeeeee, white);
+  background-image: -o-linear-gradient(top, #eeeeee, white);
+  background-image: linear-gradient(to bottom, #eeeeee, white);
+}
+
+.switch-input:checked ~ .switch-handle {
+  left: 40px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.switch-green > .switch-input:checked ~ .switch-label {
+  background: #4fb845;
+}
