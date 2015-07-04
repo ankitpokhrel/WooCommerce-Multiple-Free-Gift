@@ -12,7 +12,7 @@ WooCommerce Multiple Free Gift Plugin is a WordPress WooCommerce plugin that mak
 2. Activate the plugin through the `Plugins` menu in WordPress.  
 3. That's all you need to do. You will notice Woo Free Gift settings page in the admin.  
 
-##$ Features
+## Features
 1. Gift based on single or particular product
     - Provide gift when only one item is added to the cart.  
     - BOGO (Buy one get one)  
