@@ -36,6 +36,9 @@ WordPress v3.8+
 WooCommerce v2.3+  
 All modern browsers and IE9+  
 
+### Resources
+* [Wiki](https://github.com/ankitpokhrel/WooCommerce-Multiple-Free-Gift/wiki)
+
 ===================================================================================================
 
 ### WooCoommerce Multiple Free Gift PRO
