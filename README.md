@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://img.shields.io/wordpress/plugin/v/woocommerce-multiple-free-gift.svg?style=flat-square)](https://wordpress.org/plugins/woocommerce-multiple-free-gift/)
+[![WordPress](https://img.shields.io/wordpress/v/woocommerce-multiple-free-gift.svg?style=flat-square)](https://wordpress.org/plugins/woocommerce-multiple-free-gift/)
+[![WordPress Rating](https://img.shields.io/wordpress/plugin/r/woocommerce-multiple-free-gift.svg?style=flat-square)](https://wordpress.org/plugins/woocommerce-multiple-free-gift/)
+[![twitter](https://img.shields.io/badge/twitter-%40ankitpokhrel-green.svg?style=flat-square)](https://twitter.com/ankitpokhrel)
+
 ## Woocommerce Multiple Free Gift
 
 _Woocommerce giveaway made easy._
