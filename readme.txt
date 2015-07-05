@@ -1,7 +1,7 @@
 === WooCommerce Multiple Free Gift ===
 Contributors: ankitpokhrel, ncreep
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J9FVY3ESPPD58
-Tags: woocommerce free gift, woocommerce gift management, woocommerce multiple gifts, woocommerce gift manager
+Tags: woocommerce, woocommerce free gift, woocommerce gift management, woocommerce multiple gifts, woocommerce multiple free gifts, woocommerce gift manager, woocommerce plugin, woocommerce freebies, woocommerce prizes
 Requires at least: 3.8
 Tested up to: 4.2
 WC requires at least: 2.3
@@ -10,16 +10,16 @@ Stable tag: 0.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WooCommerce giveaway made easy.
+WooCommerce giveaway made easy. Best way to offer freebies, gifts or prizes.
 
 == Description ==
 Gift Giving is one of the best ways for marketing. This way creates good vibes and your Customers will come back more often.  
 
-WooCommerce Multiple Free Gift Plugin is a WordPress WooCommerce plugin that makes gift management easy for your woocommerce site. The plugin helps you offer free products or gifts to your customer when they purchase products at your store. WooCommerce Free Gift plugin - gives you an edge by allowing you to write your own gift conditions which gives you great control on how you want to provide gifts to your customer.
+WooCommerce Multiple Free Gift Plugin is a WordPress WooCommerce plugin that makes gift management easy for your woocommerce site. The plugin helps you offer free products or gifts to your customer when they purchase products at your store. WooCommerce Multiple Free Gift plugin - gives you an edge by allowing you to write your own gift conditions which gives you great control on how you want to provide gifts to your customer.
 
 > **A NOTE ABOUT SUPPORT:** We’re here to help troubleshoot bugs, but please don't set expectations early as the support forums at WordPress.org are only checked every two days.
 
-> Users looking for more timely/in-depth support and extended features are encouraged to check out [WooCommerce Free Gift Plugin PRO](http://ankitpokhrel.com.np/blog/downloads/woocommerce-multiple-free-gift-plugin-pro/ "WooCommerce Multiple Free Gift PRO").
+> Users looking for more timely/in-depth support and extended features are encouraged to check out [WooCommerce Multiple Free Gift Plugin PRO](http://ankitpokhrel.com.np/blog/downloads/woocommerce-multiple-free-gift-plugin-pro/ "WooCommerce Multiple Free Gift PRO").
 
 > **FEATURES OF PRO VERSION**  
   – All features of basic version.  
@@ -33,7 +33,7 @@ WooCommerce Multiple Free Gift Plugin is a WordPress WooCommerce plugin that mak
 > [Learn more &raquo;](http://ankitpokhrel.com.np/blog/downloads/woocommerce-multiple-free-gift-plugin-pro/ "WooCommerce Multiple Free Gift PRO")
 
 **Overview**  
-WooCommerce Multiple Free Gift Plugin enables the option to provide gifts to your customer. Gift Giving is one of the best ways for marketing. This way creates good vibes and your Customers will come back more often. With WooCommerce Free Gift Plugin you can provide gifts to your customer based on single or multiple products.
+WooCommerce Multiple Free Gift Plugin enables the option to provide gifts to your customer. Gift Giving is one of the best ways for marketing. This way creates good vibes and your Customers will come back more often. With WooCommerce Multiple Free Gift Plugin you can provide gifts to your customer based on single or multiple products.
 
 **Features**  
 
