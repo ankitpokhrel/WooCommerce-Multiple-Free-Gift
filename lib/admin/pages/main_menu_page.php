@@ -49,11 +49,25 @@
 							<input type="text" class="input-text input-small" name="_wfg_criteria[criteria-1][num_allowed]" value="<?php echo $condition['num_allowed'] ?>" />				
 						</p>
 						<p>
-							<label for="wfg_gift_criteria" class="description adjust-right-gap">
-								<?php echo WFG_Common_Helper::translate('Select Gift criteria'); ?>
-							</label>
-							<?php echo WFG_Common_Helper::translate('This feature is only avaliable in premium version.') ?>&nbsp;
-							<a href="<?php echo PRO_URL ?>" title="Buy WooCommerce Free Gift PRO"><?php echo WFG_Common_Helper::translate('Learn more...') ?></a>
+						<label for="wfg_gift_criteria" class="description adjust-right-gap">
+							<?php echo WFG_Common_Helper::translate('Select Gift criteria'); ?>
+						</label>
+						<?php $wfg_gift_criteria = WFG_Settings_Helper::get('', false, 'criteria', false); ?>
+							<select name="_wfg_criteria['criteria-1'][condition]">
+								<option value=""><?php echo WFG_Common_Helper::translate('None') ?></option>
+								<?php
+									if( !empty($wfg_gift_criteria) ) {
+										foreach( $wfg_gift_criteria as $criteria ) {
+											$selected = '';
+											if( $criteria['slug'] == $condition['condition'] ) {
+												$selected = 'selected';
+											}
+
+											echo '<option value="' . $criteria['slug']  .'" ' . $selected . '>' . $criteria['name'] . '</option>';
+										}
+									}
+								?>
+							</select>
 						</p>
 					</div>
 					<hr class="wfg-hr">
