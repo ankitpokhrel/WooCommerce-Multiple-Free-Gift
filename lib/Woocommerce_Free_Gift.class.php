@@ -25,6 +25,9 @@ class Woocommerce_Free_Gift
 
 		//enqueue necessary scripts and styles
 		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_global_scripts') );
+
+		//add action links
+		add_filter( 'plugin_action_links_' . PLUGIN_BASE, array($this, 'wfg_action_links') );
 	}
 
 	/**
@@ -101,6 +104,25 @@ class Woocommerce_Free_Gift
 			)
 
 		);
+	}
+
+	/**
+	 * Add premium version link
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 * @action plugin_action_links
+	 * 
+	 * @param  array $links Action links
+	 * @return array
+	 */
+	public function wfg_action_links($links)
+	{
+		$wfg_links = array(
+				'<a href="' . PRO_URL . '">Upgrade to Premium</a>'
+			);
+
+		return array_merge( $links, $wfg_links );
 	}
 
 	/**
