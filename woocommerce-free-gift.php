@@ -19,6 +19,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	die( 'Access Forbidden' );
 }
 
+define( 'PLUGIN_BASE', plugin_basename(__FILE__) );
 define( 'PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PRO_URL', 'http://ankitpokhrel.com.np/blog/downloads/woocommerce-multiple-free-gift-plugin-pro/');
 
