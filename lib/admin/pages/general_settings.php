@@ -77,6 +77,21 @@
 						<input type="text" name="_wfg_popup_cancel_text" id="popup_cancel_text" class="regular-text" value="<?php echo $cancel_text ?>" />
 					</td>
 				</tr>
+				<tr>
+					<th scope="row">
+						<label for="invalid_condition"><?php echo WFG_Common_Helper::translate('Invalid Gift Condition Text') ?></label>
+					</th>
+					<td>
+						<?php
+							$invalidText = WFG_Settings_Helper::get('invalid_condition_text', false, 'global_options');
+							if( $invalidText === false ) {
+								$invalidText = WFG_Common_Helper::translate('Gift items removed as gift criteria isn\'t fulfilled');
+							}
+						?>
+						<input type="text" name="_wfg_invalid_condition_text" id="invalid_condition" class="regular-text"
+							value="<?php echo $invalidText ?>" />
+					</td>
+				</tr>
 			</tbody>
 		</table>
 		<p class="submit">
