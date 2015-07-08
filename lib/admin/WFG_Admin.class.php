@@ -109,7 +109,6 @@ class WFG_Admin
 				unset( $user_criteria['_wp_http_referer'] );
 				unset( $user_criteria['_wfg_global_hidden'] );
 
-				$user_criteria['criteria-1']['condition'] = '';
 				$conditionSaved = update_option('_wfg_global_settings', $user_criteria);
 				if( $enabled || $conditionSaved ) {
 					WFG_Common_Helper::success_notice(
