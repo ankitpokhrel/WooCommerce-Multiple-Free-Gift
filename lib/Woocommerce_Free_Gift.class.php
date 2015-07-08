@@ -119,7 +119,7 @@ class Woocommerce_Free_Gift
 	public function wfg_action_links($links)
 	{
 		$wfg_links = array(
-				'<a href="' . PRO_URL . '">Upgrade to Premium</a>'
+				'<a href="' . PRO_URL . '" target="_blank">Upgrade to Premium</a>'
 			);
 
 		return array_merge( $links, $wfg_links );
