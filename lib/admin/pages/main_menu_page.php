@@ -46,14 +46,14 @@
 							<label for="wfg_gifts_allowed" class="description">
 								<?php echo WFG_Common_Helper::translate('Number of gifts allowed'); ?>
 							</label>
-							<input type="text" class="input-text input-small" name="_wfg_criteria[criteria-1][num_allowed]" value="<?php echo $condition['num_allowed'] ?>" />				
+							<input type="text" class="input-text input-small" name="_wfg_criteria[criteria-1][num_allowed]" value="<?php echo !empty($condition['num_allowed']) ? $condition['num_allowed'] : 1 ?>" />				
 						</p>
 						<p>
 						<label for="wfg_gift_criteria" class="description adjust-right-gap">
 							<?php echo WFG_Common_Helper::translate('Select Gift criteria'); ?>
 						</label>
 						<?php $wfg_gift_criteria = WFG_Settings_Helper::get('', false, 'criteria', false); ?>
-							<select name="_wfg_criteria['criteria-1'][condition]">
+							<select name="_wfg_criteria[criteria-1][condition]">
 								<option value=""><?php echo WFG_Common_Helper::translate('None') ?></option>
 								<?php
 									if( !empty($wfg_gift_criteria) ) {
