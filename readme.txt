@@ -6,7 +6,7 @@ Requires at least: 3.8
 Tested up to: 4.2
 WC requires at least: 2.3
 WC tested up to: 2.3
-Stable tag: 0.0.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,15 +43,21 @@ WooCommerce Multiple Free Gift Plugin enables the option to provide gifts to you
     - Buy X get Y free  
     - Buy X get many free gifts (Y,Z...free)  
 2. Choose number of gifts allowed
-	- Allow 1 or N number of gifts without any problem.
-3. Global gifts
-	- Give gift for anything added in the cart.
-4. Custom promotion message
-5. Customization and translation ready
+  - Allow 1 or N number of gifts without any problem.
+3. Gift Criteria
+  - Allow gifts based on total items in cart and total cart price.
+  - Purchase over X USD get X free
+  - Purchase over X USD get many free gifts (X, Y... free)
+  - Purchase N number of items get X free
+  - Purchase N number of items get many free gifts (X, Y... free)
+4. Global gifts
+  - Give gift for anything added in the cart.
+5. Custom promotion message
+6. Customization and translation ready
 
 **How it works?**  
 1. After successfull plugin activation go to `Woo Free Gift` settings page or product edit page.  
-2. If you are in `Woo Free Gift` page, enable free gift and choose number of gifts allowed and gifts to show.  
+2. If you are in `Woo Free Gift` page, go to gift criteria first to add your condition, in main settings enable free gift and choose number of gifts allowed and gifts to show.  
 3. If you are in product edit page, scroll down to products data section and go to `Free Gift Options` tab.  
 4. You can enable free gift for a particular product from this page. Enable free gift and choose number of gifts allowed and gifts to show.  
 5. Save.  
@@ -74,7 +80,7 @@ You can add as many gifts as you want. There is no limit to this.
 You can define how many gifts you want to allow users to select from admin settings page. Users are allowed to select 1 gift by default.
 
 = 3. Can I provide gifts based on total quantity or price? =
-Yes but only in premium version. PRO version allows you to write your own rules. Rules can be very simple to highly complex.
+Yes, you can provide gifts based on total quantity or price. PRO version allows you to write your own rules. Rules can be very simple to highly complex.
 
 = 4. Other problems or questions? =
 Other problems? Don't forget to check the [blog](http://ankitpokhrel.com.np/blog/) or contact through support forum.
@@ -85,15 +91,22 @@ If you don't receive any help in support forum then you can directly contact me 
 Please feel free to report any bug found to `info [at] ankitpokhrel.com.np`.
 
 == Screenshots == 
-1. Global gift page.
-2. Single gift page.
-3. General settings page.
-4. Gifts shown in frontend.
+1. Gift criteria
+2. Global gift page.
+3. Single gift page.
+4. General settings page.
+5. Gifts shown in frontend.
 
 == Changelog ==
+= 1.0.0 =
+* Gift criteria based on total quantity and price.
+
 = 0.0.0 =
 * Initial release.
 
 == Upgrade Notice ==
+= 1.0.0 =
+* You can now add a single gift criteria based on total quantity and price.
+
 = 0.0.0 =
 * First release.
