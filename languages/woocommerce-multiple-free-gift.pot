@@ -1,0 +1,110 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Ankit Pokhrel <ankitpokhrel@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"Language: English\n"
+
+msgid "WooCommerce Multiple Free Gift"
+msgstr ""
+
+msgid "Woo Free Gift"
+msgstr ""
+
+msgid "Gift Criteria"
+msgstr ""
+
+msgid "General Settings"
+msgstr ""
+
+msgid "Number of gifts allowed"
+msgstr ""
+
+msgid "Select Gift criteria"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Select Gift Products"
+msgstr ""
+
+msgid "Add new gift"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Create Criteria"
+msgstr ""
+
+msgid "Name this criteria"
+msgstr ""
+
+msgid "Total number of item/s in cart"
+msgstr ""
+
+msgid "Cart total price"
+msgstr ""
+
+msgid "is greater than"
+msgstr ""
+
+msgid "is less than"
+msgstr ""
+
+msgid "is equal to"
+msgstr ""
+
+msgid "is not equal to"
+msgstr ""
+
+msgid "You can add multiple gift criteria in premium version."
+msgstr ""
+
+msgid "Learn more..."
+msgstr ""
+
+msgid "Popup Overlay"
+msgstr ""
+
+msgid "Popup Heading Text"
+msgstr ""
+
+msgid "Add Gift Text"
+msgstr ""
+
+msgid "Cancel Text"
+msgstr ""
+
+msgid "Invalid Gift Condition Text"
+msgstr ""
+
+msgid "Save Changes"
+msgstr ""
+
+msgid "Free Gift Options"
+msgstr ""
+
+msgid "Enable free gift for this product."
+msgstr ""
+
+msgid "Enabling single gift settings will overwrite global settings."
+msgstr ""
+
+msgid "Select single/multiple gift items you want to giveaway for free."
+msgstr ""
+
+msgid "Note that duplicate items are saved only once."
+msgstr ""
+
+msgid "Number of items user are allowed to select as a gift"
+msgstr ""
