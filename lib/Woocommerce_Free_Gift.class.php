@@ -142,7 +142,7 @@ class Woocommerce_Free_Gift
 		load_plugin_textdomain(
 			WFG_Common_Helper::$textDomain,
 			false,
-			dirname( plugin_basename( __FILE__ ) ) . '/languages/'
+			dirname( plugin_basename( __FILE__ ) ) . '/../languages/'
 		);
 	}
 

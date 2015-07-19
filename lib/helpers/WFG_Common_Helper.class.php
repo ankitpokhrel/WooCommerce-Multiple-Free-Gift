@@ -14,7 +14,7 @@ class WFG_Common_Helper
 	const VERSION = '1.0.0';
 
 	/** @var string Plugin text domain */
-	public static $textDomain = 'woocommerce-free-gift';
+	public static $textDomain = 'woocommerce-multiple-free-gift';
 
 	/**
 	 * Localize text strings

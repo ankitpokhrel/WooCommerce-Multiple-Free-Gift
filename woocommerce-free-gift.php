@@ -6,7 +6,7 @@
  Version: 1.0.0
  Author: Ankit Pokhrel
  Author URI: http://ankitpokhrel.com.np
- Text Domain: woocommerce-free-gift
+ Text Domain: woocommerce-multiple-free-gift
  Domain Path: /languages
 
  Copyright (c) 2015 Ankit Pokhrel <info@ankitpokhrel.com.np, http://ankitpokhrel.com.np>.
