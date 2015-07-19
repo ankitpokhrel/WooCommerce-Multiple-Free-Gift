@@ -36,7 +36,7 @@ class WFG_Admin
 	public function main_menu()
 	{
 		add_object_page(
-			WFG_Common_Helper::translate('Woocommerce Free Gift'),
+			WFG_Common_Helper::translate('WooCommerce Multiple Free Gift'),
 			WFG_Common_Helper::translate('Woo Free Gift'),
 			'manage_options',
 			'woocommerce-free-gift',
@@ -46,7 +46,8 @@ class WFG_Admin
 
 		add_submenu_page(
 			'woocommerce-free-gift',
-			WFG_Common_Helper::translate('Gift Criteria - Woocommerce Free Gift'),
+			WFG_Common_Helper::translate('Gift Criteria') . ' - ' . 
+			WFG_Common_Helper::translate('WooCommerce Multiple Free Gift'),
 			WFG_Common_Helper::translate('Gift Criteria'),
 			'manage_options',
 			'woocommerce-free-gift-criteria',
@@ -55,7 +56,8 @@ class WFG_Admin
 
 		add_submenu_page(
 			'woocommerce-free-gift',
-			WFG_Common_Helper::translate('General Settings - Woocommerce Free Gift'),
+			WFG_Common_Helper::translate('General Settings') . ' - ' . 
+			WFG_Common_Helper::translate('WooCommerce Multiple Free Gift'),
 			WFG_Common_Helper::translate('General Settings'),
 			'manage_options',
 			'woocommerce-free-gift-settings',

@@ -6,7 +6,7 @@
 			?>
 		</div>
 		<div class="left">
-			<h1><?php echo WFG_Common_Helper::translate('Woocommerce Multiple Free Gift') ?></h1>
+			<h1><?php echo WFG_Common_Helper::translate('WooCommerce Multiple Free Gift') ?></h1>
 		</div>
 	<div class="right"></div>
 
