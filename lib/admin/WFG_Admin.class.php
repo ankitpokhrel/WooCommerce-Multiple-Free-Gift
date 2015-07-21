@@ -2,9 +2,9 @@
 /**
  * Admin page
  *
- * @package woocommerce-free-gift
+ * @package woocommerce-multiple-free-gift
  * @subpackage lib/admin
- * 
+ *
  * @author Ankit Pokhrel <info@ankitpokhrel.com.np, @ankitpokhrel>
  */
 class WFG_Admin

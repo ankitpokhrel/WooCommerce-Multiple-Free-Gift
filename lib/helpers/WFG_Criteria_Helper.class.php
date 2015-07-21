@@ -3,7 +3,7 @@
  * Criteria Helper class: Fetch and analyze criteria
  *
  * @static
- * @package  woocommerce-free-gift
+ * @package  woocommerce-multiple-free-gift
  * @subpackage lib/helpers
  * @author Ankit Pokhrel <info@ankitpokhrel.com.np, @ankitpokhrel>
  * @version 0.0.0

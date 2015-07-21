@@ -2,7 +2,7 @@
 /**
  * Handle all frontend operation
  *
- * @package  woocommerce-free-gift
+ * @package  woocommerce-multiple-free-gift
  * @subpackage lib
  * @author Ankit Pokhrel <info@ankitpokhrel.com.np, @ankitpokhrel>
  * @version 0.0.0
