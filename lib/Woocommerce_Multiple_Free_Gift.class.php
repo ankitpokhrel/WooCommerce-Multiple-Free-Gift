@@ -2,12 +2,12 @@
 /**
  * Main plugin class
  *
- * @package  woocommerce-free-gift
+ * @package  woocommerce-multiple-free-gift
  * @subpackage lib
  * @author Ankit Pokhrel <info@ankitpokhrel.com.np, @ankitpokhrel>
  * @version 1.0.0
  */
-class Woocommerce_Free_Gift
+class Woocommerce_Multiple_Free_Gift
 {
 	/**
 	 * Constructor

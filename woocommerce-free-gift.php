@@ -30,10 +30,10 @@ include "lib/helpers/WFG_Criteria_Helper.class.php";
 include "lib/admin/WFG_Admin.class.php";
 include "lib/admin/WFG_Single_Gift.class.php";
 include "lib/WFG_Frontend.class.php";
-include "lib/Woocommerce_Free_Gift.class.php";
+include "lib/Woocommerce_Multiple_Free_Gift.class.php";
 
 //plugin activation hook
 register_activation_hook(  __FILE__ , array('Woocommerce_Free_Gift', 'wfg_activate') );
 
 /** Initialize the awesome */
-new Woocommerce_Free_Gift();
+new Woocommerce_Multiple_Free_Gift();
