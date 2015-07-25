@@ -35,6 +35,7 @@ WooCommerce Multiple Free Gift Plugin is a WordPress WooCommerce plugin that mak
   - Give gift for anything added in the cart.
 5. Custom promotion message
 6. Customization and translation ready
+7. Loco translate compatible
 
 ### Compatiblity
 PHP v5.3.0+ (recommended v5.4+)  

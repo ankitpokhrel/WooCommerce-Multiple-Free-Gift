@@ -6,14 +6,14 @@ Requires at least: 3.8
 Tested up to: 4.2
 WC requires at least: 2.3
 WC tested up to: 2.3
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 WooCommerce giveaway made easy. Best way to offer freebies, gifts or prizes.
 
 == Description ==
-Gift Giving is one of the best ways for marketing. This way creates good vibes and your Customers will come back more often.  
+Gift giving is one of the best ways for marketing. This way creates good vibes and your customers will come back more often.  
 
 WooCommerce Multiple Free Gift Plugin is a WordPress WooCommerce plugin that makes gift management easy for your woocommerce site. The plugin helps you offer free products or gifts to your customer when they purchase products at your store. WooCommerce Multiple Free Gift plugin - gives you an edge by allowing you to write your own gift conditions which gives you great control on how you want to provide gifts to your customer.
 
@@ -54,6 +54,7 @@ WooCommerce Multiple Free Gift Plugin enables the option to provide gifts to you
   - Give gift for anything added in the cart.
 5. Custom promotion message
 6. Customization and translation ready
+7. Loco translate compatible
 
 **How it works?**  
 1. After successfull plugin activation go to `Woo Free Gift` settings page or product edit page.  
@@ -98,6 +99,12 @@ Please feel free to report any bug found to `info [at] ankitpokhrel.com.np`.
 5. Gifts shown in frontend.
 
 == Changelog ==
+= 1.0.1 =
+* Fix issue with remove gift button on first use
+* Fix plugin text domain issue
+* Enhancement: Loco translate compatible
+* Fix info message design when no product is present
+
 = 1.0.0 =
 * Gift criteria based on total quantity and price.
 
@@ -105,6 +112,9 @@ Please feel free to report any bug found to `info [at] ankitpokhrel.com.np`.
 * Initial release.
 
 == Upgrade Notice ==
+= 1.0.1 =
+* One of the library file name is changed which may cause some error. It would be better to remove previous files completely and add new one.
+
 = 1.0.0 =
 * You can now add a single gift criteria based on total quantity and price.
 
