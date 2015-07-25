@@ -432,3 +432,17 @@ SWITCH
 .switch-green > .switch-input:checked ~ .switch-label {
   background: #4fb845;
 }
+
+.wfg-info-wrapper {
+  color: #fff;
+  font-size: 14px;
+}
+
+.wfg-info-wrapper a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.wfg-info-wrapper a:hover {
+  text-decoration: underline;
+}
