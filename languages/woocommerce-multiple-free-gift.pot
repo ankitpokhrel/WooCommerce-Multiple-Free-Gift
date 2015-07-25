@@ -25,6 +25,9 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
+msgid "Enable/Disable free gift"
+msgstr ""
+
 msgid "Number of gifts allowed"
 msgstr ""
 
