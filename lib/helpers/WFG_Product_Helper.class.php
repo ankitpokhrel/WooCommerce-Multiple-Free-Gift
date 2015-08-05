@@ -20,12 +20,12 @@ class WFG_Product_Helper
 	 * @param  array  $options Query params
 	 * @return object|null
 	 */
-	public static function get_products( $options = array() )
+	public static function get_products( $options = array(), $limit = 15 )
 	{
 		$args = array(
 				'post_type' => 'product',
 				'post_status' => 'publish',
-				'posts_per_page' => -1
+				'posts_per_page' => $limit
 			);
 
 		//merge default and user options
