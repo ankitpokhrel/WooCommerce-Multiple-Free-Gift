@@ -8,6 +8,14 @@
  */
 
 /* Image Select Extension */
+.chosen {
+  width: 100% !important;
+}
+
+.chosen-choices {
+  padding: 5px 10px !important;
+}
+
 .chose-image {
   width:55px;
   height:55px;
