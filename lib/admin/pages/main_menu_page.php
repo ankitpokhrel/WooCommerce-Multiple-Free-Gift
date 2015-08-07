@@ -75,12 +75,12 @@
 						<div class="_wfg-repeat">
 							<?php
 								if( !empty($condition['items']) ):
+									echo "<select class='chosen' data-placeholder='" . WFG_Common_Helper::translate('Choose gifts') . "' name='_wfg_criteria[criteria-1][items][]' multiple>";
 									foreach( $condition['items'] as $k => $item ):
 							?>
 								<p class="wfg-inputs wfg-criteria-options-wrap">
 									<?php
 										if( $products->have_posts() ) {
-											echo "<select class='wfg-single-gift wfg-input-large' name='_wfg_criteria[criteria-1][items][]'>";
 											while( $products->have_posts() ) {
 												$products->the_post();
 												$selected = '';
@@ -88,17 +88,17 @@
 													$selected = 'selected';
 												}
 
-												echo "<option value='" . get_the_ID() . "' {$selected}>" . get_the_title() . "</option>";
+												$thumb_id = get_post_thumbnail_id();
+												$thumb_url = wp_get_attachment_image_src($thumb_id);
+
+												echo "<option data-img-src='" . $thumb_url[0] . "' value='" . get_the_ID() . "' {$selected} >" . get_the_title() . "</option>";
 											}
-											echo "</select>";
 										}
-									
-									if( $k > 0 ): ?>
-										<a class="wfg-remove-condition-criteria dashicons dashicons-no" href="javascript:void(0)"></a>
-									<?php endif; ?>
+									?>
 								</p>
 							<?php
 									endforeach;
+									echo "</select>";
 								else:
 							?>
 								<p class="wfg-inputs wfg-criteria-options-wrap">
@@ -122,12 +122,6 @@
 							<?php
 								endif;
 							?>
-						</div>
-
-						<div class="options_group">
-							<p>
-								<button type="button" class="wfg_product_add button"><?php echo WFG_Common_Helper::translate('Add new gift') ?></button>
-							</p>
 						</div>
 					</div>
 				</div>
