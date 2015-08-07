@@ -25,7 +25,9 @@ class WFG_Product_Helper
 		$args = array(
 				'post_type' => 'product',
 				'post_status' => 'publish',
-				'posts_per_page' => $limit
+				'posts_per_page' => $limit,
+				'cache_results' => false,
+				'no_found_rows' => true
 			);
 
 		//merge default and user options
