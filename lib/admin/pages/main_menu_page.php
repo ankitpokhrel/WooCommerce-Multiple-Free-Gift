@@ -73,9 +73,11 @@
 							<label><?php echo WFG_Common_Helper::translate('Select Gift Products') ?></label>
 						</p>
 						<div class="_wfg-repeat">
+							<select class='chosen' data-placeholder='<?php WFG_Common_Helper::translate('Choose gifts') ?>' name='_wfg_criteria[criteria-1][items][]' multiple>
 							<?php
-								echo "<select class='chosen' data-placeholder='" . WFG_Common_Helper::translate('Choose gifts') . "' name='_wfg_criteria[criteria-1][items][]' multiple>";
-								foreach( $condition['items'] as $k => $item ):
+								if (!empty($condition['items'])):
+									$products = WFG_Product_Helper::get_products(array('post__in' => $condition['items']), -1);
+									foreach( $condition['items'] as $k => $item ):
 							?>
 								<p class="wfg-inputs wfg-criteria-options-wrap">
 									<?php
@@ -93,9 +95,10 @@
 									?>
 								</p>
 							<?php
-								endforeach;
-								echo "</select>";
+									endforeach;
+								endif;
 							?>
+							</select>
 						</div>
 					</div>
 				</div>
