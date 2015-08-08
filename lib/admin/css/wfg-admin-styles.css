@@ -16,33 +16,13 @@
   padding: 5px 10px !important;
 }
 
-.chose-image {
-  width:55px;
-  height:55px;
-  padding: 2px 5px 3px 0;
+#wfg_free_gift_tab .search-field input {
+  height: 25px !important;
 }
 
-/* Image for Single mode */
-.chose-image-small {
-  width:18px;
-  height:18px;
-  vertical-align: middle;
-  margin: -3px 0 0 0;
-  padding: 0 3px 0 0;
-}
-
-/* Images appended to the li(s) */
-.chose-image-list {
-  width:18px;
-  height:18px;
-  vertical-align: middle;
-  margin: -3px 0 0 0;
-  padding: 0 3px 0 0;
-}
-
-/* Grey-out image for Multi mode */
-div.chosen-container-multi .result-selected img {
-  opacity: 0.3;
+#wfg_free_gift_tab ._wfg-repeat {
+  width: 90%;
+  margin-left: 10px;
 }
 
 #wfg_free_gift_tab {
