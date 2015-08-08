@@ -82,51 +82,29 @@ class WFG_Single_Gift
 					?>" />
 			</p>
 			<div class="_wfg-repeat">
-				<?php if( empty($wfg_products) ): ?>
-					<p class="wfg-inputs">
-						<?php
-							$products = WFG_Product_Helper::get_products( array( 'post__not_in' => array( $post_id ) ) );
-							if( $products->have_posts() ) {
-								echo "<select class='chosen' data-placeholder='" . WFG_Common_Helper::translate('Choose gifts') . "' name='_wfg_single_gift_products[]' multiple>";
-								while( $products->have_posts() ) {
-									$products->the_post();
-
-									$thumb_id = get_post_thumbnail_id();
-									$thumb_url = wp_get_attachment_image_src($thumb_id);
-
-									echo "<option data-img-src='" . $thumb_url[0] . "' value='" . get_the_ID() . "'>" . get_the_title() . "</option>";
-								}
-								echo "</select>";
-							}
-						?>
-					</p>
+				<select class='chosen' data-placeholder='<?php echo WFG_Common_Helper::translate('Choose gifts') ?>' name='_wfg_single_gift_products[]' multiple>
 				<?php
-					else:
-						echo "<select class='chosen' data-placeholder='" . WFG_Common_Helper::translate('Choose gifts') . "' name='_wfg_single_gift_products[]' multiple>";
+					if (!empty($wfg_products)):
+						$products = WFG_Product_Helper::get_products( array( 'post__in' => $wfg_products, 'post__not_in' => array( $post_id ) ), -1 );
 						foreach( $wfg_products as $key => $product ):
 				?>
 							<p class="wfg-inputs">
 								<?php
-									$products = WFG_Product_Helper::get_products( array( 'post__not_in' => array( $post_id ) ) );
 									if( $products->have_posts() ) {
 										while( $products->have_posts() ) {
 											$products->the_post();
 
-											$thumb_id = get_post_thumbnail_id();
-											$thumb_url = wp_get_attachment_image_src($thumb_id);
-
 											$product_id = get_the_ID();
-
-											echo "<option data-img-src='" . $thumb_url[0] . "' value='" . $product_id . "' " . ( ($product_id == $product) ? 'selected' : '' ) . ">" . get_the_title() . "</option>";
+											echo "<option value='" . $product_id . "' " . ( ($product_id == $product) ? 'selected' : '' ) . ">" . get_the_title() . "</option>";
 										}
 									}
 								?>
 							</p>
 				<?php
 						endforeach;
-						echo "</select>";
 					endif;
 				?>
+				</select>
 			</div>
 
 			<p class="form-field wfg_form_field">
@@ -169,7 +147,9 @@ class WFG_Single_Gift
 		if( !empty($_POST['_wfg_single_gift_products']) ) {
 			$products = array_unique($_POST['_wfg_single_gift_products']);
 			update_post_meta( $post_id, '_wfg_single_gift_products', $products);
-		}		
+		} else {
+			delete_post_meta( $post_id, '_wfg_single_gift_products' );
+		}	
 	}
 
 }
