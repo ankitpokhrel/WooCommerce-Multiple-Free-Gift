@@ -121,7 +121,7 @@ class WFG_Frontend
 				if( $criteria ) {
 					$this->_wfg_criteria = true;
 					$this->_wfg_gifts_allowed = $setting['num_allowed'];
-					$this->_wfg_products = !empty($setting['items']) ? array_unique($setting['items']) : $setting['items'];
+					$this->_wfg_products = !empty($setting['items']) ? array_unique($setting['items']) : array();
 					return;
 				}
 			}
