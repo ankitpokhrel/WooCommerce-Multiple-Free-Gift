@@ -57,33 +57,7 @@ class WFG_Criteria_Helper
 					break;
 			}
 
-			$final_condition[] = $flag;
-			if( !empty($condition[3]) ) {
-				$final_condition[] = $condition[3] == 'AND' ? '&&' : '||';
-			}
-		}
-
-		$eval_string = '';
-		foreach( $final_condition as $c ) {
-			if( $c === false ) {
-				$eval_string .= ' (bool) false ';
-			} else if( $c === true ) {
-				$eval_string .= ' (bool) true ';
-			} else {
-				$eval_string .= $c;
-			}
-		}
-
-		if( !empty($final_condition) ) {
-			$eval_string = trim($eval_string) . ';';
-			//the eval string is trustworthy at this point
-			$checkResult = exec('echo \'<?php ' . $eval_string . '\' | php -l >/dev/null 2>&1; echo $?');
-			if ($checkResult != 0) {
-				return false;
-			} else {
-				return eval( 'return ' . $eval_string . ';' );
-			}
-
+			return $flag;
 		}
 
 		return false;
