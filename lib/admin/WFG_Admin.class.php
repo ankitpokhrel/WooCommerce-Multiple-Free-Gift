@@ -89,7 +89,6 @@ class WFG_Admin
 		wp_enqueue_script( 'wmfg-admin-scripts', plugins_url( '/admin/js/wfg-admin-scripts.js', dirname(__FILE__) ), array('jquery', 'jquery-ui-dialog') );
 		wp_enqueue_script( 'wmfg-chosen-lib', plugins_url( '/admin/js/plugins/chosen/chosen.jquery.min.js', dirname(__FILE__) ), array('jquery') );
 		wp_enqueue_script( 'wmfg-ajax-chosen-lib', plugins_url( '/admin/js/plugins/chosen.ajaxaddition.jquery.js', dirname(__FILE__) ), array('jquery', 'wmfg-chosen-lib') );
-		wp_enqueue_script( 'wmfg-image-select-lib', plugins_url( '/admin/js/plugins/imageselect.jquery.min.js', dirname(__FILE__) ), array('jquery', 'wmfg-chosen-lib') );
 		wp_enqueue_script( 'jquery-ui-dialog', false, array('jquery') );
 		wp_enqueue_script( 'jquery-ui-sortable', false, array('jquery') );
 
