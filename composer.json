@@ -1,0 +1,23 @@
+{
+    "name": "ankitpokhrel/woocommerce-multiple-free-gift",
+    "description": "WooCommerce giveaway made easy.",
+    "keywords": [
+        "wocommerce free gift",
+        "woocommerce multiple free gift",
+        "woocommerce gift manager",
+        "woocommere gift",
+        "woocommerce",
+        "woocommerce plugins",
+        "wordpress plugins",
+    ],
+    "license": "GPL2",
+    "authors": [
+        {
+            "name": "Ankit Pokhrel",
+            "email": "ankitpokhrel@gmail.com",
+            "homepage": "http://ankitpokhrel.com.np/blog/downloads/woocommerce-multiple-free-gift-plugin-pro/",
+            "role": "Developer"
+        }
+    ],
+    "require": {}
+}
