@@ -164,7 +164,7 @@ class WFG_Product_Helper
 
 		if( !empty($product_variation) ) {
 			//make price zero and mark it as wfg_product
-			update_post_meta( $product_variation[0]->ID, '_price', 0);
+			update_post_meta( $product_variation[0]->ID, '_regular_price', 0);
 			update_post_meta( $product_variation[0]->ID, '_wfg_gift_product', 1);
 
 			return $product_variation[0]->ID;
@@ -184,7 +184,7 @@ class WFG_Product_Helper
 		);
 
 		$post_id = wp_insert_post( $variation );
-		update_post_meta( $post_id, '_price', 0);
+		update_post_meta( $post_id, '_regular_price', 0);
 		update_post_meta( $post_id, '_wfg_gift_product', 1);
 
 		return $post_id;
