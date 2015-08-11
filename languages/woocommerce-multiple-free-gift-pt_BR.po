@@ -1,0 +1,118 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Paula Bambino <paula.groups@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+
+msgid "WooCommerce Multiple Free Gift"
+msgstr "WooCommerce Multiple Free Gift"
+
+msgid "Woo Free Gift"
+msgstr "Presente Grátis Woo"
+
+msgid "Gift Criteria"
+msgstr "Critérios de Presente"
+
+msgid "General Settings"
+msgstr "Configurações Gerais"
+
+msgid "Enable/Disable free gift"
+msgstr "Habilitar/Desabilitar presente grátis"
+
+msgid "Number of gifts allowed"
+msgstr "Número de presentes permitidos"
+
+msgid "Select Gift criteria"
+msgstr "Selecione critério de Presente"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid "Select Gift Products"
+msgstr "Selecione Produtos de Presente"
+
+msgid "Add new gift"
+msgstr "Adicionar novo presente"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Create Criteria"
+msgstr "Criar Critério"
+
+msgid "Name this criteria"
+msgstr "Nomeie este critério"
+
+msgid "Total number of item/s in cart"
+msgstr "Número total de itens no carrinho"
+
+msgid "Cart total price"
+msgstr "Preço total do carrinho"
+
+msgid "is greater than"
+msgstr "é maior do que"
+
+msgid "is less than"
+msgstr "é menor do que"
+
+msgid "is equal to"
+msgstr "é igual a"
+
+msgid "is not equal to"
+msgstr "não é igual a"
+
+msgid "You can add multiple gift criteria in premium version."
+msgstr "Você pode adicionar múltiplos critérios de presente na versão premium."
+
+msgid "Learn more..."
+msgstr "Saiba mais..."
+
+msgid "Popup Overlay"
+msgstr "Sobreposição Popup"
+
+msgid "Popup Heading Text"
+msgstr "Texto de Cabeçalho do Popup"
+
+msgid "Add Gift Text"
+msgstr "Texto para Adicionar Presente"
+
+msgid "Cancel Text"
+msgstr "Texto para Cancelar"
+
+msgid "Invalid Gift Condition Text"
+msgstr "Texto para Condição Inválida de Presente"
+
+msgid "Save Changes"
+msgstr "Salvar Alterações"
+
+msgid "Free Gift Options"
+msgstr "Opções de Presente Grátis"
+
+msgid "Enable free gift for this product."
+msgstr "Habilitar presente grátis para este produto."
+
+msgid "Enabling single gift settings will overwrite global settings."
+msgstr ""
+"Ativar configurações individuais do presente irá sobrescrever as "
+"configurações globais."
+
+msgid "Select single/multiple gift items you want to giveaway for free."
+msgstr ""
+"Selecione itens de presente único/múltiplo que você quer distribuir "
+"gratuitamente."
+
+msgid "Note that duplicate items are saved only once."
+msgstr "Note que itens duplicados serão salvos apenas uma vez."
+
+msgid "Number of items user are allowed to select as a gift"
+msgstr "Número de itens que o usuário pode selecionar como presente"
