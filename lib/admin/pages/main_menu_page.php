@@ -77,7 +77,6 @@
 							<?php
 								if (!empty($condition['items'])):
 									$products = WFG_Product_Helper::get_products(array('post__in' => $condition['items']), -1);
-									foreach( $condition['items'] as $k => $item ):
 							?>
 								<p class="wfg-inputs wfg-criteria-options-wrap">
 									<?php
@@ -85,7 +84,7 @@
 											while( $products->have_posts() ) {
 												$products->the_post();
 												$selected = '';
-												if( $item == get_the_ID() ) {
+												if( in_array(get_the_ID(), $condition['items']) ) {
 													$selected = 'selected';
 												}
 
@@ -94,10 +93,7 @@
 										}
 									?>
 								</p>
-							<?php
-									endforeach;
-								endif;
-							?>
+							<?php endif; ?>
 							</select>
 						</div>
 					</div>
