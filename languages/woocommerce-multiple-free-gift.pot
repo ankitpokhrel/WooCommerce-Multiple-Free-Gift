@@ -111,3 +111,10 @@ msgstr ""
 
 msgid "Number of items user are allowed to select as a gift"
 msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Free Item"
+msgstr ""
+
