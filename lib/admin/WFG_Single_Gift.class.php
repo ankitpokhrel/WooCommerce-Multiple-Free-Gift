@@ -82,55 +82,31 @@ class WFG_Single_Gift
 					?>" />
 			</p>
 			<div class="_wfg-repeat">
-				<?php if( empty($wfg_products) ): ?>
-					<p class="wfg-inputs">
-						<?php
-							$products = WFG_Product_Helper::get_products( array( 'post__not_in' => array( $post_id ) ) );
-							if( $products->have_posts() ) {
-								echo "<select class='wfg-single-gift wfg-input-large' name='_wfg_single_gift_products[]'>";
-								while( $products->have_posts() ) {
-									$products->the_post();
-									echo "<option value='" . get_the_ID() . "'>" . get_the_title() . "</option>";
-								}
-								echo "</select>";
-							}
-						?>
-						</select>
-					</p>
+				<select class='chosen' data-placeholder='<?php echo WFG_Common_Helper::translate('Choose gifts') ?>' name='_wfg_single_gift_products[]' multiple>
 				<?php
-					else:
+					if (!empty($wfg_products)):
+						$products = WFG_Product_Helper::get_products( array( 'post__in' => $wfg_products, 'post__not_in' => array( $post_id ) ), -1 );
 						foreach( $wfg_products as $key => $product ):
-							$remove_button = '';
-							if( $key > 0 ) {
-								$remove_button = '<a class="wfg-remove-gift-product dashicons dashicons-no" href="javascript:void(0)"></a>';
-							}
 				?>
 							<p class="wfg-inputs">
 								<?php
-									$products = WFG_Product_Helper::get_products( array( 'post__not_in' => array( $post_id ) ) );
 									if( $products->have_posts() ) {
-										echo "<select class='wfg-single-gift wfg-input-large' name='_wfg_single_gift_products[]'>";
 										while( $products->have_posts() ) {
 											$products->the_post();
+
 											$product_id = get_the_ID();
 											echo "<option value='" . $product_id . "' " . ( ($product_id == $product) ? 'selected' : '' ) . ">" . get_the_title() . "</option>";
 										}
-										echo "</select>";
 									}
 								?>
-								<?php echo $remove_button ?>
 							</p>
 				<?php
 						endforeach;
 					endif;
 				?>
+				</select>
 			</div>
 
-			<div class="options_group">
-				<p>
-					<button type="button" class="wfg_single_product_add button"><?php echo WFG_Common_Helper::translate('Add new gift') ?></button>
-				</p>
-			</div>
 			<p class="form-field wfg_form_field">
 				<label for="wfg_gifts_allowed" class="description">
 					<?php echo WFG_Common_Helper::translate('Number of gifts allowed'); ?>
@@ -171,7 +147,9 @@ class WFG_Single_Gift
 		if( !empty($_POST['_wfg_single_gift_products']) ) {
 			$products = array_unique($_POST['_wfg_single_gift_products']);
 			update_post_meta( $post_id, '_wfg_single_gift_products', $products);
-		}		
+		} else {
+			delete_post_meta( $post_id, '_wfg_single_gift_products' );
+		}	
 	}
 
 }

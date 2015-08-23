@@ -73,61 +73,28 @@
 							<label><?php echo WFG_Common_Helper::translate('Select Gift Products') ?></label>
 						</p>
 						<div class="_wfg-repeat">
+							<select class='chosen' data-placeholder='<?php echo WFG_Common_Helper::translate('Choose gifts') ?>' name='_wfg_criteria[criteria-1][items][]' multiple>
 							<?php
-								if( !empty($condition['items']) ):
-									foreach( $condition['items'] as $k => $item ):
+								if (!empty($condition['items'])):
+									$products = WFG_Product_Helper::get_products(array('post__in' => $condition['items']), -1);
 							?>
 								<p class="wfg-inputs wfg-criteria-options-wrap">
 									<?php
 										if( $products->have_posts() ) {
-											echo "<select class='wfg-single-gift wfg-input-large' name='_wfg_criteria[criteria-1][items][]'>";
 											while( $products->have_posts() ) {
 												$products->the_post();
 												$selected = '';
-												if( $item == get_the_ID() ) {
+												if( in_array(get_the_ID(), $condition['items']) ) {
 													$selected = 'selected';
 												}
 
-												echo "<option value='" . get_the_ID() . "' {$selected}>" . get_the_title() . "</option>";
+												echo "<option value='" . get_the_ID() . "' {$selected} >" . get_the_title() . "</option>";
 											}
-											echo "</select>";
-										}
-									
-									if( $k > 0 ): ?>
-										<a class="wfg-remove-condition-criteria dashicons dashicons-no" href="javascript:void(0)"></a>
-									<?php endif; ?>
-								</p>
-							<?php
-									endforeach;
-								else:
-							?>
-								<p class="wfg-inputs wfg-criteria-options-wrap">
-									<?php
-										if( $products->have_posts() ) {
-											echo "<select class='wfg-single-gift wfg-input-large' name='_wfg_criteria[criteria-1][items][]'>";
-											while( $products->have_posts() ) {
-												$products->the_post();
-												$selected = '';
-												if( $item == get_the_ID() ) {
-													$selected = 'selected';
-												}
-
-												echo "<option value='" . get_the_ID() . "' {$selected}>" . get_the_title() . "</option>";
-											}
-											echo "</select>";
 										}
 									?>
 								</p>
-
-							<?php
-								endif;
-							?>
-						</div>
-
-						<div class="options_group">
-							<p>
-								<button type="button" class="wfg_product_add button"><?php echo WFG_Common_Helper::translate('Add new gift') ?></button>
-							</p>
+							<?php endif; ?>
+							</select>
 						</div>
 					</div>
 				</div>

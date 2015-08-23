@@ -23,6 +23,9 @@ class WFG_Admin
 
 		//enqueue necessary scripts and styles
 		add_action( 'admin_enqueue_scripts', array($this, 'enqueue_admin_scripts') );
+
+		//register ajax call to fetch products
+		add_action( 'wp_ajax_product_list_callback', array( $this, 'ajax_product_list_callback' ) );
 	}
 
 	/**
@@ -80,11 +83,22 @@ class WFG_Admin
 		//enqueue styles
 		wp_enqueue_style( 'wmfg-admin-styles', plugins_url( '/admin/css/wfg-admin-styles.css', dirname(__FILE__) ) );
 		wp_enqueue_style( 'wp-jquery-ui-dialog' );
+		wp_enqueue_style( 'wmfg-chosen', plugins_url( '/admin/js/plugins/chosen/chosen.min.css', dirname(__FILE__)) );
 
 		//enqueue scripts
 		wp_enqueue_script( 'wmfg-admin-scripts', plugins_url( '/admin/js/wfg-admin-scripts.js', dirname(__FILE__) ), array('jquery', 'jquery-ui-dialog') );
+		wp_enqueue_script( 'wmfg-chosen-lib', plugins_url( '/admin/js/plugins/chosen/chosen.jquery.min.js', dirname(__FILE__) ), array('jquery') );
+		wp_enqueue_script( 'wmfg-ajax-chosen-lib', plugins_url( '/admin/js/plugins/chosen.ajaxaddition.jquery.js', dirname(__FILE__) ), array('jquery', 'wmfg-chosen-lib') );
 		wp_enqueue_script( 'jquery-ui-dialog', false, array('jquery') );
 		wp_enqueue_script( 'jquery-ui-sortable', false, array('jquery') );
+
+		wp_localize_script(
+			'wmfg-admin-scripts',
+			'WMFG_SPECIFIC',
+			array(
+				'loading_url' => plugins_url( '/admin/img/loading.gif', dirname(__FILE__) ),
+			)
+		);
 	}
 
 	/**
@@ -239,6 +253,27 @@ class WFG_Admin
 		}
 
 		include "pages/general_settings.php";
+	}
+
+	public function ajax_product_list_callback()
+	{
+		$q = isset($_POST['data']['q']) ? $_POST['data']['q'] : '';
+
+		if (!$q) {
+			return null;
+		}
+
+		$products = WFG_Product_Helper::get_products( array('s' => $q) );
+
+		$list = array();
+		if (!empty($products) && !empty($products->posts)) {
+			foreach ($products->posts as $product) {
+				$list[] = array('id' => $product->ID, 'text' => $product->post_title);
+			}
+		}
+
+		echo json_encode(array('q' => $q, 'results' => $list));
+		wp_die();
 	}
 }
 
