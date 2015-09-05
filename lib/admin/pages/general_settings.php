@@ -1,16 +1,15 @@
 <div id="wfg_setting" class="wrap">
-	<div class="header clearfix">
-		<div class="left">
-			<?php
-				echo '<img src="' . plugins_url( 'img/wfg-logo.png', dirname(__FILE__) ) . '" class="wfg-logo" />';
-			?>
-		</div>
-		<div class="left">
-			<h1><?php echo WFG_Common_Helper::translate('WooCommerce Multiple Free Gift') ?></h1>
-		</div>
-	<div class="right"></div>
-
-</div>
+		<div class="header clearfix">
+			<div class="left">
+				<?php
+					echo '<img src="' . plugins_url( 'img/wfg-logo.png', dirname(__FILE__) ) . '" class="wfg-logo" />';
+				?>
+			</div>
+			<div class="left">
+				<h1><?php echo WFG_Common_Helper::translate('WooCommerce Multiple Free Gift') ?></h1>
+			</div>
+		<div class="right"></div>
+	</div>
 	<h2><?php echo WFG_Common_Helper::translate('General Settings') ?></h2>
 	<form class="wfg-general-settings" method="post" action="">
 		<?php wp_nonce_field('wfg_general_settings','_wfg_general_nonce'); ?>
