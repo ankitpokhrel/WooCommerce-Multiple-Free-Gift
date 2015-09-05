@@ -95,8 +95,8 @@
 			</tbody>
 		</table>
 		<p class="submit">
-			<input type="hidden" name="_wfg_general_settings_submitted" value="Y" class="button button-primary" />
-			<input type="submit" value="<?php echo WFG_Common_Helper::translate('Save Changes') ?>" class="button button-primary" />
+			<input type="hidden" name="_wfg_general_settings_submitted" value="Y" />
+			<input type="submit" value="<?php echo WFG_Common_Helper::translate('Save Changes') ?>" class="button-primary" />
 		</p>
 	</form>
 </div>

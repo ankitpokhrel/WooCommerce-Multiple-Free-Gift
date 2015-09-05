@@ -62,7 +62,7 @@
 			<div class="options_group">
 				<p>
 					<input type="hidden" name="_wfg_criteria_hidden" value="Y" />
-					<button class="button button-primary" type="submit"><?php echo WFG_Common_Helper::translate('Save') ?></button>
+					<button class="button-primary" type="submit"><?php echo WFG_Common_Helper::translate('Save') ?></button>
 				</p>
 			</div>			
 		</form>
