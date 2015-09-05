@@ -11,7 +11,7 @@
 	max-width: 648px;
 	margin: 0 auto;
 	position: fixed;
-	z-index: 9999;
+	z-index: 110000;
 	background: #fff;
 	box-shadow: 0 0 10px 0 #222;
 }
@@ -80,3 +80,13 @@
 .wfg-title > img {
 	display: inline-block;
 }
+
+.wfg-button:hover{
+	cursor:pointer;
+	opacity: 0.9;
+}
+
+.wfg-button:focus{
+	opacity: 0.9;
+}
+
