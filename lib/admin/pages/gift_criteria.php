@@ -10,7 +10,11 @@
 		</div>
 		<div class="right"></div>
 	</div>
-	<h2><?php echo WFG_Common_Helper::translate('Create Criteria') ?></h2>
+	<div class="options_group margin-top-20">
+		<p class="switcher">
+			<?php echo WFG_Common_Helper::translate('Create Criteria') ?>
+		</p>
+	</div>
 	<div id="wfg_free_gift_global_settings">
 		<form name="wfg_main_menu_form" method="post" action="">
 			<?php wp_nonce_field('wfg_criteria_settings','_wfg_criteria_nonce'); ?>

@@ -209,8 +209,6 @@ WFG Setting Global
 
 
 
-
-
 /*-------------------------------------------------------------------
 
 WFG form 
@@ -469,4 +467,8 @@ SWITCH
 
 .wfg-info-wrapper a:hover {
   text-decoration: underline;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
 }

@@ -10,7 +10,11 @@
 			</div>
 		<div class="right"></div>
 	</div>
-	<h2><?php echo WFG_Common_Helper::translate('General Settings') ?></h2>
+	<div class="options_group margin-top-20">	
+		<p class="switcher">
+			<?php echo WFG_Common_Helper::translate('General Settings') ?>
+		</p>
+	</div>
 	<form class="wfg-general-settings" method="post" action="">
 		<?php wp_nonce_field('wfg_general_settings','_wfg_general_nonce'); ?>
 		<table class="form-table">
