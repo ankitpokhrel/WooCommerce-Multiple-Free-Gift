@@ -100,7 +100,7 @@
 				</div>
 
 				<input type="hidden" name="_wfg_global_hidden" value="Y" />
-				<button class="button button-primary" type="submit"><?php echo WFG_Common_Helper::translate('Save') ?></button>
+				<button class="button-primary" type="submit"><?php echo WFG_Common_Helper::translate('Save') ?></button>
 			<?php else: ?>
 				<div class="options_group">
 					<p class="wfg-info-wrapper form-field wfg_form_field switcher">
