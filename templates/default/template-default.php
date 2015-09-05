@@ -38,7 +38,7 @@
 					</div>
 				<?php endforeach; ?>
 				<div class="wfg-actions">
-					<button class="wfg-button wfg-add-gifts">
+					<button class="button wfg-button wfg-add-gifts">
 						<?php
 							$add_gift_text = WFG_Settings_Helper::get('popup_add_gift_text', false, 'global_options');
 							if( $add_gift_text !== false ) {
@@ -48,7 +48,7 @@
 							}
 						?>
 					</button>
-					<button class="wfg-button wfg-no-thanks" type="button">
+					<button class="button wfg-button wfg-no-thanks" type="button">
 						<?php
 							$cancel_text = WFG_Settings_Helper::get('popup_cancel_text', false, 'global_options');
 							if( $cancel_text !== false ) {
