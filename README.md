@@ -6,6 +6,7 @@
 [![twitter](https://img.shields.io/badge/twitter-%40ankitpokhrel-green.svg?style=flat-square)](https://twitter.com/ankitpokhrel)
 
 _WooCommerce giveaway made easy._
+![WooCommerce Multiple Free Gift](http://ankitpokhrel.com.np/WMFG/global-settings.png)
 
 ### Overview
 Gift giving is one of the best ways for marketing. This way creates good vibes and your customers will come back more often.  
