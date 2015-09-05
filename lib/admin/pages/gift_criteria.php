@@ -2,7 +2,7 @@
 	<div class="header clearfix">
 	<div class="left">
 		<?php
-			echo '<img src="' . plugins_url( 'img/wfg-logo.png', dirname(__FILE__) ) . '" > ';
+			echo '<img src="' . plugins_url( 'img/wfg-logo.png', dirname(__FILE__) ) . '" class="wfg-logo" />';
 		?>
 	</div>
 	<div class="left">

@@ -16,6 +16,10 @@
   padding: 5px 10px !important;
 }
 
+img.wfg-logo {
+  width: 64px;
+}
+
 #wfg_free_gift_tab .search-field input {
   height: 25px !important;
 }
@@ -189,11 +193,12 @@ WFG Setting Global
 
 -------------------------------------------------------------------*/
 #wfg_setting .header{
-	  padding: 20px 0;
+	  padding-top: 20px;
 }
 #wfg_setting .header h1 {
-  line-height: 72px;
-  padding-left: 20px;
+  line-height: 33px;
+  padding-left: 10px;
+  font-size: 28px;
 }
 
 #wfg_setting .shadow {
