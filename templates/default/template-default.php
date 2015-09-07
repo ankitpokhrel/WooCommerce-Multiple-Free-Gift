@@ -16,7 +16,7 @@
 		?>
 	</h2>
 	<div class="wfg-gifts">
-		<form action="<?php echo admin_url('admin-ajax.php'); ?>" method="post">
+		<form action="<?php echo admin_url( 'admin-ajax.php' ); ?>" method="post">
 			<input type="hidden" name="action" value="wfg_add_gifts" />
 			<?php
 				wp_nonce_field( 'wfg_add_free_gifts','_wfg_nonce' );
