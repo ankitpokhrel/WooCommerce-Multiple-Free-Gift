@@ -2,7 +2,7 @@
 		<div class="header clearfix">
 			<div class="left">
 				<?php
-					echo '<img src="' . plugins_url( 'img/wfg-logo.png', dirname(__FILE__) ) . '" class="wfg-logo" />';
+					echo '<img src="' . plugins_url( 'img/wfg-logo.png', dirname( __FILE__ ) ) . '" class="wfg-logo" />';
 				?>
 			</div>
 			<div class="left">
@@ -45,7 +45,7 @@
 					<td>
 						<?php
 							$heading = WFG_Settings_Helper::get( 'popup_heading', false, 'global_options' );
-							if( $heading === false ) {
+							if( false === $heading ) {
 								$heading = WFG_Common_Helper::translate( 'Choose your free gift' );
 							}
 						?>
@@ -59,7 +59,7 @@
 					<td>
 						<?php
 							$add_gift_text = WFG_Settings_Helper::get( 'popup_add_gift_text', false, 'global_options' );
-							if( $add_gift_text === false ) {
+							if( false === $add_gift_text ) {
 								$add_gift_text = WFG_Common_Helper::translate( 'Add Gifts' );
 							}
 						?>
@@ -73,7 +73,7 @@
 					<td>
 						<?php
 							$cancel_text = WFG_Settings_Helper::get( 'popup_cancel_text', false, 'global_options' );
-							if( $cancel_text === false ) {
+							if( false === $cancel_text ) {
 								$cancel_text = WFG_Common_Helper::translate( 'No Thanks' );
 							}
 						?>
@@ -87,7 +87,7 @@
 					<td>
 						<?php
 							$invalidText = WFG_Settings_Helper::get( 'invalid_condition_text', false, 'global_options' );
-							if( $invalidText === false ) {
+							if( false === $invalidText ) {
 								$invalidText = WFG_Common_Helper::translate( 'Gift items removed as gift criteria isn\'t fulfilled' );
 							}
 						?>
