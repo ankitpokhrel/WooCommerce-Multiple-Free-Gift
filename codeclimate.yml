@@ -1,0 +1,6 @@
+# Save as .codeclimate.yml (note leading .) in project root directory
+languages:
+  JavaScript: true
+  PHP: true
+exclude_paths:
+- "lib/admin/js/plugins/**/*"
