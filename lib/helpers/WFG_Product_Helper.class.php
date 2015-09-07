@@ -107,7 +107,7 @@ class WFG_Product_Helper
 		}
 
 		foreach( $cart_items as $key => $content ) {
-			$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+			$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
 			if(  $is_gift_product ) {
 				$free_items[] = $content['product_id'];
 			}
