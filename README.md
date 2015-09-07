@@ -6,6 +6,7 @@
 [![twitter](https://img.shields.io/badge/twitter-%40ankitpokhrel-green.svg?style=flat-square)](https://twitter.com/ankitpokhrel)
 
 _WooCommerce giveaway made easy._
+![WooCommerce Multiple Free Gift](http://ankitpokhrel.com.np/WMFG/global-settings.png)
 
 ### Overview
 Gift giving is one of the best ways for marketing. This way creates good vibes and your customers will come back more often.  
@@ -38,7 +39,8 @@ WooCommerce Multiple Free Gift is a WordPress WooCommerce plugin that makes gift
   - Give gift for anything added in the cart.
 5. Custom promotion message
 6. Customization and translation ready
-7. Loco translate compatible
+7. [Loco Translate](https://wordpress.org/plugins/loco-translate/) compatible
+8. [Aelia Currency Switcher](https://aelia.co/shop/currency-switcher-woocommerce/) compatible
 
 ### Compatiblity
 PHP v5.3.0+ (recommended v5.4+)  
