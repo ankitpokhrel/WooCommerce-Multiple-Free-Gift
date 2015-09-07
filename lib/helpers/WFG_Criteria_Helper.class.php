@@ -126,12 +126,9 @@ class WFG_Criteria_Helper
 	 */
 	public static function get_criteria( $slug )
 	{
+		/** @var array $all_criteria */
 		$all_criteria = WFG_Settings_Helper::get('', false, 'criteria', false);
 		if (empty($all_criteria)) {
-			return false;
-		}
-
-		if (!is_array($all_criteria)) {
 			return false;
 		}
 
