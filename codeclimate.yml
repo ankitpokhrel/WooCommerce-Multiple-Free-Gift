@@ -1,4 +1,4 @@
-# Save as .codeclimate.yml (note leading .) in project root directory
+# Code climate configuration
 languages:
   JavaScript: true
   PHP: true
