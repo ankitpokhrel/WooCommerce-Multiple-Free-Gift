@@ -18,9 +18,9 @@ class WFG_Single_Gift
 	public function __construct()
 	{
 		/* Woocommerce panel tab hooks */
-		add_action('woocommerce_product_write_panel_tabs', array($this, 'create_admin_free_gift_tab'));
-		add_action('woocommerce_product_write_panels', array($this, 'wfg_tab_contents'));
-		add_action('woocommerce_process_product_meta', array($this, 'process_wfg_tab'));
+		add_action( 'woocommerce_product_write_panel_tabs', array($this, 'create_admin_free_gift_tab') );
+		add_action( 'woocommerce_product_write_panels', array($this, 'wfg_tab_contents') );
+		add_action( 'woocommerce_process_product_meta', array($this, 'process_wfg_tab') );
 	}
 
 	/**
@@ -53,9 +53,9 @@ class WFG_Single_Gift
 	public function wfg_tab_contents()
 	{
 		$post_id = get_the_ID();
-		$wfg_enabled = get_post_meta($post_id, '_wfg_single_gift_enabled', true);
-		$wfg_products = get_post_meta($post_id, '_wfg_single_gift_products', true);
-		$wfg_gifts_allowed = get_post_meta($post_id, '_wfg_single_gift_allowed', true);
+		$wfg_enabled = get_post_meta( $post_id, '_wfg_single_gift_enabled', true );
+		$wfg_products = get_post_meta( $post_id, '_wfg_single_gift_products', true );
+		$wfg_gifts_allowed = get_post_meta( $post_id, '_wfg_single_gift_allowed', true );
 ?>
 		<div id="wfg_free_gift_tab" class="panel woocommerce_options_panel">
 			<div class="options_group">
@@ -85,17 +85,17 @@ class WFG_Single_Gift
 				<select class='chosen' data-placeholder='<?php echo WFG_Common_Helper::translate('Choose gifts') ?>' name='_wfg_single_gift_products[]' multiple>
 				<?php
 					if (!empty($wfg_products)):
-						$products = WFG_Product_Helper::get_products(array('post__in' => $wfg_products, 'post__not_in' => array($post_id)), -1);
-						foreach ($wfg_products as $key => $product):
+						$products = WFG_Product_Helper::get_products( array( 'post__in' => $wfg_products, 'post__not_in' => array( $post_id ) ), -1 );
+						foreach( $wfg_products as $key => $product ):
 				?>
 							<p class="wfg-inputs">
 								<?php
-									if ($products->have_posts()) {
-										while ($products->have_posts()) {
+									if( $products->have_posts() ) {
+										while( $products->have_posts() ) {
 											$products->the_post();
 
 											$product_id = get_the_ID();
-											echo "<option value='" . $product_id . "' " . (($product_id == $product) ? 'selected' : '') . ">" . get_the_title() . "</option>";
+											echo "<option value='" . $product_id . "' " . ( ($product_id == $product) ? 'selected' : '' ) . ">" . get_the_title() . "</option>";
 										}
 									}
 								?>
@@ -133,22 +133,22 @@ class WFG_Single_Gift
 	 *
 	 * @return void
 	 */
-	public function process_wfg_tab($post_id)
+	public function process_wfg_tab( $post_id )
 	{
-		$wfg_enabled = (isset($_POST['wfg_single_gift_enabled']) && $_POST['wfg_single_gift_enabled']) ? 1 : 0;
-		$wfg_gifts_allowed = (isset($_POST['wfg_single_gift_allowed']) && $_POST['wfg_single_gift_allowed'] >= 0) ? $_POST['wfg_single_gift_allowed'] : 1;
-		if (!(bool) $wfg_enabled) {
-			delete_post_meta($post_id, '_wfg_single_gift_enabled');
+		$wfg_enabled = ( isset($_POST['wfg_single_gift_enabled']) && $_POST['wfg_single_gift_enabled'] ) ? 1 : 0;
+		$wfg_gifts_allowed = ( isset($_POST['wfg_single_gift_allowed']) && $_POST['wfg_single_gift_allowed'] >= 0 ) ? $_POST['wfg_single_gift_allowed'] : 1;
+		if( ! (bool) $wfg_enabled ) {
+			delete_post_meta( $post_id, '_wfg_single_gift_enabled' );
 		} else {
-			update_post_meta($post_id, '_wfg_single_gift_enabled', $wfg_enabled);
+			update_post_meta( $post_id, '_wfg_single_gift_enabled', $wfg_enabled );
 		}
 
-		update_post_meta($post_id, '_wfg_single_gift_allowed', $wfg_gifts_allowed);
-		if (!empty($_POST['_wfg_single_gift_products'])) {
+		update_post_meta( $post_id, '_wfg_single_gift_allowed', $wfg_gifts_allowed );
+		if( !empty($_POST['_wfg_single_gift_products']) ) {
 			$products = array_unique($_POST['_wfg_single_gift_products']);
-			update_post_meta($post_id, '_wfg_single_gift_products', $products);
+			update_post_meta( $post_id, '_wfg_single_gift_products', $products);
 		} else {
-			delete_post_meta($post_id, '_wfg_single_gift_products');
+			delete_post_meta( $post_id, '_wfg_single_gift_products' );
 		}	
 	}
 
