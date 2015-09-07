@@ -34,24 +34,24 @@
 									required class="wfg-criteria-name wfg-input-full" value="<?php echo isset($criteria['name']) ? $criteria['name'] : '' ?>" />
 								<div class="wfg-criteria-options-wrap" data-id='1'>
 									<select name="_wfg_criteria[criteria-1][condition][]" class="wfg-condition-selector">
-										<option value="num_products" <?php echo (!empty($condition) && $condition[0] == 'num_products') ? 'selected' : '' ?> >
+										<option value="num_products" <?php echo ( !empty($condition) && $condition[0] == 'num_products' ) ? 'selected' : '' ?> >
 											<?php echo WFG_Common_Helper::translate( 'Total number of item/s in cart' ) ?>
 										</option>
-										<option value="total_price" <?php echo (!empty($condition) && $condition[0] == 'total_price') ? 'selected' : '' ?>>
+										<option value="total_price" <?php echo ( !empty($condition) && $condition[0] == 'total_price' ) ? 'selected' : '' ?>>
 											<?php echo WFG_Common_Helper::translate( 'Cart total price' ) ?>
 										</option>
 									</select>
 									<select name="_wfg_criteria[criteria-1][condition][]" class="wfg-comparison">
-										<option value=">" <?php echo (!empty($condition) && $condition[1] == '>') ? 'selected' : '' ?>>
+										<option value=">" <?php echo ( !empty($condition) && $condition[1] == '>' ) ? 'selected' : '' ?>>
 											<?php echo WFG_Common_Helper::translate( 'is greater than' ) ?>
 										</option>
-										<option value="<" <?php echo (!empty($condition) && $condition[1] == '<') ? 'selected' : '' ?>>
+										<option value="<" <?php echo ( !empty($condition) && $condition[1] == '<' ) ? 'selected' : '' ?>>
 											<?php echo WFG_Common_Helper::translate( 'is less than' ) ?>
 										</option>
-										<option value="==" <?php echo (!empty($condition) && $condition[1] == '==') ? 'selected' : '' ?>>
+										<option value="==" <?php echo ( !empty($condition) && $condition[1] == '==' ) ? 'selected' : '' ?>>
 											<?php echo WFG_Common_Helper::translate( 'is equal to' ) ?>
 										</option>
-										<option value="!=" <?php echo (!empty($condition) && $condition[1] == '!=') ? 'selected' : '' ?>>
+										<option value="!=" <?php echo ( !empty($condition) && $condition[1] == '!=' ) ? 'selected' : '' ?>>
 											<?php echo WFG_Common_Helper::translate( 'is not equal to' ) ?>
 										</option>
 									</select>
