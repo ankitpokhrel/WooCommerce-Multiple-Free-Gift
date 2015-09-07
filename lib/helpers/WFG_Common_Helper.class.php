@@ -24,7 +24,7 @@ class WFG_Common_Helper
 	 * 
 	 * @return string
 	 */
-	public static function translate($string)
+	public static function translate( $string )
 	{
 		return __($string, self::$textDomain);
 	}
@@ -37,7 +37,7 @@ class WFG_Common_Helper
 	 * @param  string $message Message to display
 	 * @return void
 	 */
-	public static function error_notice($message)
+	public static function error_notice( $message )
 	{
 		echo "<div class='error wfg-error'>";
 		echo "<p>" . $message . "</p>";
@@ -52,7 +52,7 @@ class WFG_Common_Helper
 	 * @param  string $message Message to display
 	 * @return void
 	 */
-	public static function success_notice($message)
+	public static function success_notice( $message )
 	{
 		echo "<div class='updated wfg-updated'>";
 		echo "<p>" . $message . "</p>";
@@ -67,7 +67,7 @@ class WFG_Common_Helper
 	 * @param  string $message Message to display
 	 * @return void
 	 */
-	public static function fixed_notice($message)
+	public static function fixed_notice( $message )
 	{
 		echo "<div class='wfg-fixed-notice'>";
 		echo "<p>" . $message . "<a class='wfg-fixed-notice-remove' href='javascript:void(0)'>x</a></p>";

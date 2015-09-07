@@ -1,11 +1,11 @@
 <?php
-	if (!defined('WP_UNINSTALL_PLUGIN')) {
+	if( !defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 		exit();
 	}
 
 	//cleanup plugin data
 	global $wpdb;
-	$wpdb->query($wpdb->prepare("DELETE FROM $wpdb->posts WHERE post_title=%s AND post_type=%s", 'wfg_gift_product', 'product_variation'));
+	$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->posts WHERE post_title=%s AND post_type=%s", 'wfg_gift_product', 'product_variation') );
 
 	//delete single gift options
 	delete_post_meta_by_key('_wfg_single_gift_allowed');

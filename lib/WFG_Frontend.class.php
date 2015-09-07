@@ -38,7 +38,7 @@ class WFG_Frontend
 		$this->_wfg_type = 'global';
 		$this->_minimum_qty = 1;
 
-		$this->_wfg_enabled = WFG_Settings_Helper::get($this->_wfg_type . '_enabled', true, 'global_options');
+		$this->_wfg_enabled = WFG_Settings_Helper::get( $this->_wfg_type . '_enabled', true, 'global_options' );
 		$this->_wfg_criteria = false;
 		$this->_wfg_gifts_allowed = 1;
 		$this->_wfg_products = array();
@@ -58,18 +58,18 @@ class WFG_Frontend
 	private function __init()
 	{
 		/*  Add free gifts ajax callback */
-		add_action('wp_ajax_wfg_add_gifts', array($this, 'wfg_ajax_add_free_gifts'));
-		add_action('wp_ajax_nopriv_wfg_add_gifts', array($this, 'wfg_ajax_add_free_gifts'));
+		add_action('wp_ajax_wfg_add_gifts', array($this, 'wfg_ajax_add_free_gifts') );
+		add_action('wp_ajax_nopriv_wfg_add_gifts', array($this, 'wfg_ajax_add_free_gifts') );
 
 		/* Display gifts in frontend */
-		add_action('wp_head', array($this, 'validate_gifts'));
-		add_action('wp_head', array($this, 'display_gifts'));
+		add_action( 'wp_head', array($this, 'validate_gifts') );
+		add_action( 'wp_head', array($this, 'display_gifts') );
 
 		/* Do not allow user to update quantity of gift items */
-		add_filter('woocommerce_is_sold_individually', array($this, 'wfg_disallow_qty_update'), 10, 2);
+		add_filter( 'woocommerce_is_sold_individually', array($this, 'wfg_disallow_qty_update'), 10, 2 );
 
 		/* Remove gifts when main item is removed */
-		add_action('woocommerce_cart_item_removed', array($this, 'wfg_item_removed'), 10, 2);
+		add_action( 'woocommerce_cart_item_removed', array($this, 'wfg_item_removed'), 10, 2 );
 
 	}
 
@@ -84,28 +84,28 @@ class WFG_Frontend
 	private function __get_actual_settings()
 	{
 		$total = WFG_Product_Helper::get_main_product_count();
-		if ($total == 1) {
+		if( $total == 1 ) {
 			//single gift
 			$post_id = null;
-			foreach (WC()->cart->cart_contents as $key => $content) {					
-				$is_gift_product = !empty($content['variation_id']) && (bool) get_post_meta($content['variation_id'], '_wfg_gift_product');
-				if (!$is_gift_product) {
+			foreach( WC()->cart->cart_contents as $key => $content ) {					
+				$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+				if( !$is_gift_product ) {
 					$post_id = $content['product_id'];
 					break;
 				}
 			}
 
-			if (empty($post_id)) {
+			if( empty($post_id) ) {
 				return;
 			}
 
-			$wfg_enabled = get_post_meta($post_id, '_wfg_single_gift_enabled', true);
-			if ((bool) $wfg_enabled) {
+			$wfg_enabled = get_post_meta( $post_id, '_wfg_single_gift_enabled', true );
+			if( (bool) $wfg_enabled ) {
 				$this->_wfg_type = 'single_gift';
 				$this->_wfg_enabled = $wfg_enabled;
 				$this->_wfg_criteria = true;
-				$this->_wfg_gifts_allowed = get_post_meta($post_id, '_wfg_single_gift_allowed', true);
-				$this->_wfg_products = get_post_meta($post_id, '_wfg_single_gift_products', true);
+				$this->_wfg_gifts_allowed = get_post_meta( $post_id, '_wfg_single_gift_allowed', true );
+				$this->_wfg_products = get_post_meta( $post_id, '_wfg_single_gift_products', true );
 
 				return;
 			}
@@ -114,11 +114,11 @@ class WFG_Frontend
 		//look for global settings
 		//loop through all criteria
 		$wfg_global_settings = WFG_Settings_Helper::get('', false, 'global_settings', false);
-		if (!empty($wfg_global_settings)) {
-			foreach ($wfg_global_settings as $setting) {
+		if( !empty($wfg_global_settings) ) {
+			foreach( $wfg_global_settings as $setting ) {
 				$gift_criteria = $setting['condition'];
-				$criteria = WFG_Criteria_Helper::parse_criteria($gift_criteria);
-				if ($criteria) {
+				$criteria = WFG_Criteria_Helper::parse_criteria( $gift_criteria );
+				if( $criteria ) {
 					$this->_wfg_criteria = true;
 					$this->_wfg_gifts_allowed = $setting['num_allowed'];
 					$this->_wfg_products = !empty($setting['items']) ? array_unique($setting['items']) : array();
@@ -138,23 +138,23 @@ class WFG_Frontend
 	 */
 	public function wfg_ajax_add_free_gifts()
 	{
-		if (empty($_POST) || !wp_verify_nonce($_POST['_wfg_nonce'], 'wfg_add_free_gifts')) {
+		if( empty($_POST) || !wp_verify_nonce( $_POST['_wfg_nonce'], 'wfg_add_free_gifts') ) {
 			return;
 		}
 
-		if (empty($_POST['wfg_free_items'])) {
+		if( empty($_POST['wfg_free_items']) ) {
 			return;
 		}
 
 		//check if gift item is valid
 		self::__get_actual_settings();
-		if (!WFG_Product_Helper::crosscheck_gift_items($_POST['wfg_free_items'], $this->_wfg_products)) {
+		if( !WFG_Product_Helper::crosscheck_gift_items($_POST['wfg_free_items'], $this->_wfg_products) ) {
 			return;
 		}
 
-		foreach ($_POST['wfg_free_items'] as $item) {
-			$free_product = WFG_Product_Helper::create_gift_variation($item);
-			WFG_Product_Helper::add_free_product_to_cart($item, $free_product);
+		foreach( $_POST['wfg_free_items'] as $item ) {
+			$free_product = WFG_Product_Helper::create_gift_variation( $item );
+			WFG_Product_Helper::add_free_product_to_cart( $item, $free_product );
 		}
 
 		wp_die();
@@ -171,11 +171,11 @@ class WFG_Frontend
 	 *
 	 * @return integer|void
 	 */
-	public function wfg_disallow_qty_update($return, $product)
+	public function wfg_disallow_qty_update( $return, $product )
 	{
-		if (property_exists($product, 'variation_id') && $product->variation_id) {
+		if( property_exists($product, 'variation_id') && $product->variation_id ) {
 			$is_wfg_variation = get_post_meta($product->variation_id, '_wfg_gift_product', true);
-			if ((bool) $is_wfg_variation) {
+			if( (bool) $is_wfg_variation ) {
 				return 1;
 			}
 		}
@@ -192,22 +192,22 @@ class WFG_Frontend
 	 *
 	 * @return void
 	 */
-	public function wfg_item_removed($cart_item_key, $cart)
+	public function wfg_item_removed( $cart_item_key, $cart )
 	{
 		//no need to process further if qty is zero
-		if (empty($cart->cart_contents)) {
+		if( empty($cart->cart_contents) ) {
 			return;
 		}
 
 		//check if removed item is a variation or main product
-		$removed_item = $cart->removed_cart_contents[$cart_item_key];
-		if (!empty($removed_item['variation_id'])) {
+		$removed_item = $cart->removed_cart_contents[ $cart_item_key ];
+		if( !empty($removed_item['variation_id']) ) {
 			return;
 		}
 
-		if ('global' == $this->_wfg_type && WFG_Product_Helper::get_main_product_count() == 0) {
-			foreach ($cart->cart_contents as $key => $content) {
-				WC()->cart->remove_cart_item($key);
+		if( 'global' == $this->_wfg_type && WFG_Product_Helper::get_main_product_count() == 0 ) {
+			foreach( $cart->cart_contents as $key => $content ) {
+				WC()->cart->remove_cart_item( $key );
 			}
 		}
 	}
@@ -222,43 +222,43 @@ class WFG_Frontend
 	 */
 	public function validate_gifts()
 	{
-		if (!is_cart()) {
+		if( !is_cart() ) {
 			return;
 		}
 
-		if (!$this->__gift_item_in_cart()) {
+		if( !$this->__gift_item_in_cart() ) {
 			return;
 		}
 
 		self::__get_actual_settings();
 
-		if ('single_gift' === $this->_wfg_type) {
+		if( 'single_gift' === $this->_wfg_type ) {
 			$total_items_in_cart = WFG_Product_Helper::get_main_product_count();
-			if (1 === $total_items_in_cart) {
-				foreach (WC()->cart->cart_contents as $key => $content) {
-					$is_gift_product = !empty($content['variation_id']) && (bool) get_post_meta($content['variation_id'], '_wfg_gift_product');
-					if ($is_gift_product && !in_array($content['product_id'], $this->_wfg_products)) {
-						WC()->cart->remove_cart_item($key);
+			if( 1 === $total_items_in_cart ) {
+				foreach( WC()->cart->cart_contents as $key => $content ) {
+					$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+					if( $is_gift_product && !in_array($content['product_id'], $this->_wfg_products) ) {
+						WC()->cart->remove_cart_item( $key );
 					}
 				}
 			}
 		}
 
 		$cart_items = WFG_Product_Helper::get_gift_products_in_cart();
-		if (!$this->_wfg_criteria || !WFG_Product_Helper::crosscheck_gift_items($cart_items, $this->_wfg_products)) {
+		if( !$this->_wfg_criteria || !WFG_Product_Helper::crosscheck_gift_items($cart_items, $this->_wfg_products) ) {
 			//remove gift products
 			$removed = false;
-			foreach (WC()->cart->cart_contents as $key => $content) {
-				$is_gift_product = !empty($content['variation_id']) && (bool) get_post_meta($content['variation_id'], '_wfg_gift_product');
-				if ($is_gift_product) {
-					WC()->cart->remove_cart_item($key);
+			foreach( WC()->cart->cart_contents as $key => $content ) {
+				$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+				if( $is_gift_product ) {
+					WC()->cart->remove_cart_item( $key );
 					$removed = true;
 				}
 			}
 
-			if ($removed) {
+			if( $removed ) {
 				$noticeText = WFG_Settings_Helper::get('invalid_condition_text', false, 'global_options');
-				if ($noticeText === false) {
+				if( $noticeText === false ) {
 					$noticeText = WFG_Common_Helper::translate('Gift items removed as gift criteria isn\'t fulfilled');
 				}
 				WFG_Common_Helper::fixed_notice($noticeText);
@@ -277,41 +277,41 @@ class WFG_Frontend
 	 */
 	public function display_gifts()
 	{
-		if (!is_cart()) {
+		if( !is_cart() ) {
 			return;
 		}
 
-		if ($this->__gift_item_in_cart()) {
+		if( $this->__gift_item_in_cart() ) {
 			return;
 		}
 
 		self::__get_actual_settings();
 
 		//check gift criteria
-		if ('single_gift' !== $this->_wfg_type) {
+		if( 'single_gift' !== $this->_wfg_type ) {
 			$gift_criteria = WFG_Settings_Helper::get('global_gift_criteria');
-			if (!empty($gift_criteria)) {
-				$criteria = WFG_Criteria_Helper::parse_criteria($gift_criteria);
-				if (!$criteria) {
+			if( !empty($gift_criteria) ) {
+				$criteria = WFG_Criteria_Helper::parse_criteria( $gift_criteria );
+				if( !$criteria ) {
 					return;
 				}
 			}
 		}
 
 		//enqueue required styles for this page
-		wp_enqueue_style('wfg-core-styles', plugins_url('/css/wfg-styles.css', dirname(__FILE__)));
-		wp_enqueue_style('wfg-template-styles', plugins_url('/templates/default/wfg-default.css', dirname(__FILE__)));
+		wp_enqueue_style( 'wfg-core-styles', plugins_url( '/css/wfg-styles.css', dirname(__FILE__) ) );
+		wp_enqueue_style( 'wfg-template-styles', plugins_url( '/templates/default/wfg-default.css', dirname(__FILE__) ) );
 
 		$items = WFG_Product_Helper::get_cart_products();
 
-		if ($items['count'] >= $this->_minimum_qty) {
-			if ($this->_wfg_enabled) {
+		if( $items['count'] >= $this->_minimum_qty ) {
+			if( $this->_wfg_enabled ) {
 
-				if (!empty($this->_wfg_products)) {
+				if( !empty($this->_wfg_products) ) {
 
 					$wfg_free_products = array();
-					foreach ($this->_wfg_products as $product) {
-						$wfg_free_products[] = WFG_Product_Helper::get_product_details($product);
+					foreach( $this->_wfg_products as $product ) {
+						$wfg_free_products[] = WFG_Product_Helper::get_product_details( $product );
 					}
 
 					$localize = array(
@@ -320,11 +320,11 @@ class WFG_Frontend
 
 					echo "<script>";
 						echo "/* " . "<![CDATA[ */";
-								echo 'var WFG_SPECIFIC =' . json_encode($localize);
+								echo 'var WFG_SPECIFIC =' . json_encode( $localize );
 						echo "/* ]]> */";
 					echo "</script>";
 
-					include(PLUGIN_DIR . 'templates/default/template-default.php');
+					include( PLUGIN_DIR . 'templates/default/template-default.php' );
 				}
 
 			}
@@ -337,21 +337,21 @@ class WFG_Frontend
 	 * @since  0.0.0
 	 * @access private
 	 *
-	 * @return null|boolean
+	 * @return boolean
 	 */
 	private function __gift_item_in_cart()
 	{
 		$cart = WC()->cart->get_cart();
-		if (count($cart) < 0) {
+		if ( count( $cart ) < 0 ) {
 			return;
 		}
 
 		$gift_items = array();
-		foreach ($cart as $cart_item_key => $values) {
+		foreach ( $cart as $cart_item_key => $values ) {
 			$product = $values['data'];
-			if (property_exists($product, 'variation_id') && $product->variation_id) {
+			if( property_exists($product, 'variation_id') && $product->variation_id ) {
 				$is_wfg_variation = get_post_meta($product->variation_id, '_wfg_gift_product', true);
-				if ((bool) $is_wfg_variation) {
+				if( (bool) $is_wfg_variation ) {
 					return true;
 				}
 			}
