@@ -18,7 +18,7 @@ class WFG_Product_Helper
 	 * @static
 	 *
 	 * @param  array  $options Query params
-	 * @return object|null
+	 * @return WP_Query|null
 	 */
 	public static function get_products( $options = array(), $limit = 15 )
 	{
@@ -46,7 +46,7 @@ class WFG_Product_Helper
 	 * @access public
 	 * @static
 	 *
-	 * @return array
+	 * @return array<string,integer>
 	 */
 	public static function get_product_categories()
 	{
@@ -70,7 +70,7 @@ class WFG_Product_Helper
 	 * @access public
 	 * @static
 	 *
-	 * @return array Items in cart
+	 * @return array<String> Items in cart
 	 */
 	public static function get_cart_products()
 	{
@@ -96,7 +96,7 @@ class WFG_Product_Helper
 	 * @access public
 	 * @static
 	 *
-	 * @return array Gift items in cart
+	 * @return array<String> Gift items in cart
 	 */
 	public static function get_gift_products_in_cart()
 	{
@@ -160,15 +160,15 @@ class WFG_Product_Helper
 								'post_parent' => $product_id,
 								'post_title' => 'wfg_gift_product',
 								'post_type' => 'product_variation',
-								'posts_per_page' => 1
+								'posts_per_page' => 1,
 							)
 					);
 
-		if( !empty($product_variation) ) {
+		if( ! empty($product_variation) ) {
 			//make price zero and mark it as wfg_product
-			update_post_meta( $product_variation[0]->ID, '_price', 0);
-			update_post_meta( $product_variation[0]->ID, '_regular_price', 0);
-			update_post_meta( $product_variation[0]->ID, '_wfg_gift_product', 1);
+			update_post_meta( $product_variation[0]->ID, '_price', 0 );
+			update_post_meta( $product_variation[0]->ID, '_regular_price', 0 );
+			update_post_meta( $product_variation[0]->ID, '_wfg_gift_product', 1 );
 
 			return $product_variation[0]->ID;
 		}
@@ -183,13 +183,13 @@ class WFG_Product_Helper
 			'post_title' => 'wfg_gift_product',
 			'post_type' => 'product_variation',
 			'comment_status' => 'closed',
-			'ping_status' => 'closed'
+			'ping_status' => 'closed',
 		);
 
 		$post_id = wp_insert_post( $variation );
-		update_post_meta( $post_id, '_price', 0);
-		update_post_meta( $post_id, '_regular_price', 0);
-		update_post_meta( $post_id, '_wfg_gift_product', 1);
+		update_post_meta( $post_id, '_price', 0 );
+		update_post_meta( $post_id, '_regular_price', 0 );
+		update_post_meta( $post_id, '_wfg_gift_product', 1 );
 
 		return $post_id;
 	}
