@@ -75,8 +75,8 @@
 						<div class="_wfg-repeat">
 							<select class='chosen' data-placeholder='<?php echo WFG_Common_Helper::translate( 'Choose gifts' ) ?>' name='_wfg_criteria[criteria-1][items][]' multiple>
 							<?php
-								if (! empty($condition['items'])):
-									$products = WFG_Product_Helper::get_products( array('post__in' => $condition['items']), -1 );
+								if( ! empty($condition['items']) ):
+									$products = WFG_Product_Helper::get_products( array( 'post__in' => $condition['items'] ), -1 );
 							?>
 								<p class="wfg-inputs wfg-criteria-options-wrap">
 									<?php
@@ -84,11 +84,11 @@
 											while( $products->have_posts() ) {
 												$products->the_post();
 												$selected = '';
-												if( in_array(get_the_ID(), $condition['items']) ) {
+												if( in_array( get_the_ID(), $condition['items'] ) ) {
 													$selected = 'selected';
 												}
 
-												echo "<option value='" . get_the_ID() . "' {$selected} >" . get_the_title() . "</option>";
+												echo "<option value='" . get_the_ID() . "' {$selected} >" . get_the_title() . '</option>';
 											}
 										}
 									?>
