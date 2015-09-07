@@ -36,21 +36,21 @@ class WFG_Settings_Helper
 	 */
 	protected static function __init()
 	{
-		if (self::$__initialized) {
+		if( self::$__initialized ) {
 			return;
 		}
 
 		//fetch settings
-		$settings['global_settings'] = get_option(self::PREFIX . 'global_settings');
-		$settings['global_options'][self::PREFIX . 'global_enabled'] = get_option(self::PREFIX . 'global_enabled');
-		$settings['global_options'][self::PREFIX . 'popup_overlay'] = get_option(self::PREFIX . 'popup_overlay');
-		$settings['global_options'][self::PREFIX . 'popup_heading'] = get_option(self::PREFIX . 'popup_heading');
-		$settings['global_options'][self::PREFIX . 'invalid_condition_text'] = get_option(self::PREFIX . 'invalid_condition_text');
-		$settings['global_options'][self::PREFIX . 'popup_add_gift_text'] = get_option(self::PREFIX . 'popup_add_gift_text');
-		$settings['global_options'][self::PREFIX . 'popup_cancel_text'] = get_option(self::PREFIX . 'popup_cancel_text');
-		$settings['criteria'] = get_option(self::PREFIX . 'criteria');
+		$settings['global_settings'] = get_option( self::PREFIX . 'global_settings');
+		$settings['global_options'][self::PREFIX . 'global_enabled'] = get_option( self::PREFIX . 'global_enabled' );
+		$settings['global_options'][self::PREFIX . 'popup_overlay'] = get_option( self::PREFIX . 'popup_overlay' );
+		$settings['global_options'][self::PREFIX . 'popup_heading'] = get_option( self::PREFIX . 'popup_heading' );
+		$settings['global_options'][self::PREFIX . 'invalid_condition_text'] = get_option( self::PREFIX . 'invalid_condition_text' );
+		$settings['global_options'][self::PREFIX . 'popup_add_gift_text'] = get_option( self::PREFIX . 'popup_add_gift_text' );
+		$settings['global_options'][self::PREFIX . 'popup_cancel_text'] = get_option( self::PREFIX . 'popup_cancel_text' );
+		$settings['criteria'] = get_option( self::PREFIX . 'criteria');
 
-		if (!empty($settings)) {
+		if( !empty($settings) ) {
 			self::$_settings = $settings;
 		}
 
@@ -81,7 +81,7 @@ class WFG_Settings_Helper
 	public static function has_settings()
 	{
 		self::__init();
-		return !empty(self::$_settings);
+		return !empty( self::$_settings );
 	}
 
 	/**
@@ -90,23 +90,22 @@ class WFG_Settings_Helper
 	 * @access public
 	 * @static
 	 * 
-	 * @param string $key
 	 * @return string|boolean
 	 */
-	public static function get($key, $bool = false, $type = 'global_settings', $prefix = true)
+	public static function get( $key, $bool = false, $type = 'global_settings', $prefix = true )
 	{
 		self::__init();
 
-		if ($prefix) {
+		if( $prefix ) {
 			$key = self::PREFIX . $key;
 		}
 
 
-		if (empty($key) && isset(self::$_settings[$type])) {
+		if( empty($key) && isset(self::$_settings[$type]) ) {
 			return self::$_settings[$type];
 		}
 
-		if (isset(self::$_settings[$type][$key])) {
+		if( isset(self::$_settings[$type][$key]) ) {
 			return $bool ? (bool) self::$_settings[$type][$key] : self::$_settings[$type][$key];
 		}
 

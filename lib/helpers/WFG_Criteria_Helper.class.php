@@ -19,9 +19,9 @@ class WFG_Criteria_Helper
 	 *
 	 * @param  string $slug Slug of the criteria
 	 *
-	 * @return boolean|null
+	 * @return void
 	 */
-	public static function parse_criteria($slug) {
+	public static function parse_criteria( $slug ) {
 
 		//if the slug is empty it satisfies
 		//every condition
@@ -29,7 +29,7 @@ class WFG_Criteria_Helper
 			return true;
 		}
 
-		$conditions = self::arrange_criteria($slug);
+		$conditions = self::arrange_criteria( $slug );
 
 		if (empty($conditions)) {
 			return;
@@ -37,14 +37,14 @@ class WFG_Criteria_Helper
 
 		$flag = false;
 		foreach ($conditions as $condition) {
-			$real_value = self::get_real_value($condition[0]);
-			switch ($condition[1]) {
+			$real_value = self::get_real_value( $condition[0] );
+			switch( $condition[1] ) {
 				case '<':
 					$flag = $real_value < $condition[2];
 					break;
 
 				case '>':
-					$flag = $real_value > $condition[2];
+					$flag = $real_value  > $condition[2];
 					break;
 
 				case '==':
@@ -73,7 +73,7 @@ class WFG_Criteria_Helper
 	 *
 	 * @return integer|boolean
 	 */
-	public static function get_real_value($param)
+	public static function get_real_value( $param )
 	{
 		switch ($param) {
 			case 'num_products':
@@ -95,15 +95,15 @@ class WFG_Criteria_Helper
 	 *
 	 * @return array
 	 */
-	public static function arrange_criteria($slug)
+	public static function arrange_criteria( $slug )
 	{
-		$criteria = self::get_criteria($slug);
+		$criteria = self::get_criteria( $slug );
 
 		$filtered_conditions = array();
 		if (!empty($criteria)) {
 			$conditions = $criteria;
-			unset($conditions['name']);
-			unset($conditions['slug']);
+			unset( $conditions['name'] );
+			unset( $conditions['slug'] );
 
 			foreach ($conditions as $condition) {
 				$filtered_conditions[] = $condition;
@@ -124,7 +124,7 @@ class WFG_Criteria_Helper
 	 *
 	 * @return array|boolean
 	 */
-	public static function get_criteria($slug)
+	public static function get_criteria( $slug )
 	{
 		/** @var array $all_criteria */
 		$all_criteria = WFG_Settings_Helper::get('', false, 'criteria', false);

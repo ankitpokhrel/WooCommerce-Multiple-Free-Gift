@@ -2,7 +2,7 @@
 	<div class="header clearfix">
 		<div class="left">
 			<?php
-				echo '<img src="' . plugins_url('img/wfg-logo.png', dirname(__FILE__)) . '" class="wfg-logo" />';
+				echo '<img src="' . plugins_url( 'img/wfg-logo.png', dirname(__FILE__) ) . '" class="wfg-logo" />';
 			?>
 		</div>
 		<div class="left">
@@ -17,7 +17,7 @@
 	</div>
 	<div id="wfg_free_gift_global_settings">
 		<form name="wfg_main_menu_form" method="post" action="">
-			<?php wp_nonce_field('wfg_criteria_settings', '_wfg_criteria_nonce'); ?>
+			<?php wp_nonce_field('wfg_criteria_settings','_wfg_criteria_nonce'); ?>
 			<div class="_wfg-criteria-wrap">
 				<div class="wfg-criteria">
 					<?php

@@ -2,7 +2,7 @@
 	<div class="header clearfix">
 		<div class="left">
 			<?php
-				echo '<img src="' . plugins_url('img/wfg-logo.png', dirname(__FILE__)) . '" class="wfg-logo" />';
+				echo '<img src="' . plugins_url( 'img/wfg-logo.png', dirname(__FILE__) ) . '" class="wfg-logo" />';
 			?>
 		</div>
 		<div class="left">
@@ -14,13 +14,13 @@
 	<div id="wfg_free_gift_global_settings">
 		<form name="wfg_main_menu_form" method="post" action="">
 			<h2></h2>
-			<?php wp_nonce_field('wfg_global_settings', '_wfg_global_nonce'); ?>
-			<?php if ($products->have_posts()): ?>
+			<?php wp_nonce_field('wfg_global_settings','_wfg_global_nonce'); ?>
+			<?php if( $products->have_posts() ): ?>
 				<div class="options_group">
 					<p class="form-field wfg_form_field switcher ">
 						<?php
 							$checked = '';
-							if (WFG_Settings_Helper::get('global_enabled', true, 'global_options')) {
+							if( WFG_Settings_Helper::get('global_enabled', true, 'global_options') ) {
 								$checked = 'checked';
 							}
 						?>
@@ -54,14 +54,14 @@
 								<select name="_wfg_criteria[criteria-1][condition]">
 									<option value=""><?php echo WFG_Common_Helper::translate('None') ?></option>
 									<?php
-										if (!empty($wfg_gift_criteria)) {
-											foreach ($wfg_gift_criteria as $criteria) {
+										if( !empty($wfg_gift_criteria) ) {
+											foreach( $wfg_gift_criteria as $criteria ) {
 												$selected = '';
-												if ($criteria['slug'] == $condition['condition']) {
+												if( $criteria['slug'] == $condition['condition'] ) {
 													$selected = 'selected';
 												}
 
-												echo '<option value="' . $criteria['slug'] . '" ' . $selected . '>' . $criteria['name'] . '</option>';
+												echo '<option value="' . $criteria['slug']  .'" ' . $selected . '>' . $criteria['name'] . '</option>';
 											}
 										}
 									?>
@@ -80,11 +80,11 @@
 							?>
 								<p class="wfg-inputs wfg-criteria-options-wrap">
 									<?php
-										if ($products->have_posts()) {
-											while ($products->have_posts()) {
+										if( $products->have_posts() ) {
+											while( $products->have_posts() ) {
 												$products->the_post();
 												$selected = '';
-												if (in_array(get_the_ID(), $condition['items'])) {
+												if( in_array(get_the_ID(), $condition['items']) ) {
 													$selected = 'selected';
 												}
 
@@ -104,7 +104,7 @@
 			<?php else: ?>
 				<div class="options_group">
 					<p class="wfg-info-wrapper form-field wfg_form_field switcher">
-						<?php echo get_permalink(woocommerce_get_page_id('product')) ?>
+						<?php echo get_permalink( woocommerce_get_page_id( 'product' ) ) ?>
 						<?php
 							$message = WFG_Common_Helper::translate('Please add some');
 							$message .= ' ';
