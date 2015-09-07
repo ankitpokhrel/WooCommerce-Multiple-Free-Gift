@@ -39,8 +39,8 @@ class WFG_Admin
 	public function main_menu()
 	{
 		add_object_page(
-			WFG_Common_Helper::translate('WooCommerce Multiple Free Gift'),
-			WFG_Common_Helper::translate('Woo Free Gift'),
+			WFG_Common_Helper::translate( 'WooCommerce Multiple Free Gift' ),
+			WFG_Common_Helper::translate( 'Woo Free Gift' ),
 			'manage_options',
 			'woocommerce-multiple-free-gift',
 			array($this, 'main_menu_template'),
@@ -49,9 +49,9 @@ class WFG_Admin
 
 		add_submenu_page(
 			'woocommerce-multiple-free-gift',
-			WFG_Common_Helper::translate('Gift Criteria') . ' - ' .
-			WFG_Common_Helper::translate('WooCommerce Multiple Free Gift'),
-			WFG_Common_Helper::translate('Gift Criteria'),
+			WFG_Common_Helper::translate( 'Gift Criteria' ) . ' - ' .
+			WFG_Common_Helper::translate( 'WooCommerce Multiple Free Gift' ),
+			WFG_Common_Helper::translate( 'Gift Criteria' ),
 			'manage_options',
 			'woocommerce-multiple-free-gift-criteria',
 			array($this, 'wfg_criteria_template')
@@ -59,9 +59,9 @@ class WFG_Admin
 
 		add_submenu_page(
 			'woocommerce-multiple-free-gift',
-			WFG_Common_Helper::translate('General Settings') . ' - ' .
-			WFG_Common_Helper::translate('WooCommerce Multiple Free Gift'),
-			WFG_Common_Helper::translate('General Settings'),
+			WFG_Common_Helper::translate( 'General Settings' ) . ' - ' .
+			WFG_Common_Helper::translate( 'WooCommerce Multiple Free Gift' ),
+			WFG_Common_Helper::translate( 'General Settings' ),
 			'manage_options',
 			'woocommerce-multiple-free-gift-settings',
 			array($this, 'wfg_general_settings')
@@ -81,14 +81,14 @@ class WFG_Admin
 	public function enqueue_admin_scripts()
 	{
 		//enqueue styles
-		wp_enqueue_style( 'wmfg-admin-styles', plugins_url( '/admin/css/wfg-admin-styles.css', dirname(__FILE__) ) );
+		wp_enqueue_style( 'wmfg-admin-styles', plugins_url( '/admin/css/wfg-admin-styles.css', dirname( __FILE__ ) ) );
 		wp_enqueue_style( 'wp-jquery-ui-dialog' );
-		wp_enqueue_style( 'wmfg-chosen', plugins_url( '/admin/js/plugins/chosen/chosen.min.css', dirname(__FILE__)) );
+		wp_enqueue_style( 'wmfg-chosen', plugins_url( '/admin/js/plugins/chosen/chosen.min.css', dirname( __FILE__ )) );
 
 		//enqueue scripts
-		wp_enqueue_script( 'wmfg-admin-scripts', plugins_url( '/admin/js/wfg-admin-scripts.js', dirname(__FILE__) ), array('jquery', 'jquery-ui-dialog') );
-		wp_enqueue_script( 'wmfg-chosen-lib', plugins_url( '/admin/js/plugins/chosen/chosen.jquery.min.js', dirname(__FILE__) ), array('jquery') );
-		wp_enqueue_script( 'wmfg-ajax-chosen-lib', plugins_url( '/admin/js/plugins/chosen.ajaxaddition.jquery.js', dirname(__FILE__) ), array('jquery', 'wmfg-chosen-lib') );
+		wp_enqueue_script( 'wmfg-admin-scripts', plugins_url( '/admin/js/wfg-admin-scripts.js', dirname( __FILE__ ) ), array('jquery', 'jquery-ui-dialog') );
+		wp_enqueue_script( 'wmfg-chosen-lib', plugins_url( '/admin/js/plugins/chosen/chosen.jquery.min.js', dirname( __FILE__ ) ), array('jquery') );
+		wp_enqueue_script( 'wmfg-ajax-chosen-lib', plugins_url( '/admin/js/plugins/chosen.ajaxaddition.jquery.js', dirname( __FILE__ ) ), array('jquery', 'wmfg-chosen-lib') );
 		wp_enqueue_script( 'jquery-ui-dialog', false, array('jquery') );
 		wp_enqueue_script( 'jquery-ui-sortable', false, array('jquery') );
 
@@ -96,7 +96,7 @@ class WFG_Admin
 			'wmfg-admin-scripts',
 			'WMFG_SPECIFIC',
 			array(
-				'loading_url' => plugins_url( '/admin/img/loading.gif', dirname(__FILE__) ),
+				'loading_url' => plugins_url( '/admin/img/loading.gif', dirname( __FILE__ ) ),
 			)
 		);
 	}
@@ -115,7 +115,7 @@ class WFG_Admin
 				&& wp_verify_nonce( $_POST['_wfg_global_nonce'], 'wfg_global_settings') ) {
 
 			$wfg_globally_enabled = isset( $_POST['wfg_globally_enabled'] ) ? true : false;
-			$enabled = update_option('_wfg_global_enabled', $wfg_globally_enabled);
+			$enabled = update_option( '_wfg_global_enabled', $wfg_globally_enabled );
 
 			if( isset($_POST['_wfg_criteria']) ) {
 				$user_criteria = $_POST['_wfg_criteria'];
@@ -177,7 +177,7 @@ class WFG_Admin
 					$criteria['slug'] = sanitize_title( $criteria['name'] );
 				}
 
-				if( update_option('_wfg_criteria', $user_criteria) ) {
+				if( update_option( '_wfg_criteria', $user_criteria ) ) {
 					WFG_Common_Helper::success_notice(
 							WFG_Common_Helper::translate(
 									'Criteria saved successfully'
@@ -193,8 +193,8 @@ class WFG_Admin
 					);
 				}
 			} else {
-				if( get_option('_wfg_criteria') !== false ) {
-					if( delete_option('_wfg_criteria') ) {
+				if( get_option( '_wfg_criteria' ) !== false ) {
+					if( delete_option( '_wfg_criteria' ) ) {
 						WFG_Common_Helper::success_notice(
 							WFG_Common_Helper::translate(
 									'Criteria saved successfully'
@@ -223,16 +223,16 @@ class WFG_Admin
 				&& wp_verify_nonce( $_POST['_wfg_general_nonce'], 'wfg_general_settings') ) {
 
 			$popup_overlay = isset( $_POST['_wfg_popup_overlay'] ) ? 1 : 0;
-			$popup_heading = isset( $_POST['_wfg_popup_heading'] )  ? $_POST['_wfg_popup_heading'] : WFG_Common_Helper::translate('Choose your free gift');
-			$invalid_text = isset( $_POST['_wfg_invalid_condition_text'] )  ? $_POST['_wfg_invalid_condition_text'] : WFG_Common_Helper::translate('Gift items removed as gift criteria isn\'t fulfilled');
-			$add_gift_text = isset( $_POST['_wfg_popup_add_gift_text'] ) ? $_POST['_wfg_popup_add_gift_text'] : WFG_Common_Helper::translate('Add Gifts');
-			$cancel_text = isset( $_POST['_wfg_popup_cancel_text'] ) ? $_POST['_wfg_popup_cancel_text'] : WFG_Common_Helper::translate('No Thanks');
+			$popup_heading = isset( $_POST['_wfg_popup_heading'] )  ? $_POST['_wfg_popup_heading'] : WFG_Common_Helper::translate( 'Choose your free gift' );
+			$invalid_text = isset( $_POST['_wfg_invalid_condition_text'] )  ? $_POST['_wfg_invalid_condition_text'] : WFG_Common_Helper::translate( 'Gift items removed as gift criteria isn\'t fulfilled' );
+			$add_gift_text = isset( $_POST['_wfg_popup_add_gift_text'] ) ? $_POST['_wfg_popup_add_gift_text'] : WFG_Common_Helper::translate( 'Add Gifts' );
+			$cancel_text = isset( $_POST['_wfg_popup_cancel_text'] ) ? $_POST['_wfg_popup_cancel_text'] : WFG_Common_Helper::translate( 'No Thanks' );
 
-			$overlay = update_option('_wfg_popup_overlay', $popup_overlay);
-			$heading = update_option('_wfg_popup_heading', $popup_heading);
-			$invalid = update_option('_wfg_invalid_condition_text', $invalid_text);
-			$add_gift = update_option('_wfg_popup_add_gift_text', $add_gift_text);
-			$cancel_text = update_option('_wfg_popup_cancel_text', $cancel_text);
+			$overlay = update_option( '_wfg_popup_overlay', $popup_overlay );
+			$heading = update_option( '_wfg_popup_heading', $popup_heading );
+			$invalid = update_option( '_wfg_invalid_condition_text', $invalid_text );
+			$add_gift = update_option( '_wfg_popup_add_gift_text', $add_gift_text );
+			$cancel_text = update_option( '_wfg_popup_cancel_text', $cancel_text );
 
 			if( $overlay || $heading || $invalid || $add_gift || $cancel_text ) {
 				WFG_Common_Helper::success_notice(

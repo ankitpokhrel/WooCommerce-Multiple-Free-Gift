@@ -44,7 +44,7 @@
 								<label for="wfg_gifts_allowed" class="description">
 									<?php echo WFG_Common_Helper::translate( 'Number of gifts allowed' ); ?>
 								</label>
-								<input type="text" class="input-text input-small" name="_wfg_criteria[criteria-1][num_allowed]" value="<?php echo !empty($condition['num_allowed']) ? $condition['num_allowed'] : 1 ?>" />				
+								<input type="text" class="input-text input-small" name="_wfg_criteria[criteria-1][num_allowed]" value="<?php echo ! empty($condition['num_allowed']) ? $condition['num_allowed'] : 1 ?>" />				
 							</p>
 							<p>
 							<label for="wfg_gift_criteria" class="description adjust-right-gap">
@@ -54,7 +54,7 @@
 								<select name="_wfg_criteria[criteria-1][condition]">
 									<option value=""><?php echo WFG_Common_Helper::translate( 'None' ) ?></option>
 									<?php
-										if( !empty($wfg_gift_criteria) ) {
+										if( ! empty($wfg_gift_criteria) ) {
 											foreach( $wfg_gift_criteria as $criteria ) {
 												$selected = '';
 												if( $criteria['slug'] == $condition['condition'] ) {
@@ -73,9 +73,9 @@
 							<label><?php echo WFG_Common_Helper::translate( 'Select Gift Products' ) ?></label>
 						</p>
 						<div class="_wfg-repeat">
-							<select class='chosen' data-placeholder='<?php echo WFG_Common_Helper::translate('Choose gifts') ?>' name='_wfg_criteria[criteria-1][items][]' multiple>
+							<select class='chosen' data-placeholder='<?php echo WFG_Common_Helper::translate( 'Choose gifts' ) ?>' name='_wfg_criteria[criteria-1][items][]' multiple>
 							<?php
-								if (!empty($condition['items'])):
+								if (! empty($condition['items'])):
 									$products = WFG_Product_Helper::get_products( array('post__in' => $condition['items']), -1 );
 							?>
 								<p class="wfg-inputs wfg-criteria-options-wrap">
