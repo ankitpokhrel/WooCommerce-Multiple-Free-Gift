@@ -2,7 +2,7 @@
 		<div class="header clearfix">
 			<div class="left">
 				<?php
-					echo '<img src="' . plugins_url( 'img/wfg-logo.png', dirname(__FILE__) ) . '" class="wfg-logo" />';
+					echo '<img src="' . plugins_url('img/wfg-logo.png', dirname(__FILE__)) . '" class="wfg-logo" />';
 				?>
 			</div>
 			<div class="left">
@@ -16,7 +16,7 @@
 		</p>
 	</div>
 	<form class="wfg-general-settings" method="post" action="">
-		<?php wp_nonce_field('wfg_general_settings','_wfg_general_nonce'); ?>
+		<?php wp_nonce_field('wfg_general_settings', '_wfg_general_nonce'); ?>
 		<table class="form-table">
 			<tbody>
 				<tr>
@@ -27,7 +27,7 @@
 						<?php
 							$checked = '';
 							$overlay = WFG_Settings_Helper::get('popup_overlay', true, 'global_options');
-							if( $overlay ) {
+							if ($overlay) {
 								$checked = 'checked';
 							}
 						?>
@@ -45,7 +45,7 @@
 					<td>
 						<?php
 							$heading = WFG_Settings_Helper::get('popup_heading', false, 'global_options');
-							if( $heading === false ) {
+							if ($heading === false) {
 								$heading = WFG_Common_Helper::translate('Choose your free gift');
 							}
 						?>
@@ -59,7 +59,7 @@
 					<td>
 						<?php
 							$add_gift_text = WFG_Settings_Helper::get('popup_add_gift_text', false, 'global_options');
-							if( $add_gift_text === false ) {
+							if ($add_gift_text === false) {
 								$add_gift_text = WFG_Common_Helper::translate('Add Gifts');
 							}
 						?>
@@ -73,7 +73,7 @@
 					<td>
 						<?php
 							$cancel_text = WFG_Settings_Helper::get('popup_cancel_text', false, 'global_options');
-							if( $cancel_text === false ) {
+							if ($cancel_text === false) {
 								$cancel_text = WFG_Common_Helper::translate('No Thanks');
 							}
 						?>
@@ -87,7 +87,7 @@
 					<td>
 						<?php
 							$invalidText = WFG_Settings_Helper::get('invalid_condition_text', false, 'global_options');
-							if( $invalidText === false ) {
+							if ($invalidText === false) {
 								$invalidText = WFG_Common_Helper::translate('Gift items removed as gift criteria isn\'t fulfilled');
 							}
 						?>
