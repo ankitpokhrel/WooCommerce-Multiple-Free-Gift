@@ -40,7 +40,7 @@
 				<div class="wfg-actions">
 					<button class="button wfg-button wfg-add-gifts">
 						<?php
-							$add_gift_text = WFG_Settings_Helper::get( 'popup_add_gift_text', false, 'global_options' 
+							$add_gift_text = WFG_Settings_Helper::get( 'popup_add_gift_text', false, 'global_options' );
 							if( false !== $add_gift_text ) {
 								echo $add_gift_text;
 							} else {
