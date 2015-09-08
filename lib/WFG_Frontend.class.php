@@ -368,14 +368,8 @@ class WFG_Frontend
 		self::__get_actual_settings();
 
 		//check gift criteria
-		if( 'single_gift' !== $this->_wfg_type ) {
-			$gift_criteria = WFG_Settings_Helper::get( 'global_gift_criteria' );
-			if( ! empty($gift_criteria) ) {
-				$criteria = WFG_Criteria_Helper::parse_criteria( $gift_criteria );
-				if( ! $criteria ) {
-					return;
-				}
-			}
+		if( ! $this->_check_global_gift_criteria() ) {
+			return;
 		}
 
 		//enqueue required styles for this page
@@ -385,28 +379,48 @@ class WFG_Frontend
 		$items = WFG_Product_Helper::get_cart_products();
 
 		if( $items['count'] >= $this->_minimum_qty ) {
-			if( $this->_wfg_enabled ) {
-				if( ! empty($this->_wfg_products) ) {
+			if( $this->_wfg_enabled && ! empty($this->_wfg_products) ) {
 
-					$wfg_free_products = array();
-					foreach( $this->_wfg_products as $product ) {
-						$wfg_free_products[] = WFG_Product_Helper::get_product_details( $product );
-					}
-
-					$localize = array(
-							'gifts_allowed' => (false !== $this->_wfg_gifts_allowed) ? $this->_wfg_gifts_allowed : 1
-						);
-
-					echo '<script>';
-						echo '/* ' . '<![CDATA[ */';
-								echo 'var WFG_SPECIFIC =' . json_encode( $localize );
-						echo '/* ]]> */';
-					echo '</script>';
-
-					include( PLUGIN_DIR . 'templates/default/template-default.php' );
+				$wfg_free_products = array();
+				foreach( $this->_wfg_products as $product ) {
+					$wfg_free_products[] = WFG_Product_Helper::get_product_details( $product );
 				}
+
+				$localize = array(
+						'gifts_allowed' => (false !== $this->_wfg_gifts_allowed) ? $this->_wfg_gifts_allowed : 1
+					);
+
+				echo '<script>';
+					echo '/* ' . '<![CDATA[ */';
+							echo 'var WFG_SPECIFIC =' . json_encode( $localize );
+					echo '/* ]]> */';
+				echo '</script>';
+
+				include( PLUGIN_DIR . 'templates/default/template-default.php' );
 			}
 		}
+	}
+
+	/**
+	 * Check if global gift condition is satisfied.
+	 *
+	 * @since 1.1.0
+	 * @access public
+	 *
+	 * @return boolean
+	 */
+	protected function _check_global_gift_criteria()
+	{
+		if( 'single_gift' === $this->_wfg_type ) {
+			return true;
+		}
+
+		$gift_criteria = WFG_Settings_Helper::get( 'global_gift_criteria' );
+		if( empty($gift_criteria) ) {
+			return true;
+		}
+
+		return WFG_Criteria_Helper::parse_criteria( $gift_criteria );		
 	}
 
 	/**
