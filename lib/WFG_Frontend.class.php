@@ -84,7 +84,7 @@ class WFG_Frontend
 	private function __get_actual_settings()
 	{
 		$total = WFG_Product_Helper::get_main_product_count();
-		if( $total == 1 ) {
+		if( 1 == $total ) {
 			//single gift
 			$post_id = null;
 			foreach( WC()->cart->cart_contents as $key => $content ) {
