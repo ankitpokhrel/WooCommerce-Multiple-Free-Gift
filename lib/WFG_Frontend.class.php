@@ -120,8 +120,7 @@ class WFG_Frontend
 		foreach( WC()->cart->cart_contents as $key => $content ) {
 			$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
 			if( ! $is_gift_product ) {
-				$post_id = $content['product_id'];
-				break;
+				return $content['product_id'];
 			}
 		}
 
