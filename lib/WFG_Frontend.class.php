@@ -86,15 +86,7 @@ class WFG_Frontend
 		$total = WFG_Product_Helper::get_main_product_count();
 		if( 1 == $total ) {
 			//single gift
-			$post_id = null;
-			foreach( WC()->cart->cart_contents as $key => $content ) {
-				$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
-				if( ! $is_gift_product ) {
-					$post_id = $content['product_id'];
-					break;
-				}
-			}
-
+			$post_id = $this->__get_post_id();
 			if( empty($post_id) ) {
 				return;
 			}
@@ -112,6 +104,28 @@ class WFG_Frontend
 		}
 
 		return $this->__hook_global_settings();
+	}
+
+	/**
+	 * Fetch actual product id
+	 *
+	 * @since  1.1.0
+	 * @access private
+	 *
+	 * @return void
+	 */
+	private function __get_post_id()
+	{
+		$post_id = null;
+		foreach( WC()->cart->cart_contents as $key => $content ) {
+			$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+			if( ! $is_gift_product ) {
+				$post_id = $content['product_id'];
+				break;
+			}
+		}
+
+		return $post_id;
 	}
 
 	/**
@@ -148,7 +162,8 @@ class WFG_Frontend
 	 *
 	 * @return void
 	 */
-	private function __set_actual_values() {
+	private function __set_actual_values()
+	{
 		$this->_wfg_criteria = true;
 		$this->_wfg_gifts_allowed = $setting['num_allowed'];
 		$this->_wfg_products = ! empty( $setting['items'] ) ? array_unique( $setting['items'] ) : array();
