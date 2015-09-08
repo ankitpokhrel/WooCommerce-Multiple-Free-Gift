@@ -296,7 +296,7 @@ class WFG_Frontend
 	 * @since  1.1.0
 	 * @access protected
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	protected function _validate_single_gift_condition()
 	{
@@ -309,12 +309,7 @@ class WFG_Frontend
 			return;
 		}
 
-		foreach( WC()->cart->cart_contents as $key => $content ) {
-			$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
-			if( $is_gift_product && ! in_array($content['product_id'], $this->_wfg_products) ) {
-				WC()->cart->remove_cart_item( $key );
-			}
-		}
+		return $this->__remove_gift_products();
 	}
 
 	/**
