@@ -133,7 +133,7 @@ class WFG_Product_Helper
 		$product_details = self::get_products( $options );
 
 		$wfg_product_details = array();
-		if( !empty($product_details) && !empty($product_details->posts) ) {
+		if( ! empty($product_details) && ! empty($product_details->posts) ) {
 			$wfg_product_details['detail'] = $product_details->post;
 			$product_image = wp_get_attachment_image_src( get_post_thumbnail_id( $product_details->post->ID ), 'thumbnail' );
 			$wfg_product_details['image'] = isset($product_image[0]) ? $product_image[0] : false;
@@ -210,21 +210,21 @@ class WFG_Product_Helper
 	{
 		$found = false;
 		//check if product is already in cart
-		if ( count( WC()->cart->get_cart() ) > 0 ) {
-			foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
+		if( count( WC()->cart->get_cart() ) > 0 ) {
+			foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
 				$_product = $values['data'];
-				if ( $_product->id == $product_id ) {
+				if( $_product->id == $product_id ) {
 					$found = true;
 				}
 			}
 
 			// if product not found, add it
-			if ( !$found ) {
+			if( !$found ) {
 				WC()->cart->add_to_cart(
 						$product_id,
 						1,
 						$parent_product_id,
-						array( WFG_Common_Helper::translate('Type') => WFG_Common_Helper::translate('Free Item') )
+						array( WFG_Common_Helper::translate( 'Type' ) => WFG_Common_Helper::translate( 'Free Item' ) )
 				);
 			}
 		}
@@ -244,7 +244,7 @@ class WFG_Product_Helper
 	public static function crosscheck_gift_items( $items_added, $gift_items )
 	{
 		foreach( $items_added as $item ) {
-			if( !in_array( $item, $gift_items ) ) {
+			if( ! in_array( $item, $gift_items ) ) {
 				return false;
 			}
 		}
@@ -265,8 +265,8 @@ class WFG_Product_Helper
 	{
 		$count = 0;
 		foreach( WC()->cart->cart_contents as $key => $content ) {
-			$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
-			if(  !$is_gift_product ) {
+			$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+			if( ! $is_gift_product ) {
 				$count++;
 			}
 		}
@@ -287,7 +287,7 @@ class WFG_Product_Helper
 	{
 		$count = 0;
 		foreach( WC()->cart->cart_contents as $key => $content ) {
-			$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+			$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
 			if(  !$is_gift_product ) {
 				$count += (int) $content['quantity'];
 			}
@@ -309,7 +309,7 @@ class WFG_Product_Helper
 	{
 		$products = array();
 		foreach( WC()->cart->cart_contents as $key => $content ) {
-			$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+			$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
 			if(  !$is_gift_product ) {
 				$terms = get_the_terms( $content['product_id'], 'product_cat' );
 				if( !empty($terms) ) {
@@ -340,7 +340,7 @@ class WFG_Product_Helper
 	{
 		$products = self::get_category_products_count();
 
-		return !empty($products) ? max($products) : 0;
+		return ! empty($products) ? max($products) : 0;
 	}
 
 	/**
@@ -357,9 +357,9 @@ class WFG_Product_Helper
 		$products = array();
 		foreach( WC()->cart->cart_contents as $key => $content ) {
 			$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
-			if(  !$is_gift_product ) {
+			if(  ! $is_gift_product ) {
 				$terms = get_the_terms( $content['product_id'], 'product_cat' );
-				if( !empty($terms) ) {
+				if( ! empty($terms) ) {
 					foreach( $terms as $term ) {
 						if( isset($products[ $term->term_id ]) ) {
 							$products[ $term->term_id ] += $content['quantity'];
@@ -387,7 +387,7 @@ class WFG_Product_Helper
 	{
 		$products = self::get_category_quantity_count();
 
-		return !empty($products) ? max($products) : 0;
+		return ! empty($products) ? max($products) : 0;
 	}
 
 }

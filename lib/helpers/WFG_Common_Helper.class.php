@@ -26,7 +26,7 @@ class WFG_Common_Helper
 	 */
 	public static function translate( $string )
 	{
-		return __($string, self::$textDomain);
+		return __( $string, self::$textDomain );
 	}
 
 	/**
@@ -54,9 +54,9 @@ class WFG_Common_Helper
 	 */
 	public static function success_notice( $message )
 	{
-		echo "<div class='updated wfg-updated'>";
-		echo "<p>" . $message . "</p>";
-		echo "</div>";
+		echo '<div class="updated wfg-updated">';
+		echo '<p>' . $message . '</p>';
+		echo '</div>';
 	}
 
 	/**
@@ -69,9 +69,9 @@ class WFG_Common_Helper
 	 */
 	public static function fixed_notice( $message )
 	{
-		echo "<div class='wfg-fixed-notice'>";
-		echo "<p>" . $message . "<a class='wfg-fixed-notice-remove' href='javascript:void(0)'>x</a></p>";
-		echo "</div>";
+		echo '<div class="wfg-fixed-notice">';
+		echo '<p>' . $message . '<a class="wfg-fixed-notice-remove" href="javascript:void(0)">x</a></p>';
+		echo '</div>';
 	}
 
 }
