@@ -121,7 +121,7 @@ class WFG_Frontend
 				if( $criteria ) {
 					$this->_wfg_criteria = true;
 					$this->_wfg_gifts_allowed = $setting['num_allowed'];
-					$this->_wfg_products = ! empty($setting['items']) ? array_unique($setting['items']) : array();
+					$this->_wfg_products = ! empty( $setting['items'] ) ? array_unique( $setting['items'] ) : array();
 					return;
 				}
 			}
@@ -148,7 +148,7 @@ class WFG_Frontend
 
 		//check if gift item is valid
 		self::__get_actual_settings();
-		if( ! WFG_Product_Helper::crosscheck_gift_items($_POST['wfg_free_items'], $this->_wfg_products) ) {
+		if( ! WFG_Product_Helper::crosscheck_gift_items( $_POST['wfg_free_items'], $this->_wfg_products ) ) {
 			return;
 		}
 
@@ -173,7 +173,7 @@ class WFG_Frontend
 	 */
 	public function wfg_disallow_qty_update( $return, $product )
 	{
-		if( property_exists($product, 'variation_id') && $product->variation_id ) {
+		if( property_exists( $product, 'variation_id' ) && $product->variation_id ) {
 			$is_wfg_variation = get_post_meta( $product->variation_id, '_wfg_gift_product', true );
 			if( (bool) $is_wfg_variation ) {
 				return 1;
@@ -236,7 +236,7 @@ class WFG_Frontend
 			$total_items_in_cart = WFG_Product_Helper::get_main_product_count();
 			if( 1 === $total_items_in_cart ) {
 				foreach( WC()->cart->cart_contents as $key => $content ) {
-					$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+					$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
 					if( $is_gift_product && ! in_array($content['product_id'], $this->_wfg_products) ) {
 						WC()->cart->remove_cart_item( $key );
 					}
@@ -245,7 +245,7 @@ class WFG_Frontend
 		}
 
 		$cart_items = WFG_Product_Helper::get_gift_products_in_cart();
-		if( ! $this->_wfg_criteria || ! WFG_Product_Helper::crosscheck_gift_items($cart_items, $this->_wfg_products) ) {
+		if( ! $this->_wfg_criteria || ! WFG_Product_Helper::crosscheck_gift_items( $cart_items, $this->_wfg_products ) ) {
 			//remove gift products
 			$removed = false;
 			foreach( WC()->cart->cart_contents as $key => $content ) {
@@ -257,9 +257,9 @@ class WFG_Frontend
 			}
 
 			if( $removed ) {
-				$noticeText = WFG_Settings_Helper::get('invalid_condition_text', false, 'global_options');
+				$noticeText = WFG_Settings_Helper::get( 'invalid_condition_text', false, 'global_options' );
 				if( false === $noticeText ) {
-					$noticeText = WFG_Common_Helper::translate('Gift items removed as gift criteria isn\'t fulfilled');
+					$noticeText = WFG_Common_Helper::translate( 'Gift items removed as gift criteria isn\'t fulfilled' );
 				}
 				WFG_Common_Helper::fixed_notice( $noticeText );
 			}
@@ -318,11 +318,11 @@ class WFG_Frontend
 							'gifts_allowed' => (false !== $this->_wfg_gifts_allowed) ? $this->_wfg_gifts_allowed : 1
 						);
 
-					echo "<script>";
-						echo "/* " . "<![CDATA[ */";
+					echo '<script>';
+						echo '/* ' . '<![CDATA[ */';
 								echo 'var WFG_SPECIFIC =' . json_encode( $localize );
-						echo "/* ]]> */";
-					echo "</script>";
+						echo '/* ]]> */';
+					echo '</script>';
 
 					include( PLUGIN_DIR . 'templates/default/template-default.php' );
 				}

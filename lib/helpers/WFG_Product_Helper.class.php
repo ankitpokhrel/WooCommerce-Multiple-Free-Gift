@@ -31,7 +31,7 @@ class WFG_Product_Helper
 			);
 
 		//merge default and user options
-		$args = array_merge($args, $options);
+		$args = array_merge( $args, $options );
 
 		$products = new WP_Query( $args );
 		wp_reset_postdata();
@@ -78,8 +78,8 @@ class WFG_Product_Helper
 		$cart_items = $woocommerce->cart->get_cart();
 
 		$added_products = array();
-		$added_products['count'] = count($cart_items);
-		if( !empty($cart_items) ) {
+		$added_products['count'] = count( $cart_items );
+		if( ! empty($cart_items) ) {
 			foreach( $cart_items as $cart_item ) {
 				$added_products['ids'][] = $cart_item['product_id'];
 				$added_products['objects'][] = $cart_item['data'];
@@ -219,12 +219,12 @@ class WFG_Product_Helper
 			}
 
 			// if product not found, add it
-			if( !$found ) {
+			if( ! $found ) {
 				WC()->cart->add_to_cart(
-						$product_id,
-						1,
-						$parent_product_id,
-						array( WFG_Common_Helper::translate( 'Type' ) => WFG_Common_Helper::translate( 'Free Item' ) )
+					$product_id,
+					1,
+					$parent_product_id,
+					array( WFG_Common_Helper::translate( 'Type' ) => WFG_Common_Helper::translate( 'Free Item' ) )
 				);
 			}
 		}
@@ -340,7 +340,7 @@ class WFG_Product_Helper
 	{
 		$products = self::get_category_products_count();
 
-		return ! empty($products) ? max($products) : 0;
+		return ! empty( $products ) ? max( $products ) : 0;
 	}
 
 	/**
