@@ -19,7 +19,7 @@ class WFG_Criteria_Helper
 	 *
 	 * @param  string $slug Slug of the criteria
 	 *
-	 * @return boolean|null
+	 * @return boolean
 	 */
 	public static function parse_criteria( $slug ) {
 
@@ -30,9 +30,8 @@ class WFG_Criteria_Helper
 		}
 
 		$conditions = self::arrange_criteria( $slug );
-
 		if( empty($conditions) ) {
-			return;
+			return false;
 		}
 
 		$flag = false;
