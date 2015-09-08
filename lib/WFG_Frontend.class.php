@@ -406,7 +406,7 @@ class WFG_Frontend
 		}
 
 		$localize = array(
-				'gifts_allowed' => (false !== $this->_wfg_gifts_allowed) ? $this->_wfg_gifts_allowed : 1
+				'gifts_allowed' => (false !== $this->_wfg_gifts_allowed) ? $this->_wfg_gifts_allowed : 1,
 			);
 
 		echo '<script>';
