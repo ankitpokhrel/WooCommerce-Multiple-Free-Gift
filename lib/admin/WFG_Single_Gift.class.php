@@ -95,7 +95,7 @@ class WFG_Single_Gift
 											$products->the_post();
 
 											$product_id = get_the_ID();
-											echo "<option value='" . $product_id . "' " . ( ($product_id == $product) ? 'selected' : '' ) . ">" . get_the_title() . '</option>';
+											echo "<option value='" . $product_id . "' " . ( ($product_id == $product) ? 'selected' : '' ) . '>' . get_the_title() . '</option>';
 										}
 									}
 								?>

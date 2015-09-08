@@ -58,18 +58,18 @@ class WFG_Frontend
 	private function __init()
 	{
 		/*  Add free gifts ajax callback */
-		add_action('wp_ajax_wfg_add_gifts', array($this, 'wfg_ajax_add_free_gifts') );
-		add_action('wp_ajax_nopriv_wfg_add_gifts', array($this, 'wfg_ajax_add_free_gifts') );
+		add_action( 'wp_ajax_wfg_add_gifts', array( $this, 'wfg_ajax_add_free_gifts' ) );
+		add_action( 'wp_ajax_nopriv_wfg_add_gifts', array( $this, 'wfg_ajax_add_free_gifts' ) );
 
 		/* Display gifts in frontend */
-		add_action( 'wp_head', array($this, 'validate_gifts') );
-		add_action( 'wp_head', array($this, 'display_gifts') );
+		add_action( 'wp_head', array( $this, 'validate_gifts' ) );
+		add_action( 'wp_head', array( $this, 'display_gifts' ) );
 
 		/* Do not allow user to update quantity of gift items */
-		add_filter( 'woocommerce_is_sold_individually', array($this, 'wfg_disallow_qty_update'), 10, 2 );
+		add_filter( 'woocommerce_is_sold_individually', array( $this, 'wfg_disallow_qty_update' ), 10, 2 );
 
 		/* Remove gifts when main item is removed */
-		add_action( 'woocommerce_cart_item_removed', array($this, 'wfg_item_removed'), 10, 2 );
+		add_action( 'woocommerce_cart_item_removed', array( $this, 'wfg_item_removed' ), 10, 2 );
 
 	}
 
@@ -87,9 +87,9 @@ class WFG_Frontend
 		if( $total == 1 ) {
 			//single gift
 			$post_id = null;
-			foreach( WC()->cart->cart_contents as $key => $content ) {					
-				$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
-				if( !$is_gift_product ) {
+			foreach( WC()->cart->cart_contents as $key => $content ) {
+				$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+				if( ! $is_gift_product ) {
 					$post_id = $content['product_id'];
 					break;
 				}
@@ -113,15 +113,15 @@ class WFG_Frontend
 
 		//look for global settings
 		//loop through all criteria
-		$wfg_global_settings = WFG_Settings_Helper::get('', false, 'global_settings', false);
-		if( !empty($wfg_global_settings) ) {
+		$wfg_global_settings = WFG_Settings_Helper::get( '', false, 'global_settings', false );
+		if( ! empty($wfg_global_settings) ) {
 			foreach( $wfg_global_settings as $setting ) {
 				$gift_criteria = $setting['condition'];
 				$criteria = WFG_Criteria_Helper::parse_criteria( $gift_criteria );
 				if( $criteria ) {
 					$this->_wfg_criteria = true;
 					$this->_wfg_gifts_allowed = $setting['num_allowed'];
-					$this->_wfg_products = !empty($setting['items']) ? array_unique($setting['items']) : array();
+					$this->_wfg_products = ! empty($setting['items']) ? array_unique($setting['items']) : array();
 					return;
 				}
 			}
@@ -138,7 +138,7 @@ class WFG_Frontend
 	 */
 	public function wfg_ajax_add_free_gifts()
 	{
-		if( empty($_POST) || !wp_verify_nonce( $_POST['_wfg_nonce'], 'wfg_add_free_gifts') ) {
+		if( empty($_POST) || ! wp_verify_nonce( $_POST['_wfg_nonce'], 'wfg_add_free_gifts' ) ) {
 			return;
 		}
 
@@ -148,7 +148,7 @@ class WFG_Frontend
 
 		//check if gift item is valid
 		self::__get_actual_settings();
-		if( !WFG_Product_Helper::crosscheck_gift_items($_POST['wfg_free_items'], $this->_wfg_products) ) {
+		if( ! WFG_Product_Helper::crosscheck_gift_items($_POST['wfg_free_items'], $this->_wfg_products) ) {
 			return;
 		}
 
@@ -174,7 +174,7 @@ class WFG_Frontend
 	public function wfg_disallow_qty_update( $return, $product )
 	{
 		if( property_exists($product, 'variation_id') && $product->variation_id ) {
-			$is_wfg_variation = get_post_meta($product->variation_id, '_wfg_gift_product', true);
+			$is_wfg_variation = get_post_meta( $product->variation_id, '_wfg_gift_product', true );
 			if( (bool) $is_wfg_variation ) {
 				return 1;
 			}
@@ -201,11 +201,11 @@ class WFG_Frontend
 
 		//check if removed item is a variation or main product
 		$removed_item = $cart->removed_cart_contents[ $cart_item_key ];
-		if( !empty($removed_item['variation_id']) ) {
+		if( ! empty($removed_item['variation_id']) ) {
 			return;
 		}
 
-		if( 'global' == $this->_wfg_type && WFG_Product_Helper::get_main_product_count() == 0 ) {
+		if( 'global' == $this->_wfg_type && 0 == WFG_Product_Helper::get_main_product_count() ) {
 			foreach( $cart->cart_contents as $key => $content ) {
 				WC()->cart->remove_cart_item( $key );
 			}
@@ -222,11 +222,11 @@ class WFG_Frontend
 	 */
 	public function validate_gifts()
 	{
-		if( !is_cart() ) {
+		if( ! is_cart() ) {
 			return;
 		}
 
-		if( !$this->__gift_item_in_cart() ) {
+		if( ! $this->__gift_item_in_cart() ) {
 			return;
 		}
 
@@ -237,7 +237,7 @@ class WFG_Frontend
 			if( 1 === $total_items_in_cart ) {
 				foreach( WC()->cart->cart_contents as $key => $content ) {
 					$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
-					if( $is_gift_product && !in_array($content['product_id'], $this->_wfg_products) ) {
+					if( $is_gift_product && ! in_array($content['product_id'], $this->_wfg_products) ) {
 						WC()->cart->remove_cart_item( $key );
 					}
 				}
@@ -245,11 +245,11 @@ class WFG_Frontend
 		}
 
 		$cart_items = WFG_Product_Helper::get_gift_products_in_cart();
-		if( !$this->_wfg_criteria || !WFG_Product_Helper::crosscheck_gift_items($cart_items, $this->_wfg_products) ) {
+		if( ! $this->_wfg_criteria || ! WFG_Product_Helper::crosscheck_gift_items($cart_items, $this->_wfg_products) ) {
 			//remove gift products
 			$removed = false;
 			foreach( WC()->cart->cart_contents as $key => $content ) {
-				$is_gift_product = !empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+				$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
 				if( $is_gift_product ) {
 					WC()->cart->remove_cart_item( $key );
 					$removed = true;
@@ -258,10 +258,10 @@ class WFG_Frontend
 
 			if( $removed ) {
 				$noticeText = WFG_Settings_Helper::get('invalid_condition_text', false, 'global_options');
-				if( $noticeText === false ) {
+				if( false === $noticeText ) {
 					$noticeText = WFG_Common_Helper::translate('Gift items removed as gift criteria isn\'t fulfilled');
 				}
-				WFG_Common_Helper::fixed_notice($noticeText);
+				WFG_Common_Helper::fixed_notice( $noticeText );
 			}
 		}
 
@@ -277,7 +277,7 @@ class WFG_Frontend
 	 */
 	public function display_gifts()
 	{
-		if( !is_cart() ) {
+		if( ! is_cart() ) {
 			return;
 		}
 
@@ -289,25 +289,25 @@ class WFG_Frontend
 
 		//check gift criteria
 		if( 'single_gift' !== $this->_wfg_type ) {
-			$gift_criteria = WFG_Settings_Helper::get('global_gift_criteria');
-			if( !empty($gift_criteria) ) {
+			$gift_criteria = WFG_Settings_Helper::get( 'global_gift_criteria' );
+			if( ! empty($gift_criteria) ) {
 				$criteria = WFG_Criteria_Helper::parse_criteria( $gift_criteria );
-				if( !$criteria ) {
+				if( ! $criteria ) {
 					return;
 				}
 			}
 		}
 
 		//enqueue required styles for this page
-		wp_enqueue_style( 'wfg-core-styles', plugins_url( '/css/wfg-styles.css', dirname(__FILE__) ) );
-		wp_enqueue_style( 'wfg-template-styles', plugins_url( '/templates/default/wfg-default.css', dirname(__FILE__) ) );
+		wp_enqueue_style( 'wfg-core-styles', plugins_url( '/css/wfg-styles.css', dirname( __FILE__ ) ) );
+		wp_enqueue_style( 'wfg-template-styles', plugins_url( '/templates/default/wfg-default.css', dirname( __FILE__ ) ) );
 
 		$items = WFG_Product_Helper::get_cart_products();
 
 		if( $items['count'] >= $this->_minimum_qty ) {
 			if( $this->_wfg_enabled ) {
 
-				if( !empty($this->_wfg_products) ) {
+				if( ! empty($this->_wfg_products) ) {
 
 					$wfg_free_products = array();
 					foreach( $this->_wfg_products as $product ) {
@@ -315,7 +315,7 @@ class WFG_Frontend
 					}
 
 					$localize = array(
-							'gifts_allowed' => ($this->_wfg_gifts_allowed !== false) ? $this->_wfg_gifts_allowed : 1
+							'gifts_allowed' => (false !== $this->_wfg_gifts_allowed) ? $this->_wfg_gifts_allowed : 1
 						);
 
 					echo "<script>";
@@ -350,7 +350,7 @@ class WFG_Frontend
 		foreach ( $cart as $cart_item_key => $values ) {
 			$product = $values['data'];
 			if( property_exists($product, 'variation_id') && $product->variation_id ) {
-				$is_wfg_variation = get_post_meta($product->variation_id, '_wfg_gift_product', true);
+				$is_wfg_variation = get_post_meta( $product->variation_id, '_wfg_gift_product', true );
 				if( (bool) $is_wfg_variation ) {
 					return true;
 				}

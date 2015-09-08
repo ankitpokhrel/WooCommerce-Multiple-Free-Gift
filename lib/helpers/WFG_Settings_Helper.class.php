@@ -50,7 +50,7 @@ class WFG_Settings_Helper
 		$settings['global_options'][ self::PREFIX . 'popup_cancel_text' ] = get_option( self::PREFIX . 'popup_cancel_text' );
 		$settings['criteria'] = get_option( self::PREFIX . 'criteria' );
 
-		if( !empty($settings) ) {
+		if( ! empty($settings) ) {
 			self::$_settings = $settings;
 		}
 
@@ -100,12 +100,12 @@ class WFG_Settings_Helper
 			$key = self::PREFIX . $key;
 		}
 
-		if( empty($key) && isset(self::$_settings[$type]) ) {
-			return self::$_settings[$type];
+		if( empty($key) && isset(self::$_settings[ $type ]) ) {
+			return self::$_settings[ $type ];
 		}
 
-		if( isset(self::$_settings[$type][$key]) ) {
-			return $bool ? (bool) self::$_settings[$type][$key] : self::$_settings[$type][$key];
+		if( isset(self::$_settings[ $type ][ $key ]) ) {
+			return $bool ? (bool) self::$_settings[ $type ][ $key ] : self::$_settings[ $type ][ $key ];
 		}
 
 		return false;

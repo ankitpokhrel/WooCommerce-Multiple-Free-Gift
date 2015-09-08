@@ -27,7 +27,7 @@ class Woocommerce_Multiple_Free_Gift
 		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_global_scripts') );
 
 		//add action links
-		add_filter( 'plugin_action_links_' . PLUGIN_BASE, array($this, 'wfg_action_links') );
+		add_filter( 'plugin_action_links_' . PLUGIN_BASE, array( $this, 'wfg_action_links' ) );
 	}
 
 	/**
@@ -42,11 +42,11 @@ class Woocommerce_Multiple_Free_Gift
 	 */
 	public static function wfg_activate()
 	{
-		update_option('_wfg_popup_overlay', 1);
-		update_option('_wfg_popup_heading', WFG_Common_Helper::translate('Choose your free gift'));
-		update_option('_wfg_invalid_condition_text', WFG_Common_Helper::translate('Gift items removed as gift criteria isn\'t fulfilled'));
-		update_option('_wfg_popup_add_gift_text', WFG_Common_Helper::translate('Add Gifts'));
-		update_option('_wfg_popup_cancel_text', WFG_Common_Helper::translate('No Thanks'));
+		update_option( '_wfg_popup_overlay', 1 );
+		update_option( '_wfg_popup_heading', WFG_Common_Helper::translate( 'Choose your free gift' ) );
+		update_option( '_wfg_invalid_condition_text', WFG_Common_Helper::translate( 'Gift items removed as gift criteria isn\'t fulfilled' ) );
+		update_option( '_wfg_popup_add_gift_text', WFG_Common_Helper::translate( 'Add Gifts' ) );
+		update_option( '_wfg_popup_cancel_text', WFG_Common_Helper::translate( 'No Thanks' ) );
 	}
 
 	/**
@@ -62,10 +62,10 @@ class Woocommerce_Multiple_Free_Gift
 	public function enqueue_global_scripts()
 	{
 		//enqueue styles
-		wp_enqueue_style( 'wfg-styles', plugins_url( '/css/wfg-styles.css', dirname(__FILE__) ) );
+		wp_enqueue_style( 'wfg-styles', plugins_url( '/css/wfg-styles.css', dirname( __FILE__ ) ) );
 
 		//enqueue scripts
-		wp_enqueue_script( 'wfg-scripts', plugins_url( '/js/wfg-scripts.js', dirname(__FILE__) ), array('jquery') );
+		wp_enqueue_script( 'wfg-scripts', plugins_url( '/js/wfg-scripts.js', dirname( __FILE__ ) ), array( 'jquery' ) );
 	}
 
 	/**
@@ -80,8 +80,8 @@ class Woocommerce_Multiple_Free_Gift
 	 */
 	public function wfg_validate_installation()
 	{
-		if( !class_exists('WooCommerce') ) {
-			add_action( 'admin_notices', array($this, 'wfg_plugin_required_notice') );
+		if( ! class_exists('WooCommerce') ) {
+			add_action( 'admin_notices', array( $this, 'wfg_plugin_required_notice' ) );
 		}
 	}
 
@@ -96,13 +96,11 @@ class Woocommerce_Multiple_Free_Gift
 	public function wfg_plugin_required_notice()
 	{
 		WFG_Common_Helper::error_notice(
-
 			WFG_Common_Helper::translate(
 				'WooCommerce Free Gift plugin requires
 				<a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a>
 				plugin to work. Please make sure that WooCommerce is installed and activated.'
 			)
-
 		);
 	}
 

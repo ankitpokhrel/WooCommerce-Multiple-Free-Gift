@@ -44,7 +44,7 @@ class WFG_Criteria_Helper
 					break;
 
 				case '>':
-					$flag = $real_value  > $condition[2];
+					$flag = $real_value > $condition[2];
 					break;
 
 				case '==':
