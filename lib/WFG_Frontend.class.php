@@ -111,19 +111,33 @@ class WFG_Frontend
 			}
 		}
 
+		return $this->__hook_global_settings();
+	}
+
+	/**
+	 * Hook global settings to actual settings
+	 *
+	 * @since  0.0.0
+	 * @access private
+	 *
+	 * @return void
+	 */
+	private function __hook_global_settings()
+	{
 		//look for global settings
-		//loop through all criteria
 		$wfg_global_settings = WFG_Settings_Helper::get( '', false, 'global_settings', false );
-		if( ! empty($wfg_global_settings) ) {
-			foreach( $wfg_global_settings as $setting ) {
-				$gift_criteria = $setting['condition'];
-				$criteria = WFG_Criteria_Helper::parse_criteria( $gift_criteria );
-				if( $criteria ) {
-					$this->_wfg_criteria = true;
-					$this->_wfg_gifts_allowed = $setting['num_allowed'];
-					$this->_wfg_products = ! empty( $setting['items'] ) ? array_unique( $setting['items'] ) : array();
-					return;
-				}
+		if( empty($wfg_global_settings) ) {
+			return;
+		}
+
+		foreach( $wfg_global_settings as $setting ) {
+			$gift_criteria = $setting['condition'];
+			$criteria = WFG_Criteria_Helper::parse_criteria( $gift_criteria );
+			if( $criteria ) {
+				$this->_wfg_criteria = true;
+				$this->_wfg_gifts_allowed = $setting['num_allowed'];
+				$this->_wfg_products = ! empty( $setting['items'] ) ? array_unique( $setting['items'] ) : array();
+				return;
 			}
 		}
 	}
