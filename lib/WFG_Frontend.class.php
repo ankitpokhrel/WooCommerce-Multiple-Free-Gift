@@ -279,15 +279,28 @@ class WFG_Frontend
 		if( ! $this->_wfg_criteria || ! WFG_Product_Helper::crosscheck_gift_items( $cart_items, $this->_wfg_products ) ) {
 			//remove gift products
 			if( $this->__remove_gift_products() ) {
-				$noticeText = WFG_Settings_Helper::get( 'invalid_condition_text', false, 'global_options' );
-				if( false === $noticeText ) {
-					$noticeText = WFG_Common_Helper::translate( 'Gift items removed as gift criteria isn\'t fulfilled' );
-				}
-
-				WFG_Common_Helper::fixed_notice( $noticeText );
+				$this->__set_notice_text();
 			}
 		}
 
+	}
+
+	/**
+	 * Set notice text.
+	 *
+	 * @since  1.1.0
+	 * @access private
+	 *
+	 * @return void
+	 */
+	private function __set_notice_text()
+	{
+		$noticeText = WFG_Settings_Helper::get( 'invalid_condition_text', false, 'global_options' );
+		if( false === $noticeText ) {
+			$noticeText = WFG_Common_Helper::translate( 'Gift items removed as gift criteria isn\'t fulfilled' );
+		}
+
+		WFG_Common_Helper::fixed_notice( $noticeText );
 	}
 
 	/**
@@ -373,7 +386,6 @@ class WFG_Frontend
 
 		if( $items['count'] >= $this->_minimum_qty ) {
 			if( $this->_wfg_enabled ) {
-
 				if( ! empty($this->_wfg_products) ) {
 
 					$wfg_free_products = array();
@@ -393,7 +405,6 @@ class WFG_Frontend
 
 					include( PLUGIN_DIR . 'templates/default/template-default.php' );
 				}
-
 			}
 		}
 	}
