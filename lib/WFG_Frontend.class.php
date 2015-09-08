@@ -379,26 +379,44 @@ class WFG_Frontend
 		$items = WFG_Product_Helper::get_cart_products();
 
 		if( $items['count'] >= $this->_minimum_qty ) {
-			if( $this->_wfg_enabled && ! empty($this->_wfg_products) ) {
-
-				$wfg_free_products = array();
-				foreach( $this->_wfg_products as $product ) {
-					$wfg_free_products[] = WFG_Product_Helper::get_product_details( $product );
-				}
-
-				$localize = array(
-						'gifts_allowed' => (false !== $this->_wfg_gifts_allowed) ? $this->_wfg_gifts_allowed : 1
-					);
-
-				echo '<script>';
-					echo '/* ' . '<![CDATA[ */';
-							echo 'var WFG_SPECIFIC =' . json_encode( $localize );
-					echo '/* ]]> */';
-				echo '</script>';
-
-				include( PLUGIN_DIR . 'templates/default/template-default.php' );
-			}
+			$this->_show_gifts();
 		}
+	}
+
+	/**
+	 * Display gifts.
+	 *
+	 * @since 1.1.0
+	 * @access public
+	 *
+	 * @return void
+	 */
+	protected function _show_gifts()
+	{
+		if( !$this->_wfg_enabled ) {
+			return;
+		}
+
+		if( empty($this->_wfg_products) ) {
+			return;
+		}
+
+		$wfg_free_products = array();
+		foreach( $this->_wfg_products as $product ) {
+			$wfg_free_products[] = WFG_Product_Helper::get_product_details( $product );
+		}
+
+		$localize = array(
+				'gifts_allowed' => (false !== $this->_wfg_gifts_allowed) ? $this->_wfg_gifts_allowed : 1
+			);
+
+		echo '<script>';
+			echo '/* ' . '<![CDATA[ */';
+					echo 'var WFG_SPECIFIC =' . json_encode( $localize );
+			echo '/* ]]> */';
+		echo '</script>';
+
+		include( PLUGIN_DIR . 'templates/default/template-default.php' );
 	}
 
 	/**
