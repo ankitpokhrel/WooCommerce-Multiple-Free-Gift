@@ -117,7 +117,7 @@ class WFG_Frontend
 	/**
 	 * Hook global settings to actual settings
 	 *
-	 * @since  0.0.0
+	 * @since  1.1.0
 	 * @access private
 	 *
 	 * @return void
@@ -134,12 +134,24 @@ class WFG_Frontend
 			$gift_criteria = $setting['condition'];
 			$criteria = WFG_Criteria_Helper::parse_criteria( $gift_criteria );
 			if( $criteria ) {
-				$this->_wfg_criteria = true;
-				$this->_wfg_gifts_allowed = $setting['num_allowed'];
-				$this->_wfg_products = ! empty( $setting['items'] ) ? array_unique( $setting['items'] ) : array();
+				$this->__set_actual_values();
 				return;
 			}
 		}
+	}
+
+	/**
+	 * Set required values
+	 *
+	 * @since  1.1.0
+	 * @access private
+	 *
+	 * @return void
+	 */
+	private function __set_actual_values() {
+		$this->_wfg_criteria = true;
+		$this->_wfg_gifts_allowed = $setting['num_allowed'];
+		$this->_wfg_products = ! empty( $setting['items'] ) ? array_unique( $setting['items'] ) : array();
 	}
 
 	/**
