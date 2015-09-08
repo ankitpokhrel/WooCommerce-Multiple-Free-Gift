@@ -147,7 +147,7 @@ class WFG_Frontend
 			$gift_criteria = $setting['condition'];
 			$criteria = WFG_Criteria_Helper::parse_criteria( $gift_criteria );
 			if( $criteria ) {
-				$this->__set_actual_values($setting);
+				$this->__set_actual_values( $setting );
 				return;
 			}
 		}
@@ -161,7 +161,7 @@ class WFG_Frontend
 	 *
 	 * @return void
 	 */
-	private function __set_actual_values($setting)
+	private function __set_actual_values( $setting )
 	{
 		$this->_wfg_criteria = true;
 		$this->_wfg_gifts_allowed = $setting['num_allowed'];
