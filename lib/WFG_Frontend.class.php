@@ -112,7 +112,7 @@ class WFG_Frontend
 	 * @since  1.1.0
 	 * @access private
 	 *
-	 * @return void
+	 * @return integer|null
 	 */
 	private function __get_post_id()
 	{
@@ -314,12 +314,12 @@ class WFG_Frontend
 	protected function _validate_single_gift_condition()
 	{
 		if( 'single_gift' !== $this->_wfg_type ) {
-			return;
+			return false;
 		}
 
 		$total_items_in_cart = WFG_Product_Helper::get_main_product_count();
 		if( 1 !== $total_items_in_cart ) {
-			return;
+			return false;
 		}
 
 		return $this->__remove_gift_products();
