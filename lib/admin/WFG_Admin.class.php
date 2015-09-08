@@ -112,7 +112,7 @@ class WFG_Admin
 	public function main_menu_template()
 	{
 		if( ( isset($_POST['_wfg_global_hidden']) && $_POST['_wfg_global_hidden'] == 'Y' )
-				&& wp_verify_nonce( $_POST['_wfg_global_nonce'], 'wfg_global_settings') ) {
+				&& wp_verify_nonce( $_POST['_wfg_global_nonce'], 'wfg_global_settings' ) ) {
 
 			$wfg_globally_enabled = isset( $_POST['wfg_globally_enabled'] ) ? true : false;
 			$enabled = update_option( '_wfg_global_enabled', $wfg_globally_enabled );
@@ -125,20 +125,20 @@ class WFG_Admin
 				unset( $user_criteria['_wp_http_referer'] );
 				unset( $user_criteria['_wfg_global_hidden'] );
 
-				$conditionSaved = update_option('_wfg_global_settings', $user_criteria);
+				$conditionSaved = update_option( '_wfg_global_settings', $user_criteria );
 				if( $enabled || $conditionSaved ) {
 					WFG_Common_Helper::success_notice(
 							WFG_Common_Helper::translate(
-									'Gift conditions saved successfully'
-								)
+								'Gift conditions saved successfully'
+							)
 						);
 
 					WFG_Settings_Helper::force_init();
 				} else {
 					WFG_Common_Helper::error_notice(
 						WFG_Common_Helper::translate(
-								'There was a problem. Please try again.'
-							)
+							'There was a problem. Please try again.'
+						)
 					);
 				}
 			} else {
@@ -146,15 +146,15 @@ class WFG_Admin
 					if( delete_option('_wfg_global_settings') ) {
 						WFG_Common_Helper::success_notice(
 							WFG_Common_Helper::translate(
-									'Gift conditions emptied successfully'
-								)
+								'Gift conditions emptied successfully'
+							)
 						);
 					}
 				} else {
 					WFG_Common_Helper::error_notice(
 						WFG_Common_Helper::translate(
-								'No gift conditions to save. You can add conditions by clicking <em>Add new gift condition</em> button'
-							)
+							'No gift conditions to save. You can add conditions by clicking <em>Add new gift condition</em> button'
+						)
 					);
 				}
 			}
@@ -163,13 +163,13 @@ class WFG_Admin
 			WFG_Settings_Helper::force_init();
 		}
 
-		include "pages/main_menu_page.php";
+		include 'pages/main_menu_page.php';
 	}
 
 	public function wfg_criteria_template()
 	{
 		if( ( isset($_POST['_wfg_criteria_hidden']) && $_POST['_wfg_criteria_hidden'] == 'Y' )
-				&& wp_verify_nonce( $_POST['_wfg_criteria_nonce'], 'wfg_criteria_settings') ) {
+				&& wp_verify_nonce( $_POST['_wfg_criteria_nonce'], 'wfg_criteria_settings' ) ) {
 
 			if( isset($_POST['_wfg_criteria']) ) {
 				$user_criteria = $_POST['_wfg_criteria'];
@@ -180,16 +180,16 @@ class WFG_Admin
 				if( update_option( '_wfg_criteria', $user_criteria ) ) {
 					WFG_Common_Helper::success_notice(
 							WFG_Common_Helper::translate(
-									'Criteria saved successfully'
-								)
+								'Criteria saved successfully'
+							)
 						);
 
 					WFG_Settings_Helper::force_init();
 				} else {
 					WFG_Common_Helper::error_notice(
 						WFG_Common_Helper::translate(
-								'There was a problem. Please try again.'
-							)
+							'There was a problem. Please try again.'
+						)
 					);
 				}
 			} else {
@@ -197,15 +197,15 @@ class WFG_Admin
 					if( delete_option( '_wfg_criteria' ) ) {
 						WFG_Common_Helper::success_notice(
 							WFG_Common_Helper::translate(
-									'Criteria saved successfully'
-								)
+								'Criteria saved successfully'
+							)
 						);
 					}
 				} else {
 					WFG_Common_Helper::error_notice(
 						WFG_Common_Helper::translate(
-								'No criteria to save. You can add criteria by clicking <em>Add New Criteria</em> button'
-							)
+							'No criteria to save. You can add criteria by clicking <em>Add New Criteria</em> button'
+						)
 					);
 				}
 			}
@@ -213,14 +213,14 @@ class WFG_Admin
 			//update settings
 			WFG_Settings_Helper::force_init();
 		}
-		
-		include "pages/gift_criteria.php";
+
+		include 'pages/gift_criteria.php';
 	}
 
 	public function wfg_general_settings()
 	{
 		if( ( isset($_POST['_wfg_general_settings_submitted']) && $_POST['_wfg_general_settings_submitted'] == 'Y' )
-				&& wp_verify_nonce( $_POST['_wfg_general_nonce'], 'wfg_general_settings') ) {
+				&& wp_verify_nonce( $_POST['_wfg_general_nonce'], 'wfg_general_settings' ) ) {
 
 			$popup_overlay = isset( $_POST['_wfg_popup_overlay'] ) ? 1 : 0;
 			$popup_heading = isset( $_POST['_wfg_popup_heading'] )  ? $_POST['_wfg_popup_heading'] : WFG_Common_Helper::translate( 'Choose your free gift' );
@@ -236,43 +236,43 @@ class WFG_Admin
 
 			if( $overlay || $heading || $invalid || $add_gift || $cancel_text ) {
 				WFG_Common_Helper::success_notice(
-							WFG_Common_Helper::translate(
-									'Settings saved successfully'
-								)
-						);
+						WFG_Common_Helper::translate(
+							'Settings saved successfully'
+						)
+				);
 
 				//update settings
 				WFG_Settings_Helper::force_init();
 			} else {
 				WFG_Common_Helper::error_notice(
-						WFG_Common_Helper::translate(
-								'No changes to save.'
-							)
-					);
+					WFG_Common_Helper::translate(
+							'No changes to save.'
+						)
+				);
 			}
 		}
 
-		include "pages/general_settings.php";
+		include 'pages/general_settings.php';
 	}
 
 	public function ajax_product_list_callback()
 	{
 		$q = isset($_POST['data']['q']) ? $_POST['data']['q'] : '';
 
-		if (!$q) {
+		if( !$q ) {
 			return null;
 		}
 
 		$products = WFG_Product_Helper::get_products( array( 's' => $q ) );
 
 		$list = array();
-		if (!empty($products) && !empty($products->posts)) {
-			foreach ($products->posts as $product) {
+		if( ! empty($products) && ! empty($products->posts) ) {
+			foreach( $products->posts as $product ) {
 				$list[] = array( 'id' => $product->ID, 'text' => $product->post_title );
 			}
 		}
 
-		echo json_encode(array( 'q' => $q, 'results' => $list) );
+		echo json_encode( array( 'q' => $q, 'results' => $list ) );
 		wp_die();
 	}
 }
