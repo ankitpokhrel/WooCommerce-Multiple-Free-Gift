@@ -84,7 +84,7 @@ class WFG_Single_Gift
 			<div class="_wfg-repeat">
 				<select class='chosen' data-placeholder='<?php echo WFG_Common_Helper::translate( 'Choose gifts' ) ?>' name='_wfg_single_gift_products[]' multiple>
 				<?php
-					if (!empty($wfg_products)):
+					if( ! empty($wfg_products) ):
 						$products = WFG_Product_Helper::get_products( array( 'post__in' => $wfg_products, 'post__not_in' => array( $post_id ) ), -1 );
 						foreach( $wfg_products as $key => $product ):
 				?>
@@ -95,7 +95,7 @@ class WFG_Single_Gift
 											$products->the_post();
 
 											$product_id = get_the_ID();
-											echo "<option value='" . $product_id . "' " . ( ($product_id == $product) ? 'selected' : '' ) . ">" . get_the_title() . "</option>";
+											echo "<option value='" . $product_id . "' " . ( ($product_id == $product) ? 'selected' : '' ) . ">" . get_the_title() . '</option>';
 										}
 									}
 								?>
@@ -144,12 +144,12 @@ class WFG_Single_Gift
 		}
 
 		update_post_meta( $post_id, '_wfg_single_gift_allowed', $wfg_gifts_allowed );
-		if( !empty($_POST['_wfg_single_gift_products']) ) {
-			$products = array_unique($_POST['_wfg_single_gift_products']);
-			update_post_meta( $post_id, '_wfg_single_gift_products', $products);
+		if( ! empty($_POST['_wfg_single_gift_products']) ) {
+			$products = array_unique( $_POST['_wfg_single_gift_products'] );
+			update_post_meta( $post_id, '_wfg_single_gift_products', $products );
 		} else {
 			delete_post_meta( $post_id, '_wfg_single_gift_products' );
-		}	
+		}
 	}
 
 }

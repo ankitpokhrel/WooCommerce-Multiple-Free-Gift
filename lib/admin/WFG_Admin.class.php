@@ -111,7 +111,7 @@ class WFG_Admin
 	 */
 	public function main_menu_template()
 	{
-		if( ( isset($_POST['_wfg_global_hidden']) && $_POST['_wfg_global_hidden'] == 'Y' )
+		if( ( isset($_POST['_wfg_global_hidden']) && 'Y' == $_POST['_wfg_global_hidden'] )
 				&& wp_verify_nonce( $_POST['_wfg_global_nonce'], 'wfg_global_settings' ) ) {
 
 			$wfg_globally_enabled = isset( $_POST['wfg_globally_enabled'] ) ? true : false;
@@ -128,10 +128,10 @@ class WFG_Admin
 				$conditionSaved = update_option( '_wfg_global_settings', $user_criteria );
 				if( $enabled || $conditionSaved ) {
 					WFG_Common_Helper::success_notice(
-							WFG_Common_Helper::translate(
-								'Gift conditions saved successfully'
-							)
-						);
+						WFG_Common_Helper::translate(
+							'Gift conditions saved successfully'
+						)
+					);
 
 					WFG_Settings_Helper::force_init();
 				} else {
@@ -142,8 +142,8 @@ class WFG_Admin
 					);
 				}
 			} else {
-				if( get_option('_wfg_global_settings') !== false ) {
-					if( delete_option('_wfg_global_settings') ) {
+				if( get_option( '_wfg_global_settings' ) !== false ) {
+					if( delete_option( '_wfg_global_settings' ) ) {
 						WFG_Common_Helper::success_notice(
 							WFG_Common_Helper::translate(
 								'Gift conditions emptied successfully'
@@ -179,10 +179,10 @@ class WFG_Admin
 
 				if( update_option( '_wfg_criteria', $user_criteria ) ) {
 					WFG_Common_Helper::success_notice(
-							WFG_Common_Helper::translate(
-								'Criteria saved successfully'
-							)
-						);
+						WFG_Common_Helper::translate(
+							'Criteria saved successfully'
+						)
+					);
 
 					WFG_Settings_Helper::force_init();
 				} else {
@@ -236,9 +236,9 @@ class WFG_Admin
 
 			if( $overlay || $heading || $invalid || $add_gift || $cancel_text ) {
 				WFG_Common_Helper::success_notice(
-						WFG_Common_Helper::translate(
-							'Settings saved successfully'
-						)
+					WFG_Common_Helper::translate(
+						'Settings saved successfully'
+					)
 				);
 
 				//update settings
@@ -246,8 +246,8 @@ class WFG_Admin
 			} else {
 				WFG_Common_Helper::error_notice(
 					WFG_Common_Helper::translate(
-							'No changes to save.'
-						)
+						'No changes to save.'
+					)
 				);
 			}
 		}
