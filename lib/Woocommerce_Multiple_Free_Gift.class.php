@@ -24,7 +24,7 @@ class Woocommerce_Multiple_Free_Gift
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
 
 		//enqueue necessary scripts and styles
-		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_global_scripts') );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_global_scripts' ) );
 
 		//add action links
 		add_filter( 'plugin_action_links_' . PLUGIN_BASE, array( $this, 'wfg_action_links' ) );
@@ -80,7 +80,7 @@ class Woocommerce_Multiple_Free_Gift
 	 */
 	public function wfg_validate_installation()
 	{
-		if( ! class_exists('WooCommerce') ) {
+		if( ! class_exists( 'WooCommerce' ) ) {
 			add_action( 'admin_notices', array( $this, 'wfg_plugin_required_notice' ) );
 		}
 	}
