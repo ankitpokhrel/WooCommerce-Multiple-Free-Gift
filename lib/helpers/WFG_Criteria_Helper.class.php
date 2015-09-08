@@ -19,7 +19,7 @@ class WFG_Criteria_Helper
 	 *
 	 * @param  string $slug Slug of the criteria
 	 *
-	 * @return void
+	 * @return boolean|null
 	 */
 	public static function parse_criteria( $slug ) {
 
@@ -100,8 +100,10 @@ class WFG_Criteria_Helper
 		$criteria = self::get_criteria( $slug );
 
 		$filtered_conditions = array();
-		if( !empty($criteria) ) {
+		if( ! empty($criteria) ) {
+			/** @var array $conditions */
 			$conditions = $criteria;
+
 			unset( $conditions['name'] );
 			unset( $conditions['slug'] );
 

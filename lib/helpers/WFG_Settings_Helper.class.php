@@ -42,12 +42,12 @@ class WFG_Settings_Helper
 
 		//fetch settings
 		$settings['global_settings'] = get_option( self::PREFIX . 'global_settings' );
-		$settings['global_options'][self::PREFIX . 'global_enabled'] = get_option( self::PREFIX . 'global_enabled' );
-		$settings['global_options'][self::PREFIX . 'popup_overlay'] = get_option( self::PREFIX . 'popup_overlay' );
-		$settings['global_options'][self::PREFIX . 'popup_heading'] = get_option( self::PREFIX . 'popup_heading' );
-		$settings['global_options'][self::PREFIX . 'invalid_condition_text'] = get_option( self::PREFIX . 'invalid_condition_text' );
-		$settings['global_options'][self::PREFIX . 'popup_add_gift_text'] = get_option( self::PREFIX . 'popup_add_gift_text' );
-		$settings['global_options'][self::PREFIX . 'popup_cancel_text'] = get_option( self::PREFIX . 'popup_cancel_text' );
+		$settings['global_options'][ self::PREFIX . 'global_enabled' ] = get_option( self::PREFIX . 'global_enabled' );
+		$settings['global_options'][ self::PREFIX . 'popup_overlay' ] = get_option( self::PREFIX . 'popup_overlay' );
+		$settings['global_options'][ self::PREFIX . 'popup_heading' ] = get_option( self::PREFIX . 'popup_heading' );
+		$settings['global_options'][ self::PREFIX . 'invalid_condition_text' ] = get_option( self::PREFIX . 'invalid_condition_text' );
+		$settings['global_options'][ self::PREFIX . 'popup_add_gift_text' ] = get_option( self::PREFIX . 'popup_add_gift_text' );
+		$settings['global_options'][ self::PREFIX . 'popup_cancel_text' ] = get_option( self::PREFIX . 'popup_cancel_text' );
 		$settings['criteria'] = get_option( self::PREFIX . 'criteria' );
 
 		if( !empty($settings) ) {

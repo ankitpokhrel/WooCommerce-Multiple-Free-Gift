@@ -39,9 +39,9 @@ class WFG_Common_Helper
 	 */
 	public static function error_notice( $message )
 	{
-		echo "<div class='error wfg-error'>";
-		echo "<p>" . $message . "</p>";
-		echo "</div>";
+		echo '<div class="error wfg-error">';
+		echo '<p>' . $message . '</p>';
+		echo '</div>';
 	}
 
 	/**
