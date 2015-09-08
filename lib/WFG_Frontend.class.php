@@ -377,7 +377,6 @@ class WFG_Frontend
 		wp_enqueue_style( 'wfg-template-styles', plugins_url( '/templates/default/wfg-default.css', dirname( __FILE__ ) ) );
 
 		$items = WFG_Product_Helper::get_cart_products();
-
 		if( $items['count'] >= $this->_minimum_qty ) {
 			$this->_show_gifts();
 		}
@@ -393,7 +392,7 @@ class WFG_Frontend
 	 */
 	protected function _show_gifts()
 	{
-		if( !$this->_wfg_enabled ) {
+		if( ! $this->_wfg_enabled ) {
 			return;
 		}
 
