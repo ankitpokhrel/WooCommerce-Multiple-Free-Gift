@@ -173,11 +173,13 @@ class WFG_Frontend
 	 */
 	public function wfg_disallow_qty_update( $return, $product )
 	{
-		if( property_exists( $product, 'variation_id' ) && $product->variation_id ) {
-			$is_wfg_variation = get_post_meta( $product->variation_id, '_wfg_gift_product', true );
-			if( (bool) $is_wfg_variation ) {
-				return 1;
-			}
+		if( ! property_exists( $product, 'variation_id' ) || ! $product->variation_id ) {
+			return 0;
+		}
+
+		$is_wfg_variation = get_post_meta( $product->variation_id, '_wfg_gift_product', true );
+		if( (bool) $is_wfg_variation ) {
+			return 1;
 		}
 	}
 
@@ -349,7 +351,7 @@ class WFG_Frontend
 		$gift_items = array();
 		foreach ( $cart as $cart_item_key => $values ) {
 			$product = $values['data'];
-			if( property_exists($product, 'variation_id') && $product->variation_id ) {
+			if( property_exists( $product, 'variation_id' ) && $product->variation_id ) {
 				$is_wfg_variation = get_post_meta( $product->variation_id, '_wfg_gift_product', true );
 				if( (bool) $is_wfg_variation ) {
 					return true;
