@@ -73,7 +73,7 @@
 							<label><?php echo WFG_Common_Helper::translate( 'Select Gift Products' ) ?></label>
 						</p>
 						<div class="_wfg-repeat">
-							<select class='chosen' data-placeholder='<?php echo WFG_Common_Helper::translate( 'Choose gifts' ) ?>' name='_wfg_criteria[criteria-1][items][]' multiple>
+							<select class='wfg-ajax-select' data-placeholder='<?php echo WFG_Common_Helper::translate( 'Choose gifts' ) ?>' name='_wfg_criteria[criteria-1][items][]' multiple>
 							<?php
 								if( ! empty($condition['items']) ):
 									$products = WFG_Product_Helper::get_products( array( 'post__in' => $condition['items'] ), -1 );
