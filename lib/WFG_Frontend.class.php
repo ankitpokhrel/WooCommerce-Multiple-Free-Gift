@@ -338,7 +338,7 @@ class WFG_Frontend
 		$removed = false;
 		foreach( WC()->cart->cart_contents as $key => $content ) {
 			$is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
-			if( $is_gift_product ) {
+			if( $is_gift_product && ! in_array( $content['product_id'], $this->_wfg_products ) ) {
 				WC()->cart->remove_cart_item( $key );
 				$removed = true;
 			}
@@ -455,7 +455,6 @@ class WFG_Frontend
 			return;
 		}
 
-		$gift_items = array();
 		foreach ( $cart as $cart_item_key => $values ) {
 			$product = $values['data'];
 			if( property_exists( $product, 'variation_id' ) && $product->variation_id ) {
