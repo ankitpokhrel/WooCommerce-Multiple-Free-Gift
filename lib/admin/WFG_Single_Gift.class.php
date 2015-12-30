@@ -82,7 +82,7 @@ class WFG_Single_Gift
 					?>" />
 			</p>
 			<div class="_wfg-repeat">
-				<select class='chosen' data-placeholder='<?php echo WFG_Common_Helper::translate( 'Choose gifts' ) ?>' name='_wfg_single_gift_products[]' multiple>
+				<select class='wfg-ajax-select' data-placeholder='<?php echo WFG_Common_Helper::translate( 'Choose gifts' ) ?>' name='_wfg_single_gift_products[]' multiple>
 				<?php
 					if( ! empty($wfg_products) ):
 						$products = WFG_Product_Helper::get_products( array( 'post__in' => $wfg_products, 'post__not_in' => array( $post_id ) ), -1 );
