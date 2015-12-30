@@ -3,10 +3,10 @@ Contributors: ankitpokhrel, ncreep
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J9FVY3ESPPD58
 Tags: woocommerce, woocommerce free gift, woocommerce gift management, woocommerce multiple gifts, woocommerce multiple free gifts, woocommerce gift manager, woocommerce plugin, woocommerce freebies, woocommerce prizes
 Requires at least: 3.8
-Tested up to: 4.2
+Tested up to: 4.4
 WC requires at least: 2.3
-WC tested up to: 2.3
-Stable tag: 1.0.1
+WC tested up to: 2.4.6
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,7 +27,10 @@ WooCommerce Multiple Free Gift Plugin is a WordPress WooCommerce plugin that mak
   – Rule can be from very simple to highly complex.  
   – You can write multiple fallback condition for gifts.  
   – If condition A isn’t fulfilled the plugin will check for next condition and so on.  
-  – Dedicated email and chat support.  
+  - Automatic gift addition.  
+  - Multiple themes.  
+  - Option to exclude sales and tax amount from calculation.  
+  – Priority support.  
   – Access to more advance features and future updates for free.  
 
 > [Learn more &raquo;](http://ankitpokhrel.com.np/blog/downloads/woocommerce-multiple-free-gift-plugin-pro/ "WooCommerce Multiple Free Gift PRO")
@@ -55,6 +58,8 @@ WooCommerce Multiple Free Gift Plugin enables the option to provide gifts to you
 5. Custom promotion message
 6. Customization and translation ready
 7. Loco translate compatible
+8. Aelia Currency Converter compatible
+9. Tested with over half million products
 
 **How it works?**  
 1. After successfull plugin activation go to `Woo Free Gift` settings page or product edit page.  
@@ -64,8 +69,11 @@ WooCommerce Multiple Free Gift Plugin enables the option to provide gifts to you
 5. Save.  
 6. At frontend, add some products and go to cart page. You will notice a popup with gift products to add.
 
+**Contribute**  
+If you'd like to check out the code and contribute, join us on [Github](https://github.com/ankitpokhrel/WooCommerce-Multiple-Free-Gift/ "View this plugin in github"). Pull requests, issues, and plugin recommendations are more than welcome!
+
 **Want more? Watch the demo of PRO version**  
-https://www.youtube.com/watch?v=AeXIZQysnWI
+https://www.youtube.com/watch?v=z5ZnYj1TH_8
 
 == Installation ==
 
@@ -99,6 +107,15 @@ Please feel free to report any bug found to `info [at] ankitpokhrel.com.np`.
 5. Gifts shown in frontend.
 
 == Changelog ==
+= 1.1.0 =
+* Now works with large number of products (fixes issue #1).
+* Tested with over half million products.
+* Compatible with Aelia Currency Switcher plugin (thanks to Diego Zanella).
+* Remove the evil eval.
+* Brazilian Portugese translation (thanks to Paula Bambino).
+* Design improvements.
+* Special thanks to Cory Jeffries for his contributions.
+
 = 1.0.1 =
 * Fix issue with remove gift button on first use
 * Fix plugin text domain issue
@@ -112,6 +129,9 @@ Please feel free to report any bug found to `info [at] ankitpokhrel.com.np`.
 * Initial release.
 
 == Upgrade Notice ==
+= 1.1.0 =
+* This is a major update. Upgrade with caution.
+
 = 1.0.1 =
 * One of the library file name is changed which may cause some error. It would be better to remove previous files completely and add new one.
 

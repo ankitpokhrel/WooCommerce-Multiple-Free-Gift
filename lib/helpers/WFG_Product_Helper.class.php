@@ -158,7 +158,7 @@ class WFG_Product_Helper
 		//check if product variation already exists
 		$product_variation = get_posts( array(
 								'post_parent' => $product_id,
-								'post_title' => 'wfg_gift_product',
+								's' => 'wfg_gift_product',
 								'post_type' => 'product_variation',
 								'posts_per_page' => 1,
 							)
