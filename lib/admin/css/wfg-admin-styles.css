@@ -467,6 +467,15 @@ SWITCH
 
 /* Selectize js css fixes */
 
+#wfg_free_gift_tab .selectize-control {
+  width: 90%;
+  margin-left: 10px;
+}
+
+.selectize-input input {
+  float: none !important;
+}
+
 .selectize-dropdown.multi.wfg-ajax-select {
   position: relative;
   top: 0 !important;
