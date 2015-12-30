@@ -455,7 +455,6 @@ class WFG_Frontend
 			return;
 		}
 
-		$gift_items = array();
 		foreach ( $cart as $cart_item_key => $values ) {
 			$product = $values['data'];
 			if( property_exists( $product, 'variation_id' ) && $product->variation_id ) {
