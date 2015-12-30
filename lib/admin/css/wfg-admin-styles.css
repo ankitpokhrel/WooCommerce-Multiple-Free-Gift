@@ -7,15 +7,6 @@
  * Copyright (c) 2015, Ankit Pokhrel <info@ankitpokhrel.com.np, http://ankitpokhrel.com.np>
  */
 
-/* Image Select Extension */
-.chosen {
-  width: 100% !important;
-}
-
-.chosen-choices {
-  padding: 5px 10px !important;
-}
-
 img.wfg-logo {
   width: 64px;
 }
