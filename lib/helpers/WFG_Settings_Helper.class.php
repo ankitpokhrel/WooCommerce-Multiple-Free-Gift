@@ -2,7 +2,7 @@
 /**
  * Get all user settings and cache it for future use.
  *
- * @package  woocommerce-muultiple-free-gift
+ * @package  woocommerce-multiple-free-gift
  * @subpackage lib
  * @author Ankit Pokhrel <info@ankitpokhrel.com.np, @ankitpokhrel>
  * @version 0.0.0
