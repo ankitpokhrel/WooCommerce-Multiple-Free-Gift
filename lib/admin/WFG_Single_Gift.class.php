@@ -82,29 +82,7 @@ class WFG_Single_Gift
 					?>" />
 			</p>
 			<div class="_wfg-repeat">
-				<select class='wfg-ajax-select' data-placeholder='<?php echo WFG_Common_Helper::translate( 'Choose gifts' ) ?>' name='_wfg_single_gift_products[]' multiple>
-				<?php
-					if( ! empty($wfg_products) ):
-						$products = WFG_Product_Helper::get_products( array( 'post__in' => $wfg_products, 'post__not_in' => array( $post_id ) ), -1 );
-						foreach( $wfg_products as $key => $product ):
-				?>
-							<p class="wfg-inputs">
-								<?php
-									if( $products->have_posts() ) {
-										while( $products->have_posts() ) {
-											$products->the_post();
-
-											$product_id = get_the_ID();
-											echo "<option value='" . $product_id . "' " . ( ($product_id == $product) ? 'selected' : '' ) . '>' . get_the_title() . '</option>';
-										}
-									}
-								?>
-							</p>
-				<?php
-						endforeach;
-					endif;
-				?>
-				</select>
+				<?php echo self::get_ajax_product_selection_design( $wfg_products, $post_id ); ?>
 			</div>
 
 			<p class="form-field wfg_form_field">
@@ -122,6 +100,38 @@ class WFG_Single_Gift
 		</div>
 <?php
 	}
+
+    /**
+     * Select box to get products using ajax
+     *
+     * @since  1.1.0
+     * @access private
+     *
+     * @param $wfg_products Products selected previously
+     * @param $post_id Post id
+     *
+     * @return string
+     */
+    private function get_ajax_product_selection_design( $wfg_products, $post_id ) {
+        $html = "<select class='wfg-ajax-select' id='wfg-select-" . uniqid() . "' name='_wfg_single_gift_products[]' multiple='multiple'>";
+        if ( ! empty( $wfg_products ) ) {
+            $product_list = WFG_Product_Helper::get_products( array(
+                'post__in'     => $wfg_products,
+                'post__not_in' => array( $post_id )
+            ), - 1 );
+            $products     = $product_list->get_posts();
+            if ( ! empty( $products ) ) {
+                foreach ( $products as $product ) {
+                    $product_id = $product->ID;
+                    $selected   = in_array( $product_id, $wfg_products );
+                    $html .= "<option value='" . $product_id . "' " . ( $selected ? 'selected' : '' ) . ">" . $product->post_title . "</option>";
+                }
+            }
+        }
+        $html .= '</select>';
+
+        return $html;
+    }
 
 	/**
 	 * Save free gift tab contents
