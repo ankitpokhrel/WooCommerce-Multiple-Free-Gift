@@ -214,7 +214,7 @@ class WFG_Frontend
 	public function wfg_disallow_qty_update( $return, $product )
 	{
 		if( ! property_exists( $product, 'variation_id' ) || ! $product->variation_id ) {
-			return 0;
+			return $return;
 		}
 
 		$is_wfg_variation = get_post_meta( $product->variation_id, '_wfg_gift_product', true );
@@ -437,7 +437,7 @@ class WFG_Frontend
 			return true;
 		}
 
-		return WFG_Criteria_Helper::parse_criteria( $gift_criteria );		
+		return WFG_Criteria_Helper::parse_criteria( $gift_criteria );
 	}
 
 	/**
