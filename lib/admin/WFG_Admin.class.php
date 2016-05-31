@@ -38,7 +38,7 @@ class WFG_Admin
 	 */
 	public function main_menu()
 	{
-		add_object_page(
+		add_menu_page(
 			WFG_Common_Helper::translate( 'WooCommerce Multiple Free Gift' ),
 			WFG_Common_Helper::translate( 'Woo Free Gift' ),
 			'manage_options',
