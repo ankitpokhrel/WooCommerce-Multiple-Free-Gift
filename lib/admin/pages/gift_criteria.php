@@ -16,6 +16,7 @@
 	</div>
 	<div id="wfg_free_gift_global_settings">
 		<form name="wfg_main_menu_form" method="post" action="">
+			<h2></h2>
 			<?php wp_nonce_field( 'wfg_criteria_settings', '_wfg_criteria_nonce' ); ?>
 			<div class="_wfg-criteria-wrap">
 				<div class="wfg-criteria">
