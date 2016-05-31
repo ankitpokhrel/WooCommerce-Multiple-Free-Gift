@@ -187,10 +187,11 @@ WFG Setting Global
 #wfg_setting .header{
 	  padding-top: 20px;
 }
-#wfg_setting .header h1 {
-  line-height: 33px;
-  padding-left: 10px;
-  font-size: 28px;
+#wfg_setting .header p.title {
+  line-height: 35px;
+  padding-left: 20px;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 #wfg_setting .shadow {

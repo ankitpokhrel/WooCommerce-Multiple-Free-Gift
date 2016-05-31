@@ -6,9 +6,8 @@
 				?>
 			</div>
 			<div class="left">
-				<h1><?php echo WFG_Common_Helper::translate( 'WooCommerce Multiple Free Gift' ) ?></h1>
+				<p class="title"><?php echo WFG_Common_Helper::translate( 'WooCommerce Multiple Free Gift' ) ?></p>
 			</div>
-		<div class="right"></div>
 	</div>
 	<div class="options_group margin-top-20">
 		<p class="switcher">
