@@ -24,3 +24,13 @@ a.wfg-fixed-notice-remove {
 	float: right;
 	right: 20px;
 }
+
+.wfg-gifts {
+    padding: 15px;
+    text-align: center;
+    max-height: 60vh;
+    overflow-y: auto;
+    z-index: 99;
+    -webkit-overflow-scrolling: touch;
+}
+
