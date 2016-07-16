@@ -107,6 +107,14 @@ Please feel free to report any bug found to `info [at] ankitpokhrel.com.np`.
 5. Gifts shown in frontend.
 
 == Changelog ==
+= 1.1.4 =
+* Fix pop up design issue in mobile device.
+
+= 1.1.3 =
+* Respect existing products marked with "Sold individually", so it is not possible to add multiple items of those products. PR #16  
+* Remove deprecated add_object_page.  
+* Fix message box design.  
+
 = 1.1.0 =
 * Now works with large number of products (fixes issue #1).
 * Tested with over half million products.
@@ -129,6 +137,12 @@ Please feel free to report any bug found to `info [at] ankitpokhrel.com.np`.
 * Initial release.
 
 == Upgrade Notice ==
+= 1.1.4 =
+* This version has some minor design fixes.
+
+= 1.1.3 =
+* This version has some minor fixes.
+
 = 1.1.0 =
 * This is a major update. Upgrade with caution.
 
