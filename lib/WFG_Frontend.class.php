@@ -260,16 +260,16 @@ class WFG_Frontend
 	 * @since  0.0.0
 	 * @access public
 	 *
-	 * @return void
+	 * @return null|boolean
 	 */
 	public function validate_gifts()
 	{
 		if( ! is_cart() ) {
-			return;
+			return false;
 		}
 
 		if( ! $this->__gift_item_in_cart() ) {
-			return;
+			return false;
 		}
 
 		self::__get_actual_settings();
