@@ -19,7 +19,9 @@ WooCommerce Multiple Free Gift is a WordPress WooCommerce plugin that makes gift
 3. That's all you need to do. You will notice Woo Free Gift settings page in the admin.  
 
 ### Bower
-`bower install woocommerce-multiple-free-gift`
+```shell
+bower install woocommerce-multiple-free-gift
+```
 
 ## Features
 1. Gift based on single or particular product
