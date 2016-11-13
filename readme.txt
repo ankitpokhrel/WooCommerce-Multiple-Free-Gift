@@ -3,10 +3,10 @@ Contributors: ankitpokhrel, ncreep
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J9FVY3ESPPD58
 Tags: woocommerce, woocommerce free gift, woocommerce gift management, woocommerce multiple gifts, woocommerce multiple free gifts, woocommerce gift manager, woocommerce plugin, woocommerce freebies, woocommerce prizes
 Requires at least: 3.8
-Tested up to: 4.5.3
+Tested up to: 4.6.1
 WC requires at least: 2.3
 WC tested up to: 2.4.6
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,6 +107,9 @@ Please feel free to report any bug found to `info [at] ankitpokhrel.com.np`.
 5. Gifts shown in frontend.
 
 == Changelog ==
+= 1.1.5 =
+* Fix virtual product issue.
+
 = 1.1.4 =
 * Fix pop up design issue in mobile device.
 
