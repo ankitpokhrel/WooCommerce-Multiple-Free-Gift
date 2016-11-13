@@ -165,10 +165,8 @@ class WFG_Product_Helper
 					);
 
 		if( ! empty($product_variation) ) {
-			//make price zero and mark it as wfg_product
-			update_post_meta( $product_variation[0]->ID, '_price', 0 );
-			update_post_meta( $product_variation[0]->ID, '_regular_price', 0 );
-			update_post_meta( $product_variation[0]->ID, '_wfg_gift_product', 1 );
+			//update required meta values
+            self::update_product_meta( $product_variation[0]->ID, $product_id );
 
 			return $product_variation[0]->ID;
 		}
@@ -187,12 +185,29 @@ class WFG_Product_Helper
 		);
 
 		$post_id = wp_insert_post( $variation );
-		update_post_meta( $post_id, '_price', 0 );
-		update_post_meta( $post_id, '_regular_price', 0 );
-		update_post_meta( $post_id, '_wfg_gift_product', 1 );
+
+		//update meta values
+        self::update_product_meta( $post_id, $product_id );
 
 		return $post_id;
 	}
+
+	/**
+     * Update product meta values
+     *
+     * @since  1.1.5
+     * @access public
+     * @static
+     *
+     * @param integer $id WMFG product id
+     * @param integer $product_id Original product id
+     */
+    protected static function update_product_meta( $id, $product_id ) {
+        update_post_meta( $id, '_price', 0 );
+        update_post_meta( $id, '_regular_price', 0 );
+        update_post_meta( $id, '_wfg_gift_product', 1 );
+        update_post_meta( $id, '_virtual', get_post_meta( $product_id, '_virtual', true ) );
+    }
 
 	/**
 	 * Add free gift item to cart.
