@@ -326,7 +326,7 @@ class WFG_Product_Helper
      * @access public
      * @static
      *
-     * @return integer
+     * @return array
      */
     public static function get_category_products_count()
     {
@@ -374,7 +374,7 @@ class WFG_Product_Helper
      * @access public
      * @static
      *
-     * @return integer
+     * @return array
      */
     public static function get_category_quantity_count()
     {
