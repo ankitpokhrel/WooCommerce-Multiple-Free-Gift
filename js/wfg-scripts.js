@@ -1,9 +1,9 @@
 /**
  * @file wfg-scripts.js
  *
- * Frontend core script for woocommerce free gift plugin.
+ * Frontend core script for WooCommerce free gift plugin.
  *
- * Copyright (c) 2015, Ankit Pokhrel <info@ankitpokhrel.com.np, http://ankitpokhrel.com.np>
+ * Copyright (c) 2015, Ankit Pokhrel <info@ankitpokhrel.com.np, http://ankitpokhrel.com>
  */
 jQuery(document).ready(function ($) {
   if($('.wfg-popup, .wfg-overlay').length) {

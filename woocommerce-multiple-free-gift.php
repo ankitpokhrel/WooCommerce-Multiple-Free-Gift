@@ -5,11 +5,11 @@
  * Description: WooCommerce giveaway made easy.
  * Version: 1.1.5
  * Author: Ankit Pokhrel
- * Author URI: http://ankitpokhrel.com.np
+ * Author URI: http://ankitpokhrel.com
  * Text Domain: woocommerce-multiple-free-gift
  * Domain Path: /languages
  *
- * Copyright (c) 2015 Ankit Pokhrel <info@ankitpokhrel.com.np, http://ankitpokhrel.com.np>.
+ * Copyright (c) 2015 Ankit Pokhrel <info@ankitpokhrel.com.np, http://ankitpokhrel.com>.
  */
 
 //Avoid direct calls to this file
