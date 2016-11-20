@@ -6,7 +6,9 @@
             ?>
         </div>
         <div class="left">
-            <p class="title"><?php echo WFG_Common_Helper::translate( 'WooCommerce Multiple Free Gift' ) ?> </p>
+            <p class="title">
+                <?php echo WFG_Common_Helper::translate( 'WooCommerce Multiple Free Gift' ) ?>
+            </p>
         </div>
     </div>
     <?php $products = WFG_Product_Helper::get_products(); ?>
@@ -110,8 +112,9 @@
             <?php else: ?>
                 <div class="options_group">
                     <p class="wfg-info-wrapper form-field wfg_form_field switcher">
-                        <?php echo get_permalink( woocommerce_get_page_id( 'product' ) ) ?>
                         <?php
+                        echo get_permalink( woocommerce_get_page_id( 'product' ) );
+
                         $message = WFG_Common_Helper::translate( 'Please add some' );
                         $message .= ' ';
                         $message .= '<a href="edit.php?post_type=product">' . WFG_Common_Helper::translate( 'products' ) . '</a>';
