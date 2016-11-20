@@ -379,8 +379,9 @@ class WFG_Product_Helper
         $products = array();
 
         foreach ( WC()->cart->cart_contents as $key => $content ) {
-            $is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'],
-                    '_wfg_gift_product' );
+            $is_gift_product = ! empty( $content['variation_id'] ) &&
+                               (bool) get_post_meta( $content['variation_id'], '_wfg_gift_product' );
+
             if ( $is_gift_product ) {
                 continue;
             }
@@ -392,9 +393,9 @@ class WFG_Product_Helper
 
             foreach ( $terms as $term ) {
                 if ( isset( $products[ $term->term_id ] ) ) {
-                    $products[ $term->term_id ] += $index ? $content[$key] : 1;
+                    $products[ $term->term_id ] += ($index ? $content[$key] : 1);
                 } else {
-                    $products[ $term->term_id ] = $index ? $content[$key] : 1;
+                    $products[ $term->term_id ] = ($index ? $content[$key] : 1);
                 }
             }
         }
