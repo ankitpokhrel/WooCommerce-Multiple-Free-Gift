@@ -84,14 +84,24 @@ class WFG_Admin
         //enqueue styles
         wp_enqueue_style( 'wmfg-admin-styles', plugins_url( '/admin/css/wfg-admin-styles.css', dirname( __FILE__ ) ) );
         wp_enqueue_style( 'wp-jquery-ui-dialog' );
-        wp_enqueue_style( 'wfg-selectize',
-            plugins_url( '/admin/js/plugins/selectize/selectize.css', dirname( __FILE__ ) ) );
+        wp_enqueue_style(
+            'wfg-selectize',
+            plugins_url( '/admin/js/plugins/selectize/selectize.css', dirname( __FILE__ ) )
+        );
 
         //enqueue scripts
-        wp_enqueue_script( 'wmfg-admin-scripts', plugins_url( '/admin/js/wfg-admin-scripts.js', dirname( __FILE__ ) ),
-            array( 'jquery', 'jquery-ui-dialog' ) );
-        wp_enqueue_script( 'wfg-selectize-lib',
-            plugins_url( '/admin/js/plugins/selectize/selectize.min.js', dirname( __FILE__ ) ), array( 'jquery' ) );
+        wp_enqueue_script(
+            'wmfg-admin-scripts',
+            plugins_url( '/admin/js/wfg-admin-scripts.js', dirname( __FILE__ ) ),
+            array( 'jquery', 'jquery-ui-dialog' )
+        );
+
+        wp_enqueue_script(
+            'wfg-selectize-lib',
+            plugins_url( '/admin/js/plugins/selectize/selectize.min.js', dirname( __FILE__ ) ),
+            array( 'jquery' )
+        );
+
         wp_enqueue_script( 'jquery-ui-dialog', false, array( 'jquery' ) );
         wp_enqueue_script( 'jquery-ui-sortable', false, array( 'jquery' ) );
 
