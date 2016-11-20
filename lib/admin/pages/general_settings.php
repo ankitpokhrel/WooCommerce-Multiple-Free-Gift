@@ -50,7 +50,7 @@
                     }
                     ?>
                     <input type="text" name="_wfg_popup_heading" id="popup_heading" class="regular-text"
-                           value="<?php echo $heading ?>"/>
+                           value="<?php echo sanitize_text_field( $heading ) ?>"/>
                 </td>
             </tr>
             <tr>
@@ -65,7 +65,7 @@
                     }
                     ?>
                     <input type="text" name="_wfg_popup_add_gift_text" id="popup_add_gift_text" class="regular-text"
-                           value="<?php echo $add_gift_text ?>"/>
+                           value="<?php echo sanitize_text_field( $add_gift_text ) ?>"/>
                 </td>
             </tr>
             <tr>
@@ -80,7 +80,7 @@
                     }
                     ?>
                     <input type="text" name="_wfg_popup_cancel_text" id="popup_cancel_text" class="regular-text"
-                           value="<?php echo $cancel_text ?>"/>
+                           value="<?php echo sanitize_text_field( $cancel_text ) ?>"/>
                 </td>
             </tr>
             <tr>
@@ -95,7 +95,7 @@
                     }
                     ?>
                     <input type="text" name="_wfg_invalid_condition_text" id="invalid_condition" class="regular-text"
-                           value="<?php echo $invalidText ?>"/>
+                           value="<?php echo sanitize_text_field( $invalidText ) ?>"/>
                 </td>
             </tr>
             </tbody>
