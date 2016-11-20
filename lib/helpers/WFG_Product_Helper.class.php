@@ -330,25 +330,7 @@ class WFG_Product_Helper
      */
     public static function get_category_products_count()
     {
-        $products = array();
-        foreach ( WC()->cart->cart_contents as $key => $content ) {
-            $is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'],
-                    '_wfg_gift_product' );
-            if ( ! $is_gift_product ) {
-                $terms = get_the_terms( $content['product_id'], 'product_cat' );
-                if ( ! empty( $terms ) ) {
-                    foreach ( $terms as $term ) {
-                        if ( isset( $products[ $term->term_id ] ) ) {
-                            $products[ $term->term_id ] += 1;
-                        } else {
-                            $products[ $term->term_id ] = 1;
-                        }
-                    }
-                }
-            }
-        }
-
-        return $products;
+        return self::wfg_counter();
     }
 
     /**
@@ -378,20 +360,41 @@ class WFG_Product_Helper
      */
     public static function get_category_quantity_count()
     {
+        return self::wfg_counter('quantity');
+    }
+
+    /**
+     * Cart counter
+     *
+     * @since  1.1.6
+     * @access public
+     * @static
+     *
+     * @param string|null $index
+     *
+     * @return array
+     */
+    public static function wfg_counter( $index = null )
+    {
         $products = array();
+
         foreach ( WC()->cart->cart_contents as $key => $content ) {
             $is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'],
                     '_wfg_gift_product' );
-            if ( ! $is_gift_product ) {
-                $terms = get_the_terms( $content['product_id'], 'product_cat' );
-                if ( ! empty( $terms ) ) {
-                    foreach ( $terms as $term ) {
-                        if ( isset( $products[ $term->term_id ] ) ) {
-                            $products[ $term->term_id ] += $content['quantity'];
-                        } else {
-                            $products[ $term->term_id ] = $content['quantity'];
-                        }
-                    }
+            if ( $is_gift_product ) {
+                continue;
+            }
+
+            $terms = get_the_terms( $content['product_id'], 'product_cat' );
+            if ( empty( $terms ) ) {
+                continue;
+            }
+
+            foreach ( $terms as $term ) {
+                if ( isset( $products[ $term->term_id ] ) ) {
+                    $products[ $term->term_id ] += $index ? $content[$key] : 1;
+                } else {
+                    $products[ $term->term_id ] = $index ? $content[$key] : 1;
                 }
             }
         }
