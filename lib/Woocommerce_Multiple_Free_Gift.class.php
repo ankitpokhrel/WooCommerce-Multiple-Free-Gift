@@ -71,7 +71,7 @@ class Woocommerce_Multiple_Free_Gift
     }
 
     /**
-     * Add notice if bbPress plugin is not activated
+     * Add notice if WooCommerce plugin is not activated
      *
      * @since  0.0.0
      * @access public
