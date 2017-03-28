@@ -118,9 +118,9 @@ class WFG_Frontend
         foreach ( WC()->cart->cart_contents as $key => $content ) {
             
             // If there are bundles in the cart, exclude bundled products
-			if ( isset( $content['bundled_by'] ) ) {
-			    continue;
-			}
+            if ( isset( $content['bundled_by'] ) ) {
+                continue;
+            }
             
             $is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'],
                     '_wfg_gift_product' );
