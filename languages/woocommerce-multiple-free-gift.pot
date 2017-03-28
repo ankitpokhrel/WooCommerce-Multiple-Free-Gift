@@ -118,3 +118,8 @@ msgstr ""
 msgid "Free Item"
 msgstr ""
 
+msgstr ""
+
+msgid "The cart contains gift items that are going to be removed, as gift criteria isn't fulfilled. Please reload the page."
+msgstr ""
+
