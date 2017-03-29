@@ -72,6 +72,10 @@ class WFG_Frontend
         /* Remove gifts when main item is removed */
         add_action( 'woocommerce_cart_item_removed', array( $this, 'wfg_item_removed' ), 10, 2 );
 
+        /* Final cart gift validation as last step when checking cart items ( as other check process could have
+         * removed products from the cart ) */
+        add_action( 'woocommerce_check_cart_items', array( $this, 'check_cart_items' ), 99 );
+        
     }
 
     /**
@@ -290,6 +294,36 @@ class WFG_Frontend
 
     }
 
+    /**
+     * Checks cart items, emitting an error notice if gift criteria is not met
+     *
+     * @since  0.0.0
+     * @access public 
+     *
+     * @return void
+     */
+    public function check_cart_items() {
+        if ( ! is_cart() && ! is_checkout() ) {
+            return;
+        }
+
+        if ( ! $this->__gift_item_in_cart() ) {
+            return;
+        }
+
+        self::__get_actual_settings();
+        self::_validate_single_gift_condition();
+
+        $cart_items = WFG_Product_Helper::get_gift_products_in_cart();
+        if ( ! $this->_wfg_criteria || ! WFG_Product_Helper::crosscheck_gift_items( $cart_items,
+             $this->_wfg_products, $this->_wfg_type )
+        ) {
+            // Generate error notice to abort any checkout transaction in process
+            wc_add_notice( WFG_Common_Helper::translate( 'The cart contains gift items that are going to be removed, as gift criteria isn\'t fulfilled. Please reload the page.' ), 'error' );
+        }
+
+    }
+    
     /**
      * Set notice text.
      *
