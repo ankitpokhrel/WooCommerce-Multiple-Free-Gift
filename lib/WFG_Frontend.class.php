@@ -87,25 +87,22 @@ class WFG_Frontend
      * @return void
      */
     private function __get_actual_settings()
-    {
-        $total = WFG_Product_Helper::get_main_product_count();
-        if ( 1 == $total ) {
-            //single gift
-            $post_id = $this->__get_post_id();
-            if ( empty( $post_id ) ) {
-                return;
-            }
+    {        
+        //single gift
+        $post_id = $this->__get_post_id();
+        if ( empty( $post_id ) ) {
+            return;
+        }
 
-            $wfg_enabled = get_post_meta( $post_id, '_wfg_single_gift_enabled', true );
-            if ( (bool) $wfg_enabled ) {
-                $this->_wfg_type          = 'single_gift';
-                $this->_wfg_enabled       = $wfg_enabled;
-                $this->_wfg_criteria      = true;
-                $this->_wfg_gifts_allowed = get_post_meta( $post_id, '_wfg_single_gift_allowed', true );
-                $this->_wfg_products      = get_post_meta( $post_id, '_wfg_single_gift_products', true );
+        $wfg_enabled = get_post_meta( $post_id, '_wfg_single_gift_enabled', true );
+        if ( (bool) $wfg_enabled ) {
+            $this->_wfg_type          = 'single_gift';
+            $this->_wfg_enabled       = $wfg_enabled;
+            $this->_wfg_criteria      = true;
+            $this->_wfg_gifts_allowed = get_post_meta( $post_id, '_wfg_single_gift_allowed', true );
+            $this->_wfg_products      = get_post_meta( $post_id, '_wfg_single_gift_products', true );
 
-                return;
-            }
+            return;
         }
 
         return $this->__hook_global_settings();
@@ -123,6 +120,12 @@ class WFG_Frontend
     {
         $post_id = null;
         foreach ( WC()->cart->cart_contents as $key => $content ) {
+            
+            // If there are bundles in the cart, exclude bundled products
+            if ( isset( $content['bundled_by'] ) ) {
+                continue;
+            }
+            
             $is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'],
                     '_wfg_gift_product' );
             if ( ! $is_gift_product ) {
