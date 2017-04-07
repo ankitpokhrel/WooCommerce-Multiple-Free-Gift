@@ -53,8 +53,6 @@ All modern browsers and IE9+
 ### Resources
 * [Wiki](https://github.com/ankitpokhrel/WooCommerce-Multiple-Free-Gift/wiki)
 
-===================================================================================================
-
 ### WooCommerce Multiple Free Gift PRO
 A premium version of this plugin is also available. Users looking for more timely/in-depth support and extended features are encouraged to check out [WooCommerce Multiple Free Gift PRO](http://ankitpokhrel.com/explore/downloads/woocommerce-multiple-free-gift-plugin-pro/).
 
