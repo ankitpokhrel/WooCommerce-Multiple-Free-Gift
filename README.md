@@ -30,15 +30,15 @@ bower install woocommerce-multiple-free-gift
     - Buy X get Y free  
     - Buy X get many free gifts (Y,Z...free)  
 2. Choose number of gifts allowed
-  - Allow 1 or N number of gifts without any problem.
+    - Allow 1 or N number of gifts without any problem.
 3. Gift Criteria
-  - Allow gifts based on total items in cart and total cart price.
-  - Purchase over X USD get X free
-  - Purchase over X USD get many free gifts (X, Y... free)
-  - Purchase N number of items get X free
-  - Purchase N number of items get many free gifts (X, Y... free)
+    - Allow gifts based on total items in cart and total cart price.
+    - Purchase over X USD get X free
+    - Purchase over X USD get many free gifts (X, Y... free)
+    - Purchase N number of items get X free
+    - Purchase N number of items get many free gifts (X, Y... free)
 4. Global gifts
-  - Give gift for anything added in the cart.
+    - Give gift for anything added in the cart.
 5. Custom promotion message
 6. Customization and translation ready
 7. [Loco Translate](https://wordpress.org/plugins/loco-translate/) compatible
