@@ -6,7 +6,7 @@
  * @package  woocommerce-multiple-free-gift
  * @subpackage lib
  * @author Ankit Pokhrel <info@ankitpokhrel.com.np, @ankitpokhrel>
- * @version 1.1.5
+ * @version 1.2.0
  */
 class Woocommerce_Multiple_Free_Gift
 {

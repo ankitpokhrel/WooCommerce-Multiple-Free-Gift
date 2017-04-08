@@ -1,12 +1,11 @@
 === WooCommerce Multiple Free Gift ===
 Contributors: ankitpokhrel, ncreep
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J9FVY3ESPPD58
 Tags: woocommerce, woocommerce free gift, woocommerce gift management, woocommerce multiple gifts, woocommerce multiple free gifts, woocommerce gift manager, woocommerce plugin, woocommerce freebies, woocommerce prizes
 Requires at least: 3.8
 Tested up to: 4.6.1
 WC requires at least: 2.3
 WC tested up to: 2.4.6
-Stable tag: 1.1.5
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,7 +94,7 @@ Yes, you can provide gifts based on total quantity or price. PRO version allows 
 Other problems? Don't forget to check the [blog](http://ankitpokhrel.com/explore/) or contact through support forum.
 
 Please use [support forum](http://wordpress.org/support/plugin/woocommerce-free-gift-plugin) first if you have any question or queries about the project.
-If you don't receive any help in support forum then you can directly contact me at `info [at] ankitpokhrel.com.np`. Please atleast wait for 48hrs before sending another request.
+If you don't receive any help in support forum then you can directly contact me at `info [at] ankitpokhrel.com.np`. Please at least wait for 48hrs before sending another request.
 
 Please feel free to report any bug found to `info [at] ankitpokhrel.com.np`.
 
@@ -107,6 +106,12 @@ Please feel free to report any bug found to `info [at] ankitpokhrel.com.np`.
 5. Gifts shown in frontend.
 
 == Changelog ==
+= 1.2.0 =
+* Remove one-item restriction. (PR #21, thanks to David Marín)
+* Support bundles plugin. (PR #21, thanks to David Marín)
+* Checks cart items, emitting an error notice if gift criteria is not met. (PR #20, thanks to David Marín)
+* Various cleanups and refactoring
+
 = 1.1.5 =
 * Fix virtual product issue.
 
