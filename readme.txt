@@ -2,7 +2,7 @@
 Contributors: ankitpokhrel, ncreep
 Tags: woocommerce, woocommerce free gift, woocommerce gift management, woocommerce multiple gifts, woocommerce multiple free gifts, woocommerce gift manager, woocommerce plugin, woocommerce freebies, woocommerce prizes
 Requires at least: 3.8
-Tested up to: 4.6.1
+Tested up to: 4.7.3
 WC requires at least: 2.3
 WC tested up to: 2.4.6
 Stable tag: 1.2.0
