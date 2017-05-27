@@ -213,6 +213,13 @@ class WFG_Product_Helper
         update_post_meta( $id, '_regular_price', 0 );
         update_post_meta( $id, '_wfg_gift_product', 1 );
         update_post_meta( $id, '_virtual', get_post_meta( $product_id, '_virtual', true ) );
+
+        // Fix by Brett Pollett
+        update_post_meta( $id, '_downloadable', get_post_meta( $product_id, '_downloadable', true ) );
+        update_post_meta( $id, '_downloadable_files', get_post_meta( $product_id, '_downloadable_files', true ) );
+        update_post_meta( $id, '_download_limit', get_post_meta( $product_id, '_download_limit', true ) );
+        update_post_meta( $id, '_download_expiry', get_post_meta( $product_id, '_download_expiry', true ) );
+        update_post_meta( $id, '_download_type', get_post_meta( $product_id, '_download_type', true ) );
     }
 
     /**
