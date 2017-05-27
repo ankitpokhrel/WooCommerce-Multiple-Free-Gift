@@ -82,7 +82,7 @@
                                     name='_wfg_criteria[criteria-1][items][]' multiple>
                                 <?php
                                 if ( ! empty( $condition['items'] ) ):
-                                    $products = WFG_Product_Helper::get_products( array( 'post__in' => $condition['items'] ),
+                                    $products = WFG_Product_Helper::get_products( [ 'post__in' => $condition['items'] ],
                                             - 1 );
                                     ?>
                                     <p class="wfg-inputs wfg-criteria-options-wrap">

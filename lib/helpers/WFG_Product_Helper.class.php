@@ -23,15 +23,15 @@ class WFG_Product_Helper
      *
      * @return null|WP_Query
      */
-    public static function get_products( $options = array(), $limit = 15 )
+    public static function get_products( $options = [], $limit = 15 )
     {
-        $args = array(
-            'post_type'      => 'product',
-            'post_status'    => 'publish',
+        $args = [
+            'post_type' => 'product',
+            'post_status' => 'publish',
             'posts_per_page' => $limit,
-            'cache_results'  => false,
-            'no_found_rows'  => true
-        );
+            'cache_results' => false,
+            'no_found_rows' => true,
+        ];
 
         //merge default and user options
         $args = array_merge( $args, $options );
@@ -53,15 +53,15 @@ class WFG_Product_Helper
      */
     public static function get_product_categories()
     {
-        $args = array(
-            'taxonomy'     => 'product_cat',
-            'orderby'      => 'name',
-            'show_count'   => 0,
-            'pad_counts'   => 0,
+        $args = [
+            'taxonomy' => 'product_cat',
+            'orderby' => 'name',
+            'show_count' => 0,
+            'pad_counts' => 0,
             'hierarchical' => 1,
-            'title_li'     => '',
-            'hide_empty'   => 0
-        );
+            'title_li' => '',
+            'hide_empty' => 0,
+        ];
 
         return get_categories( $args );
     }
@@ -80,7 +80,7 @@ class WFG_Product_Helper
         global $woocommerce;
         $cart_items = $woocommerce->cart->get_cart();
 
-        $added_products          = array();
+        $added_products          = [];
         $added_products['count'] = count( $cart_items );
         if ( ! empty( $cart_items ) ) {
             foreach ( $cart_items as $cart_item ) {
@@ -103,7 +103,7 @@ class WFG_Product_Helper
      */
     public static function get_gift_products_in_cart()
     {
-        $free_items = array();
+        $free_items = [];
         $cart_items = WC()->cart->cart_contents;
         if ( empty( $cart_items ) ) {
             return $free_items;
@@ -133,10 +133,10 @@ class WFG_Product_Helper
      */
     public static function get_product_details( $product_id )
     {
-        $options         = array( 'p' => $product_id );
+        $options         = [ 'p' => $product_id ];
         $product_details = self::get_products( $options );
 
-        $wfg_product_details = array();
+        $wfg_product_details = [];
         if ( ! empty( $product_details ) && ! empty( $product_details->posts ) ) {
             $wfg_product_details['detail'] = $product_details->post;
             $product_image                 = wp_get_attachment_image_src( get_post_thumbnail_id( $product_details->post->ID ),
@@ -161,12 +161,12 @@ class WFG_Product_Helper
     public static function create_gift_variation( $product_id )
     {
         //check if product variation already exists
-        $product_variation = get_posts( array(
-                'post_parent'    => $product_id,
-                's'              => 'wfg_gift_product',
-                'post_type'      => 'product_variation',
+        $product_variation = get_posts( [
+                'post_parent' => $product_id,
+                's' => 'wfg_gift_product',
+                'post_type' => 'product_variation',
                 'posts_per_page' => 1,
-            )
+            ]
         );
 
         if ( ! empty( $product_variation ) ) {
@@ -178,16 +178,16 @@ class WFG_Product_Helper
 
         //if product variation doesn't exist, add one
         $admin     = get_users( 'orderby=nicename&role=administrator&number=1' );
-        $variation = array(
-            'post_author'    => $admin[0]->ID,
-            'post_status'    => 'publish',
-            'post_name'      => 'product-' . $product_id . '-variation',
-            'post_parent'    => $product_id,
-            'post_title'     => 'wfg_gift_product',
-            'post_type'      => 'product_variation',
+        $variation = [
+            'post_author' => $admin[0]->ID,
+            'post_status' => 'publish',
+            'post_name' => 'product-' . $product_id . '-variation',
+            'post_parent' => $product_id,
+            'post_title' => 'wfg_gift_product',
+            'post_type' => 'product_variation',
             'comment_status' => 'closed',
-            'ping_status'    => 'closed',
-        );
+            'ping_status' => 'closed',
+        ];
 
         $post_id = wp_insert_post( $variation );
 
@@ -245,7 +245,7 @@ class WFG_Product_Helper
                     $product_id,
                     1,
                     $parent_product_id,
-                    array( WFG_Common_Helper::translate( 'Type' ) => WFG_Common_Helper::translate( 'Free Item' ) )
+                    [ WFG_Common_Helper::translate( 'Type' ) => WFG_Common_Helper::translate( 'Free Item' ) ]
                 );
             }
         }
@@ -360,7 +360,7 @@ class WFG_Product_Helper
      */
     public static function get_category_quantity_count()
     {
-        return self::wfg_counter('quantity');
+        return self::wfg_counter( 'quantity' );
     }
 
     /**
@@ -376,7 +376,7 @@ class WFG_Product_Helper
      */
     public static function wfg_counter( $index = null )
     {
-        $products = array();
+        $products = [];
 
         foreach ( WC()->cart->cart_contents as $key => $content ) {
             $is_gift_product = ! empty( $content['variation_id'] ) &&
@@ -393,9 +393,9 @@ class WFG_Product_Helper
 
             foreach ( $terms as $term ) {
                 if ( isset( $products[ $term->term_id ] ) ) {
-                    $products[ $term->term_id ] += ($index ? $content[$key] : 1);
+                    $products[ $term->term_id ] += ( $index ? $content[ $key ] : 1 );
                 } else {
-                    $products[ $term->term_id ] = ($index ? $content[$key] : 1);
+                    $products[ $term->term_id ] = ( $index ? $content[ $key ] : 1 );
                 }
             }
         }

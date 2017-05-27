@@ -20,13 +20,13 @@ class WFG_Admin
      */
     public function __construct()
     {
-        add_action( 'admin_menu', array( $this, 'main_menu' ) );
+        add_action( 'admin_menu', [ $this, 'main_menu' ] );
 
         //enqueue necessary scripts and styles
-        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+        add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 
         //register ajax call to fetch products
-        add_action( 'wp_ajax_product_list_callback', array( $this, 'ajax_product_list_callback' ) );
+        add_action( 'wp_ajax_product_list_callback', [ $this, 'ajax_product_list_callback' ] );
     }
 
     /**
@@ -44,7 +44,7 @@ class WFG_Admin
             WFG_Common_Helper::translate( 'Woo Free Gift' ),
             'manage_options',
             'woocommerce-multiple-free-gift',
-            array( $this, 'main_menu_template' ),
+            [ $this, 'main_menu_template' ],
             'dashicons-cart'
         );
 
@@ -55,7 +55,7 @@ class WFG_Admin
             WFG_Common_Helper::translate( 'Gift Criteria' ),
             'manage_options',
             'woocommerce-multiple-free-gift-criteria',
-            array( $this, 'wfg_criteria_template' )
+            [ $this, 'wfg_criteria_template' ]
         );
 
         add_submenu_page(
@@ -65,7 +65,7 @@ class WFG_Admin
             WFG_Common_Helper::translate( 'General Settings' ),
             'manage_options',
             'woocommerce-multiple-free-gift-settings',
-            array( $this, 'wfg_general_settings' )
+            [ $this, 'wfg_general_settings' ]
         );
     }
 
@@ -93,24 +93,24 @@ class WFG_Admin
         wp_enqueue_script(
             'wmfg-admin-scripts',
             plugins_url( '/admin/js/wfg-admin-scripts.js', dirname( __FILE__ ) ),
-            array( 'jquery', 'jquery-ui-dialog' )
+            [ 'jquery', 'jquery-ui-dialog' ]
         );
 
         wp_enqueue_script(
             'wfg-selectize-lib',
             plugins_url( '/admin/js/plugins/selectize/selectize.min.js', dirname( __FILE__ ) ),
-            array( 'jquery' )
+            [ 'jquery' ]
         );
 
-        wp_enqueue_script( 'jquery-ui-dialog', false, array( 'jquery' ) );
-        wp_enqueue_script( 'jquery-ui-sortable', false, array( 'jquery' ) );
+        wp_enqueue_script( 'jquery-ui-dialog', false, [ 'jquery' ] );
+        wp_enqueue_script( 'jquery-ui-sortable', false, [ 'jquery' ] );
 
         wp_localize_script(
             'wmfg-admin-scripts',
             'WMFG_SPECIFIC',
-            array(
+            [
                 'loading_url' => plugins_url( '/admin/img/loading.gif', dirname( __FILE__ ) ),
-            )
+            ]
         );
     }
 
@@ -278,15 +278,15 @@ class WFG_Admin
             return 0;
         }
 
-        $products = WFG_Product_Helper::get_products( array( 's' => $q, 'posts_per_page' => 15 ) );
-        $list     = array();
+        $products = WFG_Product_Helper::get_products( [ 's' => $q, 'posts_per_page' => 15 ] );
+        $list     = [];
         if ( ! empty( $products ) && ! empty( $products->posts ) ) {
             foreach ( $products->posts as $product ) {
-                $list[] = array( 'id' => $product->ID, 'text' => $product->post_title );
+                $list[] = [ 'id' => $product->ID, 'text' => $product->post_title ];
             }
         }
 
-        echo json_encode( array( 'options' => $list ) );
+        echo json_encode( [ 'options' => $list ] );
         wp_die();
     }
 }

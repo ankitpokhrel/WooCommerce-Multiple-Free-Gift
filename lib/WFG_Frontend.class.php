@@ -42,7 +42,7 @@ class WFG_Frontend
         $this->_wfg_enabled       = WFG_Settings_Helper::get( $this->_wfg_type . '_enabled', true, 'global_options' );
         $this->_wfg_criteria      = false;
         $this->_wfg_gifts_allowed = 1;
-        $this->_wfg_products      = array();
+        $this->_wfg_products      = [];
 
         //Add hooks and filters
         self::__init();
@@ -59,23 +59,23 @@ class WFG_Frontend
     private function __init()
     {
         /*  Add free gifts ajax callback */
-        add_action( 'wp_ajax_wfg_add_gifts', array( $this, 'wfg_ajax_add_free_gifts' ) );
-        add_action( 'wp_ajax_nopriv_wfg_add_gifts', array( $this, 'wfg_ajax_add_free_gifts' ) );
+        add_action( 'wp_ajax_wfg_add_gifts', [ $this, 'wfg_ajax_add_free_gifts' ] );
+        add_action( 'wp_ajax_nopriv_wfg_add_gifts', [ $this, 'wfg_ajax_add_free_gifts' ] );
 
         /* Display gifts in frontend */
-        add_action( 'wp_head', array( $this, 'validate_gifts' ) );
-        add_action( 'wp_head', array( $this, 'display_gifts' ) );
+        add_action( 'wp_head', [ $this, 'validate_gifts' ] );
+        add_action( 'wp_head', [ $this, 'display_gifts' ] );
 
         /* Do not allow user to update quantity of gift items */
-        add_filter( 'woocommerce_is_sold_individually', array( $this, 'wfg_disallow_qty_update' ), 10, 2 );
+        add_filter( 'woocommerce_is_sold_individually', [ $this, 'wfg_disallow_qty_update' ], 10, 2 );
 
         /* Remove gifts when main item is removed */
-        add_action( 'woocommerce_cart_item_removed', array( $this, 'wfg_item_removed' ), 10, 2 );
+        add_action( 'woocommerce_cart_item_removed', [ $this, 'wfg_item_removed' ], 10, 2 );
 
         /* Final cart gift validation as last step when checking cart items ( as other check process could have
          * removed products from the cart ) */
-        add_action( 'woocommerce_check_cart_items', array( $this, 'check_cart_items' ), 99 );
-        
+        add_action( 'woocommerce_check_cart_items', [ $this, 'check_cart_items' ], 99 );
+
     }
 
     /**
@@ -87,7 +87,7 @@ class WFG_Frontend
      * @return void
      */
     private function __get_actual_settings()
-    {        
+    {
         //single gift
         $post_id = $this->__get_post_id();
         if ( empty( $post_id ) ) {
@@ -120,12 +120,12 @@ class WFG_Frontend
     {
         $post_id = null;
         foreach ( WC()->cart->cart_contents as $key => $content ) {
-            
+
             // If there are bundles in the cart, exclude bundled products
             if ( isset( $content['bundled_by'] ) ) {
                 continue;
             }
-            
+
             $is_gift_product = ! empty( $content['variation_id'] ) && (bool) get_post_meta( $content['variation_id'],
                     '_wfg_gift_product' );
             if ( ! $is_gift_product ) {
@@ -175,7 +175,7 @@ class WFG_Frontend
     {
         $this->_wfg_criteria      = true;
         $this->_wfg_gifts_allowed = $setting['num_allowed'];
-        $this->_wfg_products      = ! empty( $setting['items'] ) ? array_unique( $setting['items'] ) : array();
+        $this->_wfg_products      = ! empty( $setting['items'] ) ? array_unique( $setting['items'] ) : [];
     }
 
     /**
@@ -301,11 +301,12 @@ class WFG_Frontend
      * Checks cart items, emitting an error notice if gift criteria is not met
      *
      * @since  0.0.0
-     * @access public 
+     * @access public
      *
      * @return void
      */
-    public function check_cart_items() {
+    public function check_cart_items()
+    {
         if ( ! is_cart() && ! is_checkout() ) {
             return;
         }
@@ -319,14 +320,15 @@ class WFG_Frontend
 
         $cart_items = WFG_Product_Helper::get_gift_products_in_cart();
         if ( ! $this->_wfg_criteria || ! WFG_Product_Helper::crosscheck_gift_items( $cart_items,
-             $this->_wfg_products, $this->_wfg_type )
+                $this->_wfg_products, $this->_wfg_type )
         ) {
             // Generate error notice to abort any checkout transaction in process
-            wc_add_notice( WFG_Common_Helper::translate( 'The cart contains gift items that are going to be removed, as gift criteria isn\'t fulfilled. Please reload the page.' ), 'error' );
+            wc_add_notice( WFG_Common_Helper::translate( 'The cart contains gift items that are going to be removed, as gift criteria isn\'t fulfilled. Please reload the page.' ),
+                'error' );
         }
 
     }
-    
+
     /**
      * Set notice text.
      *
@@ -444,14 +446,14 @@ class WFG_Frontend
             return;
         }
 
-        $wfg_free_products = array();
+        $wfg_free_products = [];
         foreach ( $this->_wfg_products as $product ) {
             $wfg_free_products[] = WFG_Product_Helper::get_product_details( $product );
         }
 
-        $localize = array(
+        $localize = [
             'gifts_allowed' => ( false !== $this->_wfg_gifts_allowed ) ? $this->_wfg_gifts_allowed : 1,
-        );
+        ];
 
         echo '<script>';
         echo '/* ' . '<![CDATA[ */';

@@ -19,9 +19,9 @@ class WFG_Single_Gift
     public function __construct()
     {
         /* WooCommerce panel tab hooks */
-        add_action( 'woocommerce_product_write_panel_tabs', array( $this, 'create_admin_free_gift_tab' ) );
-        add_action( 'woocommerce_product_write_panels', array( $this, 'wfg_tab_contents' ) );
-        add_action( 'woocommerce_process_product_meta', array( $this, 'process_wfg_tab' ) );
+        add_action( 'woocommerce_product_write_panel_tabs', [ $this, 'create_admin_free_gift_tab' ] );
+        add_action( 'woocommerce_product_write_panels', [ $this, 'wfg_tab_contents' ] );
+        add_action( 'woocommerce_process_product_meta', [ $this, 'process_wfg_tab' ] );
     }
 
     /**
@@ -122,10 +122,10 @@ class WFG_Single_Gift
     {
         $html = "<select class='wfg-ajax-select' id='wfg-select-" . uniqid() . "' name='_wfg_single_gift_products[]' multiple='multiple'>";
         if ( ! empty( $wfg_products ) ) {
-            $product_list = WFG_Product_Helper::get_products( array(
-                    'post__in'     => $wfg_products,
-                    'post__not_in' => array( $post_id )
-            ), - 1 );
+            $product_list = WFG_Product_Helper::get_products( [
+                    'post__in' => $wfg_products,
+                    'post__not_in' => [ $post_id ],
+            ], - 1 );
             $products     = $product_list->get_posts();
             if ( ! empty( $products ) ) {
                 foreach ( $products as $product ) {

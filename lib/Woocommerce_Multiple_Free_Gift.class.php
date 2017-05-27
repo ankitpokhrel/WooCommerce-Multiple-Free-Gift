@@ -19,16 +19,16 @@ class Woocommerce_Multiple_Free_Gift
     public function __construct()
     {
         //check if woocommerce plugin is installed and activated
-        add_action( 'plugins_loaded', array( $this, 'wfg_validate_installation' ) );
+        add_action( 'plugins_loaded', [ $this, 'wfg_validate_installation' ] );
 
         //load plugin textdomain
-        add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
+        add_action( 'plugins_loaded', [ $this, 'load_plugin_textdomain' ] );
 
         //enqueue necessary scripts and styles
-        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_global_scripts' ) );
+        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_global_scripts' ] );
 
         //add action links
-        add_filter( 'plugin_action_links_' . PLUGIN_BASE, array( $this, 'wfg_action_links' ) );
+        add_filter( 'plugin_action_links_' . PLUGIN_BASE, [ $this, 'wfg_action_links' ] );
     }
 
     /**
@@ -67,7 +67,7 @@ class Woocommerce_Multiple_Free_Gift
         wp_enqueue_style( 'wfg-styles', plugins_url( '/css/wfg-styles.css', dirname( __FILE__ ) ) );
 
         //enqueue scripts
-        wp_enqueue_script( 'wfg-scripts', plugins_url( '/js/wfg-scripts.js', dirname( __FILE__ ) ), array( 'jquery' ) );
+        wp_enqueue_script( 'wfg-scripts', plugins_url( '/js/wfg-scripts.js', dirname( __FILE__ ) ), [ 'jquery' ] );
     }
 
     /**
@@ -83,7 +83,7 @@ class Woocommerce_Multiple_Free_Gift
     public function wfg_validate_installation()
     {
         if ( ! class_exists( 'WooCommerce' ) ) {
-            add_action( 'admin_notices', array( $this, 'wfg_plugin_required_notice' ) );
+            add_action( 'admin_notices', [ $this, 'wfg_plugin_required_notice' ] );
         }
     }
 
@@ -119,9 +119,9 @@ class Woocommerce_Multiple_Free_Gift
      */
     public function wfg_action_links( $links )
     {
-        $wfg_links = array(
-            '<a href="' . PRO_URL . '" target="_blank">Upgrade to Premium</a>'
-        );
+        $wfg_links = [
+            '<a href="' . PRO_URL . '" target="_blank">Upgrade to Premium</a>',
+        ];
 
         return array_merge( $links, $wfg_links );
     }

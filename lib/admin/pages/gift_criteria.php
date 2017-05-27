@@ -23,7 +23,7 @@
                     <?php
                     $all_criteria = WFG_Settings_Helper::get( '', false, 'criteria', false );
 
-                    $criteria = $condition = array();
+                    $criteria = $condition = [];
                     if ( $all_criteria ) {
                         $criteria  = $all_criteria['criteria-1'];
                         $condition = $criteria['condition'];

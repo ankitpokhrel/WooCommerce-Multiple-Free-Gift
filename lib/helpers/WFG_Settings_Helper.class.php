@@ -18,7 +18,7 @@ class WFG_Settings_Helper
     private static $__initialized = false;
 
     /* Hold all settings */
-    protected static $_settings = array();
+    protected static $_settings = [];
 
     /**
      * Prevent the instantiation of class using

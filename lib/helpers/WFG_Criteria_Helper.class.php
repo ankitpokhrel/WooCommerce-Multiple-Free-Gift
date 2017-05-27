@@ -100,7 +100,7 @@ class WFG_Criteria_Helper
     {
         $criteria = self::get_criteria( $slug );
 
-        $filtered_conditions = array();
+        $filtered_conditions = [];
         if ( ! empty( $criteria ) ) {
             /** @var array $conditions */
             $conditions = $criteria;
