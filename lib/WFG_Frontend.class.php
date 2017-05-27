@@ -223,14 +223,16 @@ class WFG_Frontend
      */
     public function wfg_disallow_qty_update( $return, $product )
     {
-        if ( ! property_exists( $product, 'variation_id' ) || ! $product->variation_id ) {
-            return $return;
+        $variation_id = $product->get_id();
+
+        if ( $variation_id ) {
+            $is_wfg_variation = get_post_meta( $variation_id, '_wfg_gift_product', true );
+            if ( (bool) $is_wfg_variation ) {
+                return 1;
+            }
         }
 
-        $is_wfg_variation = get_post_meta( $product->variation_id, '_wfg_gift_product', true );
-        if ( (bool) $is_wfg_variation ) {
-            return 1;
-        }
+        return $return;
     }
 
     /**
@@ -498,13 +500,14 @@ class WFG_Frontend
     {
         $cart = WC()->cart->get_cart();
         if ( count( $cart ) < 0 ) {
-            return;
+            return false;
         }
 
         foreach ( $cart as $cart_item_key => $values ) {
-            $product = $values['data'];
-            if ( property_exists( $product, 'variation_id' ) && $product->variation_id ) {
-                $is_wfg_variation = get_post_meta( $product->variation_id, '_wfg_gift_product', true );
+            $product      = $values['data'];
+            $variation_id = $product->get_id();
+            if ( $variation_id ) {
+                $is_wfg_variation = get_post_meta( $variation_id, '_wfg_gift_product', true );
                 if ( (bool) $is_wfg_variation ) {
                     return true;
                 }
