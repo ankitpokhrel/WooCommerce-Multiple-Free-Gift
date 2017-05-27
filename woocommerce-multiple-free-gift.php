@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Multiple Free Gift
  * Plugin URI: http://wordpress.org/plugins/woocommerce-multiple-free-gift
  * Description: WooCommerce giveaway made easy.
- * Version: 1.2.0
+ * Version: 1.2.3
  * Author: Ankit Pokhrel
  * Author URI: http://ankitpokhrel.com
  * Text Domain: woocommerce-multiple-free-gift

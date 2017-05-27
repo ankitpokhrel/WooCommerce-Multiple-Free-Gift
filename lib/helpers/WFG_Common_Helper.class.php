@@ -12,7 +12,7 @@
 class WFG_Common_Helper
 {
     /** Current version of the plugin */
-    const VERSION = '1.2.0';
+    const VERSION = '1.2.3';
 
     /** @var string Plugin text domain */
     public static $textDomain = 'woocommerce-multiple-free-gift';
