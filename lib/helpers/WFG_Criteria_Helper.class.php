@@ -24,9 +24,7 @@ class WFG_Criteria_Helper
      */
     public static function parse_criteria( $slug )
     {
-
-        //if the slug is empty it satisfies
-        //every condition
+        // If the slug is empty then, it satisfies every condition
         if ( empty( $slug ) ) {
             return true;
         }
@@ -64,7 +62,7 @@ class WFG_Criteria_Helper
     }
 
     /**
-     * Get real values from data availble in cart
+     * Get real values from data available in cart
      *
      * @since  0.0.0
      * @access public
