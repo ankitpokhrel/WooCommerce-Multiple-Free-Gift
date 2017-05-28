@@ -19,7 +19,9 @@ WooCommerce Multiple Free Gift is a WordPress WooCommerce plugin that makes gift
 3. That's all you need to do. You will notice Woo Free Gift settings page in the admin.  
 
 ### Bower
-`bower install woocommerce-multiple-free-gift`
+```shell
+bower install woocommerce-multiple-free-gift
+```
 
 ## Features
 1. Gift based on single or particular product
@@ -28,39 +30,37 @@ WooCommerce Multiple Free Gift is a WordPress WooCommerce plugin that makes gift
     - Buy X get Y free  
     - Buy X get many free gifts (Y,Z...free)  
 2. Choose number of gifts allowed
-  - Allow 1 or N number of gifts without any problem.
+    - Allow 1 or N number of gifts without any problem.
 3. Gift Criteria
-  - Allow gifts based on total items in cart and total cart price.
-  - Purchase over X USD get X free
-  - Purchase over X USD get many free gifts (X, Y... free)
-  - Purchase N number of items get X free
-  - Purchase N number of items get many free gifts (X, Y... free)
+    - Allow gifts based on total items in cart and total cart price.
+    - Purchase over X USD get X free
+    - Purchase over X USD get many free gifts (X, Y... free)
+    - Purchase N number of items get X free
+    - Purchase N number of items get many free gifts (X, Y... free)
 4. Global gifts
-  - Give gift for anything added in the cart.
+    - Give gift for anything added in the cart.
 5. Custom promotion message
 6. Customization and translation ready
 7. [Loco Translate](https://wordpress.org/plugins/loco-translate/) compatible
 8. [Aelia Currency Switcher](https://aelia.co/shop/currency-switcher-woocommerce/) compatible
 
 ### Compatiblity
-PHP v5.3.0+ (recommended v5.4+)  
+PHP v5.4.0+
 WordPress v3.8+  
-WooCommerce v2.3+  
+WooCommerce v2.5+  
 All modern browsers and IE9+  
 
 ### Resources
 * [Wiki](https://github.com/ankitpokhrel/WooCommerce-Multiple-Free-Gift/wiki)
 
-===================================================================================================
-
-### WooCoommerce Multiple Free Gift PRO
-A premium version of this plugin is also available. Users looking for more timely/in-depth support and extended features are encouraged to check out [WooCoommerce Multiple Free Gift PRO](http://ankitpokhrel.com.np/blog/downloads/woocommerce-multiple-free-gift-plugin-pro/).
+### WooCommerce Multiple Free Gift PRO
+A premium version of this plugin is also available. Users looking for more timely/in-depth support and extended features are encouraged to check out [WooCommerce Multiple Free Gift PRO](http://ankitpokhrel.com/explore/downloads/woocommerce-multiple-free-gift-plugin-pro/).
 
 ### Author available for hire
 I'm available for freelance work. Remote worldwide or locally around Nepal. Drop me a line @ankitpokhrel if you like.
 
 ### Support WMFG
-If you think this script is useful and saves you a lot of work, a lot of costs (PHP developers are expensive) and let you sleep much better, then donating a small amount or buying a [premium version](http://ankitpokhrel.com.np/blog/downloads/woocommerce-multiple-free-gift-plugin-pro/) would be very cool.
+If you think this script is useful and saves you a lot of work, a lot of costs (PHP developers are expensive) and let you sleep much better, then donating a small amount or buying a [premium version](http://ankitpokhrel.com/explore/downloads/woocommerce-multiple-free-gift-plugin-pro/) would be very cool.
 
 ### Questions about this project?
 Please feel free to report any bug found. Pull requests, issues, and plugin recommendations are more than welcome!

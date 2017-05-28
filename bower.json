@@ -1,12 +1,12 @@
 {
   "name": "woocommerce-multiple-free-gift",
-  "version": "1.0.1",
-  "homepage": "http://ankitpokhrel.com.np/blog/downloads/woocommerce-multiple-free-gift-plugin-pro/",
+  "version": "1.1.5",
+  "homepage": "http://ankitpokhrel.com/explore/downloads/woocommerce-multiple-free-gift-plugin-pro/",
   "authors": [
-    "Ankit Pokhrel <ankitpokhrel@gmail.com>"
+    "Ankit Pokhrel <info@ankitpokhrel.com.np>"
   ],
   "description": "WooCommerce giveaway made easy.",
-  "main": "woocommerce-free-gift.php",
+  "main": "woocommerce-multiple-free-gift.php",
   "moduleType": [
     "globals"
   ],
@@ -17,7 +17,7 @@
     "woocommere gift",
     "woocommerce",
     "woocommerce plugins",
-    "wordpress plugins",
+    "wordpress plugins"
   ],
   "license": "GPL2",
   "ignore": [

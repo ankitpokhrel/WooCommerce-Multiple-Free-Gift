@@ -1,22 +1,22 @@
 <?php
 /***
- Plugin Name: WooCommerce Multiple Free Gift
- Plugin URI: http://wordpress.org/plugins/woocommerce-multiple-free-gift
- Description: WooCommerce giveaway made easy.
- Version: 1.1.0
- Author: Ankit Pokhrel
- Author URI: http://ankitpokhrel.com.np
- Text Domain: woocommerce-multiple-free-gift
- Domain Path: /languages
-
- Copyright (c) 2015 Ankit Pokhrel <info@ankitpokhrel.com.np, http://ankitpokhrel.com.np>.
-*/
+ * Plugin Name: WooCommerce Multiple Free Gift
+ * Plugin URI: http://wordpress.org/plugins/woocommerce-multiple-free-gift
+ * Description: WooCommerce giveaway made easy.
+ * Version: 1.2.3
+ * Author: Ankit Pokhrel
+ * Author URI: http://ankitpokhrel.com
+ * Text Domain: woocommerce-multiple-free-gift
+ * Domain Path: /languages
+ *
+ * Copyright (c) 2015 Ankit Pokhrel <info@ankitpokhrel.com.np, http://ankitpokhrel.com>.
+ */
 
 //Avoid direct calls to this file
 if ( ! defined( 'ABSPATH' ) ) {
-	header( 'Status: 403 Forbidden' );
-	header( 'HTTP/1.1 403 Forbidden' );
-	die( 'Access Forbidden' );
+    header( 'Status: 403 Forbidden' );
+    header( 'HTTP/1.1 403 Forbidden' );
+    die( 'Access Forbidden' );
 }
 
 define( 'PLUGIN_BASE', plugin_basename( __FILE__ ) );
@@ -33,7 +33,7 @@ include 'lib/WFG_Frontend.class.php';
 include 'lib/Woocommerce_Multiple_Free_Gift.class.php';
 
 //plugin activation hook
-register_activation_hook( __FILE__ , array( 'Woocommerce_Multiple_Free_Gift', 'wfg_activate' ) );
+register_activation_hook( __FILE__, array( 'Woocommerce_Multiple_Free_Gift', 'wfg_activate' ) );
 
 /** Initialize the awesome */
 new Woocommerce_Multiple_Free_Gift();
