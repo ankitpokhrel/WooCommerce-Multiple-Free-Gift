@@ -45,9 +45,9 @@ bower install woocommerce-multiple-free-gift
 8. [Aelia Currency Switcher](https://aelia.co/shop/currency-switcher-woocommerce/) compatible
 
 ### Compatiblity
-PHP v5.3.0+ (recommended v5.4+)  
+PHP v5.4.0+
 WordPress v3.8+  
-WooCommerce v2.3+  
+WooCommerce v2.5+  
 All modern browsers and IE9+  
 
 ### Resources
