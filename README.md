@@ -54,13 +54,7 @@ All modern browsers and IE9+
 * [Wiki](https://github.com/ankitpokhrel/WooCommerce-Multiple-Free-Gift/wiki)
 
 ### WooCommerce Multiple Free Gift PRO
-A premium version of this plugin is also available. Users looking for more timely/in-depth support and extended features are encouraged to check out [WooCommerce Multiple Free Gift PRO](http://ankitpokhrel.com/explore/downloads/woocommerce-multiple-free-gift-plugin-pro/).
-
-### Author available for hire
-I'm available for freelance work. Remote worldwide or locally around Nepal. Drop me a line @ankitpokhrel if you like.
-
-### Support WMFG
-If you think this script is useful and saves you a lot of work, a lot of costs (PHP developers are expensive) and let you sleep much better, then donating a small amount or buying a [premium version](http://ankitpokhrel.com/explore/downloads/woocommerce-multiple-free-gift-plugin-pro/) would be very cool.
+A premium version of this plugin is also available. Users looking for more timely/in-depth support and extended features are encouraged to check out [WooCommerce Multiple Free Gift PRO](https://lilmonkee.com/product/woocommerce-multiple-free-gift-plugin-pro/).
 
 ### Questions about this project?
 Please feel free to report any bug found. Pull requests, issues, and plugin recommendations are more than welcome!
