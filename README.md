@@ -1,12 +1,13 @@
 ## WooCommerce Multiple Free Gift
+
+> This open-source version of WooCommerce Multiple Free Gift project is no longer maintained.
+
 [![Latest Stable Version](https://img.shields.io/wordpress/plugin/v/woocommerce-multiple-free-gift.svg?style=flat-square)](https://wordpress.org/plugins/woocommerce-multiple-free-gift/)
 [![WordPress](https://img.shields.io/wordpress/v/woocommerce-multiple-free-gift.svg?style=flat-square)](https://wordpress.org/plugins/woocommerce-multiple-free-gift/)
 [![WordPress Rating](https://img.shields.io/wordpress/plugin/r/woocommerce-multiple-free-gift.svg?style=flat-square)](https://wordpress.org/plugins/woocommerce-multiple-free-gift/)
 [![Download](https://img.shields.io/wordpress/plugin/dt/woocommerce-multiple-free-gift.svg?style=flat-square)](https://wordpress.org/plugins/woocommerce-multiple-free-gift)
-[![twitter](https://img.shields.io/badge/twitter-%40ankitpokhrel-green.svg?style=flat-square)](https://twitter.com/ankitpokhrel)
 
 _WooCommerce giveaway made easy._
-![WooCommerce Multiple Free Gift](http://ankitpokhrel.com.np/WMFG/global-settings.png)
 
 ### Overview
 Gift giving is one of the best ways for marketing. This way creates good vibes and your customers will come back more often.  
